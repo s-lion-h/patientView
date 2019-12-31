@@ -1,0 +1,1494 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.BdCrmPatientMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.BdCrmPatient" >
+    <constructor >
+      <idArg column="PATIENTID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CARDNO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ENGNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SPELL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WBSPELL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SEX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BIRTHDAY" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="IDTYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IDNO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JOB" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WECHAT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PROVINCE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CITY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ADDRESS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENTLEVEL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENTTYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DELIVERTIMES" jdbcType="NUMERIC" javaType="java.lang.Integer" />
+      <arg column="EXPECTEDTIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CLIENTMANAGER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONSULTMANAGER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CMANAGER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SELLMANAGER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OTHERMEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FIRSTVISITTIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LASTVISITIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="TOTCOST" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="INTEGRATION" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="EXTFIELD01" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXTFIELD02" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXTFIELD03" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOSPITALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOSPITALNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATETIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CREATEOPER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LASTMODIFIYTIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LASTMODIFIYOPERID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LASTMODIFIYOPERNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALIDFLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SEXCODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IDTYPECODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHILDFLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GUARDIAN1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GUARDIAN1PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GUARDIAN2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GUARDIAN2PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENTLEVELCODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENTTYPECODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL1CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL2CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL3CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BCSELLMANAGER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MEMO2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATEOPERNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GUARDIANINFO1ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GUARDIANINFO1NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GUARDIANINFO2ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GUARDIANINFO2NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="INTRODUCERID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="INTRODUCERNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MMWYFLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MMWYEVENTID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MMWYEVENTNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENTLABEL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MMWYID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACKAGEFLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DELIVERYDATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="FAMILYID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FAMILYNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ROLEID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ROLENAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL4CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL4" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GHCFLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GHCCLIENTMANAGERID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GHCCLIENTMANAGERNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MMWYREGISTERTYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MMWYSHAREROLE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CLIENTWECHATADD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONSULTWECHATADD" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    PATIENTID, CARDNO, NAME, ENGNAME, SPELL, WBSPELL, SEX, BIRTHDAY, IDTYPE, IDNO, PHONE, 
+    JOB, EMAIL, WECHAT, PROVINCE, CITY, ADDRESS, PATIENTLEVEL, PATIENTTYPE, CHANNEL1, 
+    CHANNEL2, CHANNEL3, DELIVERTIMES, EXPECTEDTIME, CLIENTMANAGER, CONSULTMANAGER, CMANAGER, 
+    SELLMANAGER, MEMO, OTHERMEMO, FIRSTVISITTIME, LASTVISITIME, TOTCOST, INTEGRATION, 
+    EXTFIELD01, EXTFIELD02, EXTFIELD03, HOSPITALID, HOSPITALNAME, CREATETIME, CREATEOPER, 
+    LASTMODIFIYTIME, LASTMODIFIYOPERID, LASTMODIFIYOPERNAME, VALIDFLAG, SEXCODE, IDTYPECODE, 
+    CHILDFLAG, GUARDIAN1, GUARDIAN1PHONE, GUARDIAN2, GUARDIAN2PHONE, PATIENTLEVELCODE, 
+    PATIENTTYPECODE, CHANNEL1CODE, CHANNEL2CODE, CHANNEL3CODE, BCSELLMANAGER, MEMO2, 
+    CREATEOPERNAME, GUARDIANINFO1ID, GUARDIANINFO1NAME, GUARDIANINFO2ID, GUARDIANINFO2NAME, 
+    INTRODUCERID, INTRODUCERNAME, MMWYFLAG, MMWYEVENTID, MMWYEVENTNAME, PATIENTLABEL, 
+    MMWYID, PACKAGEFLAG, DELIVERYDATE, FAMILYID, FAMILYNAME, ROLEID, ROLENAME, CHANNEL4CODE, 
+    CHANNEL4, GHCFLAG, GHCCLIENTMANAGERID, GHCCLIENTMANAGERNAME, MMWYREGISTERTYPE, MMWYSHAREROLE, 
+    CLIENTWECHATADD, CONSULTWECHATADD
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.BdCrmPatientExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.BD_CRM_PATIENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.BD_CRM_PATIENT
+    where PATIENTID = #{patientid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CRM.BD_CRM_PATIENT
+    where PATIENTID = #{patientid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.BdCrmPatientExample" >
+    delete from CRM.BD_CRM_PATIENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.BdCrmPatient" >
+    <selectKey resultType="java.lang.String" keyProperty="patientid" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.BD_CRM_PATIENT (CARDNO, NAME, ENGNAME, 
+      SPELL, WBSPELL, SEX, 
+      BIRTHDAY, IDTYPE, IDNO, 
+      PHONE, JOB, EMAIL, 
+      WECHAT, PROVINCE, CITY, 
+      ADDRESS, PATIENTLEVEL, PATIENTTYPE, 
+      CHANNEL1, CHANNEL2, CHANNEL3, 
+      DELIVERTIMES, EXPECTEDTIME, CLIENTMANAGER, 
+      CONSULTMANAGER, CMANAGER, SELLMANAGER, 
+      MEMO, OTHERMEMO, FIRSTVISITTIME, 
+      LASTVISITIME, TOTCOST, INTEGRATION, 
+      EXTFIELD01, EXTFIELD02, EXTFIELD03, 
+      HOSPITALID, HOSPITALNAME, CREATETIME, 
+      CREATEOPER, LASTMODIFIYTIME, LASTMODIFIYOPERID, 
+      LASTMODIFIYOPERNAME, VALIDFLAG, SEXCODE, 
+      IDTYPECODE, CHILDFLAG, GUARDIAN1, 
+      GUARDIAN1PHONE, GUARDIAN2, GUARDIAN2PHONE, 
+      PATIENTLEVELCODE, PATIENTTYPECODE, CHANNEL1CODE, 
+      CHANNEL2CODE, CHANNEL3CODE, BCSELLMANAGER, 
+      MEMO2, CREATEOPERNAME, GUARDIANINFO1ID, 
+      GUARDIANINFO1NAME, GUARDIANINFO2ID, GUARDIANINFO2NAME, 
+      INTRODUCERID, INTRODUCERNAME, MMWYFLAG, 
+      MMWYEVENTID, MMWYEVENTNAME, PATIENTLABEL, 
+      MMWYID, PACKAGEFLAG, DELIVERYDATE, 
+      FAMILYID, FAMILYNAME, ROLEID, 
+      ROLENAME, CHANNEL4CODE, CHANNEL4, 
+      GHCFLAG, GHCCLIENTMANAGERID, GHCCLIENTMANAGERNAME, 
+      MMWYREGISTERTYPE, MMWYSHAREROLE, CLIENTWECHATADD, 
+      CONSULTWECHATADD)
+    values (#{cardno,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{engname,jdbcType=VARCHAR}, 
+      #{spell,jdbcType=VARCHAR}, #{wbspell,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{idtype,jdbcType=VARCHAR}, #{idno,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{wechat,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{patientlevel,jdbcType=VARCHAR}, #{patienttype,jdbcType=VARCHAR}, 
+      #{channel1,jdbcType=VARCHAR}, #{channel2,jdbcType=VARCHAR}, #{channel3,jdbcType=VARCHAR}, 
+      #{delivertimes,jdbcType=NUMERIC}, #{expectedtime,jdbcType=TIMESTAMP}, #{clientmanager,jdbcType=VARCHAR}, 
+      #{consultmanager,jdbcType=VARCHAR}, #{cmanager,jdbcType=VARCHAR}, #{sellmanager,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{othermemo,jdbcType=VARCHAR}, #{firstvisittime,jdbcType=TIMESTAMP}, 
+      #{lastvisitime,jdbcType=TIMESTAMP}, #{totcost,jdbcType=NUMERIC}, #{integration,jdbcType=NUMERIC}, 
+      #{extfield01,jdbcType=VARCHAR}, #{extfield02,jdbcType=VARCHAR}, #{extfield03,jdbcType=VARCHAR}, 
+      #{hospitalid,jdbcType=VARCHAR}, #{hospitalname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{createoper,jdbcType=VARCHAR}, #{lastmodifiytime,jdbcType=TIMESTAMP}, #{lastmodifiyoperid,jdbcType=VARCHAR}, 
+      #{lastmodifiyopername,jdbcType=VARCHAR}, #{validflag,jdbcType=VARCHAR}, #{sexcode,jdbcType=VARCHAR}, 
+      #{idtypecode,jdbcType=VARCHAR}, #{childflag,jdbcType=VARCHAR}, #{guardian1,jdbcType=VARCHAR}, 
+      #{guardian1phone,jdbcType=VARCHAR}, #{guardian2,jdbcType=VARCHAR}, #{guardian2phone,jdbcType=VARCHAR}, 
+      #{patientlevelcode,jdbcType=VARCHAR}, #{patienttypecode,jdbcType=VARCHAR}, #{channel1code,jdbcType=VARCHAR}, 
+      #{channel2code,jdbcType=VARCHAR}, #{channel3code,jdbcType=VARCHAR}, #{bcsellmanager,jdbcType=VARCHAR}, 
+      #{memo2,jdbcType=VARCHAR}, #{createopername,jdbcType=VARCHAR}, #{guardianinfo1id,jdbcType=VARCHAR}, 
+      #{guardianinfo1name,jdbcType=VARCHAR}, #{guardianinfo2id,jdbcType=VARCHAR}, #{guardianinfo2name,jdbcType=VARCHAR}, 
+      #{introducerid,jdbcType=VARCHAR}, #{introducername,jdbcType=VARCHAR}, #{mmwyflag,jdbcType=VARCHAR}, 
+      #{mmwyeventid,jdbcType=VARCHAR}, #{mmwyeventname,jdbcType=VARCHAR}, #{patientlabel,jdbcType=VARCHAR}, 
+      #{mmwyid,jdbcType=VARCHAR}, #{packageflag,jdbcType=VARCHAR}, #{deliverydate,jdbcType=TIMESTAMP}, 
+      #{familyid,jdbcType=VARCHAR}, #{familyname,jdbcType=VARCHAR}, #{roleid,jdbcType=VARCHAR}, 
+      #{rolename,jdbcType=VARCHAR}, #{channel4code,jdbcType=VARCHAR}, #{channel4,jdbcType=VARCHAR}, 
+      #{ghcflag,jdbcType=VARCHAR}, #{ghcclientmanagerid,jdbcType=VARCHAR}, #{ghcclientmanagername,jdbcType=VARCHAR}, 
+      #{mmwyregistertype,jdbcType=VARCHAR}, #{mmwysharerole,jdbcType=VARCHAR}, #{clientwechatadd,jdbcType=VARCHAR}, 
+      #{consultwechatadd,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.BdCrmPatient" >
+    <selectKey resultType="java.lang.String" keyProperty="patientid" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.BD_CRM_PATIENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cardno != null" >
+        CARDNO,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="engname != null" >
+        ENGNAME,
+      </if>
+      <if test="spell != null" >
+        SPELL,
+      </if>
+      <if test="wbspell != null" >
+        WBSPELL,
+      </if>
+      <if test="sex != null" >
+        SEX,
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY,
+      </if>
+      <if test="idtype != null" >
+        IDTYPE,
+      </if>
+      <if test="idno != null" >
+        IDNO,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="job != null" >
+        JOB,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="wechat != null" >
+        WECHAT,
+      </if>
+      <if test="province != null" >
+        PROVINCE,
+      </if>
+      <if test="city != null" >
+        CITY,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="patientlevel != null" >
+        PATIENTLEVEL,
+      </if>
+      <if test="patienttype != null" >
+        PATIENTTYPE,
+      </if>
+      <if test="channel1 != null" >
+        CHANNEL1,
+      </if>
+      <if test="channel2 != null" >
+        CHANNEL2,
+      </if>
+      <if test="channel3 != null" >
+        CHANNEL3,
+      </if>
+      <if test="delivertimes != null" >
+        DELIVERTIMES,
+      </if>
+      <if test="expectedtime != null" >
+        EXPECTEDTIME,
+      </if>
+      <if test="clientmanager != null" >
+        CLIENTMANAGER,
+      </if>
+      <if test="consultmanager != null" >
+        CONSULTMANAGER,
+      </if>
+      <if test="cmanager != null" >
+        CMANAGER,
+      </if>
+      <if test="sellmanager != null" >
+        SELLMANAGER,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+      <if test="othermemo != null" >
+        OTHERMEMO,
+      </if>
+      <if test="firstvisittime != null" >
+        FIRSTVISITTIME,
+      </if>
+      <if test="lastvisitime != null" >
+        LASTVISITIME,
+      </if>
+      <if test="totcost != null" >
+        TOTCOST,
+      </if>
+      <if test="integration != null" >
+        INTEGRATION,
+      </if>
+      <if test="extfield01 != null" >
+        EXTFIELD01,
+      </if>
+      <if test="extfield02 != null" >
+        EXTFIELD02,
+      </if>
+      <if test="extfield03 != null" >
+        EXTFIELD03,
+      </if>
+      <if test="hospitalid != null" >
+        HOSPITALID,
+      </if>
+      <if test="hospitalname != null" >
+        HOSPITALNAME,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="createoper != null" >
+        CREATEOPER,
+      </if>
+      <if test="lastmodifiytime != null" >
+        LASTMODIFIYTIME,
+      </if>
+      <if test="lastmodifiyoperid != null" >
+        LASTMODIFIYOPERID,
+      </if>
+      <if test="lastmodifiyopername != null" >
+        LASTMODIFIYOPERNAME,
+      </if>
+      <if test="validflag != null" >
+        VALIDFLAG,
+      </if>
+      <if test="sexcode != null" >
+        SEXCODE,
+      </if>
+      <if test="idtypecode != null" >
+        IDTYPECODE,
+      </if>
+      <if test="childflag != null" >
+        CHILDFLAG,
+      </if>
+      <if test="guardian1 != null" >
+        GUARDIAN1,
+      </if>
+      <if test="guardian1phone != null" >
+        GUARDIAN1PHONE,
+      </if>
+      <if test="guardian2 != null" >
+        GUARDIAN2,
+      </if>
+      <if test="guardian2phone != null" >
+        GUARDIAN2PHONE,
+      </if>
+      <if test="patientlevelcode != null" >
+        PATIENTLEVELCODE,
+      </if>
+      <if test="patienttypecode != null" >
+        PATIENTTYPECODE,
+      </if>
+      <if test="channel1code != null" >
+        CHANNEL1CODE,
+      </if>
+      <if test="channel2code != null" >
+        CHANNEL2CODE,
+      </if>
+      <if test="channel3code != null" >
+        CHANNEL3CODE,
+      </if>
+      <if test="bcsellmanager != null" >
+        BCSELLMANAGER,
+      </if>
+      <if test="memo2 != null" >
+        MEMO2,
+      </if>
+      <if test="createopername != null" >
+        CREATEOPERNAME,
+      </if>
+      <if test="guardianinfo1id != null" >
+        GUARDIANINFO1ID,
+      </if>
+      <if test="guardianinfo1name != null" >
+        GUARDIANINFO1NAME,
+      </if>
+      <if test="guardianinfo2id != null" >
+        GUARDIANINFO2ID,
+      </if>
+      <if test="guardianinfo2name != null" >
+        GUARDIANINFO2NAME,
+      </if>
+      <if test="introducerid != null" >
+        INTRODUCERID,
+      </if>
+      <if test="introducername != null" >
+        INTRODUCERNAME,
+      </if>
+      <if test="mmwyflag != null" >
+        MMWYFLAG,
+      </if>
+      <if test="mmwyeventid != null" >
+        MMWYEVENTID,
+      </if>
+      <if test="mmwyeventname != null" >
+        MMWYEVENTNAME,
+      </if>
+      <if test="patientlabel != null" >
+        PATIENTLABEL,
+      </if>
+      <if test="mmwyid != null" >
+        MMWYID,
+      </if>
+      <if test="packageflag != null" >
+        PACKAGEFLAG,
+      </if>
+      <if test="deliverydate != null" >
+        DELIVERYDATE,
+      </if>
+      <if test="familyid != null" >
+        FAMILYID,
+      </if>
+      <if test="familyname != null" >
+        FAMILYNAME,
+      </if>
+      <if test="roleid != null" >
+        ROLEID,
+      </if>
+      <if test="rolename != null" >
+        ROLENAME,
+      </if>
+      <if test="channel4code != null" >
+        CHANNEL4CODE,
+      </if>
+      <if test="channel4 != null" >
+        CHANNEL4,
+      </if>
+      <if test="ghcflag != null" >
+        GHCFLAG,
+      </if>
+      <if test="ghcclientmanagerid != null" >
+        GHCCLIENTMANAGERID,
+      </if>
+      <if test="ghcclientmanagername != null" >
+        GHCCLIENTMANAGERNAME,
+      </if>
+      <if test="mmwyregistertype != null" >
+        MMWYREGISTERTYPE,
+      </if>
+      <if test="mmwysharerole != null" >
+        MMWYSHAREROLE,
+      </if>
+      <if test="clientwechatadd != null" >
+        CLIENTWECHATADD,
+      </if>
+      <if test="consultwechatadd != null" >
+        CONSULTWECHATADD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cardno != null" >
+        #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="engname != null" >
+        #{engname,jdbcType=VARCHAR},
+      </if>
+      <if test="spell != null" >
+        #{spell,jdbcType=VARCHAR},
+      </if>
+      <if test="wbspell != null" >
+        #{wbspell,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idtype != null" >
+        #{idtype,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null" >
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="patientlevel != null" >
+        #{patientlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="patienttype != null" >
+        #{patienttype,jdbcType=VARCHAR},
+      </if>
+      <if test="channel1 != null" >
+        #{channel1,jdbcType=VARCHAR},
+      </if>
+      <if test="channel2 != null" >
+        #{channel2,jdbcType=VARCHAR},
+      </if>
+      <if test="channel3 != null" >
+        #{channel3,jdbcType=VARCHAR},
+      </if>
+      <if test="delivertimes != null" >
+        #{delivertimes,jdbcType=NUMERIC},
+      </if>
+      <if test="expectedtime != null" >
+        #{expectedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clientmanager != null" >
+        #{clientmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="consultmanager != null" >
+        #{consultmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="cmanager != null" >
+        #{cmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="sellmanager != null" >
+        #{sellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="othermemo != null" >
+        #{othermemo,jdbcType=VARCHAR},
+      </if>
+      <if test="firstvisittime != null" >
+        #{firstvisittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastvisitime != null" >
+        #{lastvisitime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totcost != null" >
+        #{totcost,jdbcType=NUMERIC},
+      </if>
+      <if test="integration != null" >
+        #{integration,jdbcType=NUMERIC},
+      </if>
+      <if test="extfield01 != null" >
+        #{extfield01,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield02 != null" >
+        #{extfield02,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield03 != null" >
+        #{extfield03,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalname != null" >
+        #{hospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createoper != null" >
+        #{createoper,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiytime != null" >
+        #{lastmodifiytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastmodifiyoperid != null" >
+        #{lastmodifiyoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiyopername != null" >
+        #{lastmodifiyopername,jdbcType=VARCHAR},
+      </if>
+      <if test="validflag != null" >
+        #{validflag,jdbcType=VARCHAR},
+      </if>
+      <if test="sexcode != null" >
+        #{sexcode,jdbcType=VARCHAR},
+      </if>
+      <if test="idtypecode != null" >
+        #{idtypecode,jdbcType=VARCHAR},
+      </if>
+      <if test="childflag != null" >
+        #{childflag,jdbcType=VARCHAR},
+      </if>
+      <if test="guardian1 != null" >
+        #{guardian1,jdbcType=VARCHAR},
+      </if>
+      <if test="guardian1phone != null" >
+        #{guardian1phone,jdbcType=VARCHAR},
+      </if>
+      <if test="guardian2 != null" >
+        #{guardian2,jdbcType=VARCHAR},
+      </if>
+      <if test="guardian2phone != null" >
+        #{guardian2phone,jdbcType=VARCHAR},
+      </if>
+      <if test="patientlevelcode != null" >
+        #{patientlevelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="patienttypecode != null" >
+        #{patienttypecode,jdbcType=VARCHAR},
+      </if>
+      <if test="channel1code != null" >
+        #{channel1code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel2code != null" >
+        #{channel2code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel3code != null" >
+        #{channel3code,jdbcType=VARCHAR},
+      </if>
+      <if test="bcsellmanager != null" >
+        #{bcsellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="memo2 != null" >
+        #{memo2,jdbcType=VARCHAR},
+      </if>
+      <if test="createopername != null" >
+        #{createopername,jdbcType=VARCHAR},
+      </if>
+      <if test="guardianinfo1id != null" >
+        #{guardianinfo1id,jdbcType=VARCHAR},
+      </if>
+      <if test="guardianinfo1name != null" >
+        #{guardianinfo1name,jdbcType=VARCHAR},
+      </if>
+      <if test="guardianinfo2id != null" >
+        #{guardianinfo2id,jdbcType=VARCHAR},
+      </if>
+      <if test="guardianinfo2name != null" >
+        #{guardianinfo2name,jdbcType=VARCHAR},
+      </if>
+      <if test="introducerid != null" >
+        #{introducerid,jdbcType=VARCHAR},
+      </if>
+      <if test="introducername != null" >
+        #{introducername,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwyflag != null" >
+        #{mmwyflag,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwyeventid != null" >
+        #{mmwyeventid,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwyeventname != null" >
+        #{mmwyeventname,jdbcType=VARCHAR},
+      </if>
+      <if test="patientlabel != null" >
+        #{patientlabel,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwyid != null" >
+        #{mmwyid,jdbcType=VARCHAR},
+      </if>
+      <if test="packageflag != null" >
+        #{packageflag,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverydate != null" >
+        #{deliverydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="familyid != null" >
+        #{familyid,jdbcType=VARCHAR},
+      </if>
+      <if test="familyname != null" >
+        #{familyname,jdbcType=VARCHAR},
+      </if>
+      <if test="roleid != null" >
+        #{roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null" >
+        #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="channel4code != null" >
+        #{channel4code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel4 != null" >
+        #{channel4,jdbcType=VARCHAR},
+      </if>
+      <if test="ghcflag != null" >
+        #{ghcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="ghcclientmanagerid != null" >
+        #{ghcclientmanagerid,jdbcType=VARCHAR},
+      </if>
+      <if test="ghcclientmanagername != null" >
+        #{ghcclientmanagername,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwyregistertype != null" >
+        #{mmwyregistertype,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwysharerole != null" >
+        #{mmwysharerole,jdbcType=VARCHAR},
+      </if>
+      <if test="clientwechatadd != null" >
+        #{clientwechatadd,jdbcType=VARCHAR},
+      </if>
+      <if test="consultwechatadd != null" >
+        #{consultwechatadd,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.BdCrmPatientExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.BD_CRM_PATIENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.BD_CRM_PATIENT
+    <set >
+      <if test="record.patientid != null" >
+        PATIENTID = #{record.patientid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardno != null" >
+        CARDNO = #{record.cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engname != null" >
+        ENGNAME = #{record.engname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spell != null" >
+        SPELL = #{record.spell,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wbspell != null" >
+        WBSPELL = #{record.wbspell,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null" >
+        SEX = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.idtype != null" >
+        IDTYPE = #{record.idtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idno != null" >
+        IDNO = #{record.idno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        PHONE = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.job != null" >
+        JOB = #{record.job,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        EMAIL = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null" >
+        WECHAT = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.province != null" >
+        PROVINCE = #{record.province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.city != null" >
+        CITY = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientlevel != null" >
+        PATIENTLEVEL = #{record.patientlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patienttype != null" >
+        PATIENTTYPE = #{record.patienttype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel1 != null" >
+        CHANNEL1 = #{record.channel1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel2 != null" >
+        CHANNEL2 = #{record.channel2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel3 != null" >
+        CHANNEL3 = #{record.channel3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delivertimes != null" >
+        DELIVERTIMES = #{record.delivertimes,jdbcType=NUMERIC},
+      </if>
+      <if test="record.expectedtime != null" >
+        EXPECTEDTIME = #{record.expectedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.clientmanager != null" >
+        CLIENTMANAGER = #{record.clientmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultmanager != null" >
+        CONSULTMANAGER = #{record.consultmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cmanager != null" >
+        CMANAGER = #{record.cmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellmanager != null" >
+        SELLMANAGER = #{record.sellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo != null" >
+        MEMO = #{record.memo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.othermemo != null" >
+        OTHERMEMO = #{record.othermemo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstvisittime != null" >
+        FIRSTVISITTIME = #{record.firstvisittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastvisitime != null" >
+        LASTVISITIME = #{record.lastvisitime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.totcost != null" >
+        TOTCOST = #{record.totcost,jdbcType=NUMERIC},
+      </if>
+      <if test="record.integration != null" >
+        INTEGRATION = #{record.integration,jdbcType=NUMERIC},
+      </if>
+      <if test="record.extfield01 != null" >
+        EXTFIELD01 = #{record.extfield01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extfield02 != null" >
+        EXTFIELD02 = #{record.extfield02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extfield03 != null" >
+        EXTFIELD03 = #{record.extfield03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalid != null" >
+        HOSPITALID = #{record.hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalname != null" >
+        HOSPITALNAME = #{record.hospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createoper != null" >
+        CREATEOPER = #{record.createoper,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastmodifiytime != null" >
+        LASTMODIFIYTIME = #{record.lastmodifiytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastmodifiyoperid != null" >
+        LASTMODIFIYOPERID = #{record.lastmodifiyoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastmodifiyopername != null" >
+        LASTMODIFIYOPERNAME = #{record.lastmodifiyopername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.validflag != null" >
+        VALIDFLAG = #{record.validflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sexcode != null" >
+        SEXCODE = #{record.sexcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idtypecode != null" >
+        IDTYPECODE = #{record.idtypecode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.childflag != null" >
+        CHILDFLAG = #{record.childflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guardian1 != null" >
+        GUARDIAN1 = #{record.guardian1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guardian1phone != null" >
+        GUARDIAN1PHONE = #{record.guardian1phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guardian2 != null" >
+        GUARDIAN2 = #{record.guardian2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guardian2phone != null" >
+        GUARDIAN2PHONE = #{record.guardian2phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientlevelcode != null" >
+        PATIENTLEVELCODE = #{record.patientlevelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patienttypecode != null" >
+        PATIENTTYPECODE = #{record.patienttypecode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel1code != null" >
+        CHANNEL1CODE = #{record.channel1code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel2code != null" >
+        CHANNEL2CODE = #{record.channel2code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel3code != null" >
+        CHANNEL3CODE = #{record.channel3code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bcsellmanager != null" >
+        BCSELLMANAGER = #{record.bcsellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo2 != null" >
+        MEMO2 = #{record.memo2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createopername != null" >
+        CREATEOPERNAME = #{record.createopername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guardianinfo1id != null" >
+        GUARDIANINFO1ID = #{record.guardianinfo1id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guardianinfo1name != null" >
+        GUARDIANINFO1NAME = #{record.guardianinfo1name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guardianinfo2id != null" >
+        GUARDIANINFO2ID = #{record.guardianinfo2id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guardianinfo2name != null" >
+        GUARDIANINFO2NAME = #{record.guardianinfo2name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.introducerid != null" >
+        INTRODUCERID = #{record.introducerid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.introducername != null" >
+        INTRODUCERNAME = #{record.introducername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mmwyflag != null" >
+        MMWYFLAG = #{record.mmwyflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mmwyeventid != null" >
+        MMWYEVENTID = #{record.mmwyeventid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mmwyeventname != null" >
+        MMWYEVENTNAME = #{record.mmwyeventname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientlabel != null" >
+        PATIENTLABEL = #{record.patientlabel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mmwyid != null" >
+        MMWYID = #{record.mmwyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageflag != null" >
+        PACKAGEFLAG = #{record.packageflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deliverydate != null" >
+        DELIVERYDATE = #{record.deliverydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.familyid != null" >
+        FAMILYID = #{record.familyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyname != null" >
+        FAMILYNAME = #{record.familyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roleid != null" >
+        ROLEID = #{record.roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rolename != null" >
+        ROLENAME = #{record.rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel4code != null" >
+        CHANNEL4CODE = #{record.channel4code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel4 != null" >
+        CHANNEL4 = #{record.channel4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ghcflag != null" >
+        GHCFLAG = #{record.ghcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ghcclientmanagerid != null" >
+        GHCCLIENTMANAGERID = #{record.ghcclientmanagerid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ghcclientmanagername != null" >
+        GHCCLIENTMANAGERNAME = #{record.ghcclientmanagername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mmwyregistertype != null" >
+        MMWYREGISTERTYPE = #{record.mmwyregistertype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mmwysharerole != null" >
+        MMWYSHAREROLE = #{record.mmwysharerole,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clientwechatadd != null" >
+        CLIENTWECHATADD = #{record.clientwechatadd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultwechatadd != null" >
+        CONSULTWECHATADD = #{record.consultwechatadd,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.BD_CRM_PATIENT
+    set PATIENTID = #{record.patientid,jdbcType=VARCHAR},
+      CARDNO = #{record.cardno,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      ENGNAME = #{record.engname,jdbcType=VARCHAR},
+      SPELL = #{record.spell,jdbcType=VARCHAR},
+      WBSPELL = #{record.wbspell,jdbcType=VARCHAR},
+      SEX = #{record.sex,jdbcType=VARCHAR},
+      BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      IDTYPE = #{record.idtype,jdbcType=VARCHAR},
+      IDNO = #{record.idno,jdbcType=VARCHAR},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
+      JOB = #{record.job,jdbcType=VARCHAR},
+      EMAIL = #{record.email,jdbcType=VARCHAR},
+      WECHAT = #{record.wechat,jdbcType=VARCHAR},
+      PROVINCE = #{record.province,jdbcType=VARCHAR},
+      CITY = #{record.city,jdbcType=VARCHAR},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      PATIENTLEVEL = #{record.patientlevel,jdbcType=VARCHAR},
+      PATIENTTYPE = #{record.patienttype,jdbcType=VARCHAR},
+      CHANNEL1 = #{record.channel1,jdbcType=VARCHAR},
+      CHANNEL2 = #{record.channel2,jdbcType=VARCHAR},
+      CHANNEL3 = #{record.channel3,jdbcType=VARCHAR},
+      DELIVERTIMES = #{record.delivertimes,jdbcType=NUMERIC},
+      EXPECTEDTIME = #{record.expectedtime,jdbcType=TIMESTAMP},
+      CLIENTMANAGER = #{record.clientmanager,jdbcType=VARCHAR},
+      CONSULTMANAGER = #{record.consultmanager,jdbcType=VARCHAR},
+      CMANAGER = #{record.cmanager,jdbcType=VARCHAR},
+      SELLMANAGER = #{record.sellmanager,jdbcType=VARCHAR},
+      MEMO = #{record.memo,jdbcType=VARCHAR},
+      OTHERMEMO = #{record.othermemo,jdbcType=VARCHAR},
+      FIRSTVISITTIME = #{record.firstvisittime,jdbcType=TIMESTAMP},
+      LASTVISITIME = #{record.lastvisitime,jdbcType=TIMESTAMP},
+      TOTCOST = #{record.totcost,jdbcType=NUMERIC},
+      INTEGRATION = #{record.integration,jdbcType=NUMERIC},
+      EXTFIELD01 = #{record.extfield01,jdbcType=VARCHAR},
+      EXTFIELD02 = #{record.extfield02,jdbcType=VARCHAR},
+      EXTFIELD03 = #{record.extfield03,jdbcType=VARCHAR},
+      HOSPITALID = #{record.hospitalid,jdbcType=VARCHAR},
+      HOSPITALNAME = #{record.hospitalname,jdbcType=VARCHAR},
+      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      CREATEOPER = #{record.createoper,jdbcType=VARCHAR},
+      LASTMODIFIYTIME = #{record.lastmodifiytime,jdbcType=TIMESTAMP},
+      LASTMODIFIYOPERID = #{record.lastmodifiyoperid,jdbcType=VARCHAR},
+      LASTMODIFIYOPERNAME = #{record.lastmodifiyopername,jdbcType=VARCHAR},
+      VALIDFLAG = #{record.validflag,jdbcType=VARCHAR},
+      SEXCODE = #{record.sexcode,jdbcType=VARCHAR},
+      IDTYPECODE = #{record.idtypecode,jdbcType=VARCHAR},
+      CHILDFLAG = #{record.childflag,jdbcType=VARCHAR},
+      GUARDIAN1 = #{record.guardian1,jdbcType=VARCHAR},
+      GUARDIAN1PHONE = #{record.guardian1phone,jdbcType=VARCHAR},
+      GUARDIAN2 = #{record.guardian2,jdbcType=VARCHAR},
+      GUARDIAN2PHONE = #{record.guardian2phone,jdbcType=VARCHAR},
+      PATIENTLEVELCODE = #{record.patientlevelcode,jdbcType=VARCHAR},
+      PATIENTTYPECODE = #{record.patienttypecode,jdbcType=VARCHAR},
+      CHANNEL1CODE = #{record.channel1code,jdbcType=VARCHAR},
+      CHANNEL2CODE = #{record.channel2code,jdbcType=VARCHAR},
+      CHANNEL3CODE = #{record.channel3code,jdbcType=VARCHAR},
+      BCSELLMANAGER = #{record.bcsellmanager,jdbcType=VARCHAR},
+      MEMO2 = #{record.memo2,jdbcType=VARCHAR},
+      CREATEOPERNAME = #{record.createopername,jdbcType=VARCHAR},
+      GUARDIANINFO1ID = #{record.guardianinfo1id,jdbcType=VARCHAR},
+      GUARDIANINFO1NAME = #{record.guardianinfo1name,jdbcType=VARCHAR},
+      GUARDIANINFO2ID = #{record.guardianinfo2id,jdbcType=VARCHAR},
+      GUARDIANINFO2NAME = #{record.guardianinfo2name,jdbcType=VARCHAR},
+      INTRODUCERID = #{record.introducerid,jdbcType=VARCHAR},
+      INTRODUCERNAME = #{record.introducername,jdbcType=VARCHAR},
+      MMWYFLAG = #{record.mmwyflag,jdbcType=VARCHAR},
+      MMWYEVENTID = #{record.mmwyeventid,jdbcType=VARCHAR},
+      MMWYEVENTNAME = #{record.mmwyeventname,jdbcType=VARCHAR},
+      PATIENTLABEL = #{record.patientlabel,jdbcType=VARCHAR},
+      MMWYID = #{record.mmwyid,jdbcType=VARCHAR},
+      PACKAGEFLAG = #{record.packageflag,jdbcType=VARCHAR},
+      DELIVERYDATE = #{record.deliverydate,jdbcType=TIMESTAMP},
+      FAMILYID = #{record.familyid,jdbcType=VARCHAR},
+      FAMILYNAME = #{record.familyname,jdbcType=VARCHAR},
+      ROLEID = #{record.roleid,jdbcType=VARCHAR},
+      ROLENAME = #{record.rolename,jdbcType=VARCHAR},
+      CHANNEL4CODE = #{record.channel4code,jdbcType=VARCHAR},
+      CHANNEL4 = #{record.channel4,jdbcType=VARCHAR},
+      GHCFLAG = #{record.ghcflag,jdbcType=VARCHAR},
+      GHCCLIENTMANAGERID = #{record.ghcclientmanagerid,jdbcType=VARCHAR},
+      GHCCLIENTMANAGERNAME = #{record.ghcclientmanagername,jdbcType=VARCHAR},
+      MMWYREGISTERTYPE = #{record.mmwyregistertype,jdbcType=VARCHAR},
+      MMWYSHAREROLE = #{record.mmwysharerole,jdbcType=VARCHAR},
+      CLIENTWECHATADD = #{record.clientwechatadd,jdbcType=VARCHAR},
+      CONSULTWECHATADD = #{record.consultwechatadd,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.BdCrmPatient" >
+    update CRM.BD_CRM_PATIENT
+    <set >
+      <if test="cardno != null" >
+        CARDNO = #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="engname != null" >
+        ENGNAME = #{engname,jdbcType=VARCHAR},
+      </if>
+      <if test="spell != null" >
+        SPELL = #{spell,jdbcType=VARCHAR},
+      </if>
+      <if test="wbspell != null" >
+        WBSPELL = #{wbspell,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idtype != null" >
+        IDTYPE = #{idtype,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        IDNO = #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null" >
+        JOB = #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        WECHAT = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        PROVINCE = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        CITY = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="patientlevel != null" >
+        PATIENTLEVEL = #{patientlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="patienttype != null" >
+        PATIENTTYPE = #{patienttype,jdbcType=VARCHAR},
+      </if>
+      <if test="channel1 != null" >
+        CHANNEL1 = #{channel1,jdbcType=VARCHAR},
+      </if>
+      <if test="channel2 != null" >
+        CHANNEL2 = #{channel2,jdbcType=VARCHAR},
+      </if>
+      <if test="channel3 != null" >
+        CHANNEL3 = #{channel3,jdbcType=VARCHAR},
+      </if>
+      <if test="delivertimes != null" >
+        DELIVERTIMES = #{delivertimes,jdbcType=NUMERIC},
+      </if>
+      <if test="expectedtime != null" >
+        EXPECTEDTIME = #{expectedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clientmanager != null" >
+        CLIENTMANAGER = #{clientmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="consultmanager != null" >
+        CONSULTMANAGER = #{consultmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="cmanager != null" >
+        CMANAGER = #{cmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="sellmanager != null" >
+        SELLMANAGER = #{sellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="othermemo != null" >
+        OTHERMEMO = #{othermemo,jdbcType=VARCHAR},
+      </if>
+      <if test="firstvisittime != null" >
+        FIRSTVISITTIME = #{firstvisittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastvisitime != null" >
+        LASTVISITIME = #{lastvisitime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totcost != null" >
+        TOTCOST = #{totcost,jdbcType=NUMERIC},
+      </if>
+      <if test="integration != null" >
+        INTEGRATION = #{integration,jdbcType=NUMERIC},
+      </if>
+      <if test="extfield01 != null" >
+        EXTFIELD01 = #{extfield01,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield02 != null" >
+        EXTFIELD02 = #{extfield02,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield03 != null" >
+        EXTFIELD03 = #{extfield03,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        HOSPITALID = #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalname != null" >
+        HOSPITALNAME = #{hospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createoper != null" >
+        CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiytime != null" >
+        LASTMODIFIYTIME = #{lastmodifiytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastmodifiyoperid != null" >
+        LASTMODIFIYOPERID = #{lastmodifiyoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiyopername != null" >
+        LASTMODIFIYOPERNAME = #{lastmodifiyopername,jdbcType=VARCHAR},
+      </if>
+      <if test="validflag != null" >
+        VALIDFLAG = #{validflag,jdbcType=VARCHAR},
+      </if>
+      <if test="sexcode != null" >
+        SEXCODE = #{sexcode,jdbcType=VARCHAR},
+      </if>
+      <if test="idtypecode != null" >
+        IDTYPECODE = #{idtypecode,jdbcType=VARCHAR},
+      </if>
+      <if test="childflag != null" >
+        CHILDFLAG = #{childflag,jdbcType=VARCHAR},
+      </if>
+      <if test="guardian1 != null" >
+        GUARDIAN1 = #{guardian1,jdbcType=VARCHAR},
+      </if>
+      <if test="guardian1phone != null" >
+        GUARDIAN1PHONE = #{guardian1phone,jdbcType=VARCHAR},
+      </if>
+      <if test="guardian2 != null" >
+        GUARDIAN2 = #{guardian2,jdbcType=VARCHAR},
+      </if>
+      <if test="guardian2phone != null" >
+        GUARDIAN2PHONE = #{guardian2phone,jdbcType=VARCHAR},
+      </if>
+      <if test="patientlevelcode != null" >
+        PATIENTLEVELCODE = #{patientlevelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="patienttypecode != null" >
+        PATIENTTYPECODE = #{patienttypecode,jdbcType=VARCHAR},
+      </if>
+      <if test="channel1code != null" >
+        CHANNEL1CODE = #{channel1code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel2code != null" >
+        CHANNEL2CODE = #{channel2code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel3code != null" >
+        CHANNEL3CODE = #{channel3code,jdbcType=VARCHAR},
+      </if>
+      <if test="bcsellmanager != null" >
+        BCSELLMANAGER = #{bcsellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="memo2 != null" >
+        MEMO2 = #{memo2,jdbcType=VARCHAR},
+      </if>
+      <if test="createopername != null" >
+        CREATEOPERNAME = #{createopername,jdbcType=VARCHAR},
+      </if>
+      <if test="guardianinfo1id != null" >
+        GUARDIANINFO1ID = #{guardianinfo1id,jdbcType=VARCHAR},
+      </if>
+      <if test="guardianinfo1name != null" >
+        GUARDIANINFO1NAME = #{guardianinfo1name,jdbcType=VARCHAR},
+      </if>
+      <if test="guardianinfo2id != null" >
+        GUARDIANINFO2ID = #{guardianinfo2id,jdbcType=VARCHAR},
+      </if>
+      <if test="guardianinfo2name != null" >
+        GUARDIANINFO2NAME = #{guardianinfo2name,jdbcType=VARCHAR},
+      </if>
+      <if test="introducerid != null" >
+        INTRODUCERID = #{introducerid,jdbcType=VARCHAR},
+      </if>
+      <if test="introducername != null" >
+        INTRODUCERNAME = #{introducername,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwyflag != null" >
+        MMWYFLAG = #{mmwyflag,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwyeventid != null" >
+        MMWYEVENTID = #{mmwyeventid,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwyeventname != null" >
+        MMWYEVENTNAME = #{mmwyeventname,jdbcType=VARCHAR},
+      </if>
+      <if test="patientlabel != null" >
+        PATIENTLABEL = #{patientlabel,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwyid != null" >
+        MMWYID = #{mmwyid,jdbcType=VARCHAR},
+      </if>
+      <if test="packageflag != null" >
+        PACKAGEFLAG = #{packageflag,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverydate != null" >
+        DELIVERYDATE = #{deliverydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="familyid != null" >
+        FAMILYID = #{familyid,jdbcType=VARCHAR},
+      </if>
+      <if test="familyname != null" >
+        FAMILYNAME = #{familyname,jdbcType=VARCHAR},
+      </if>
+      <if test="roleid != null" >
+        ROLEID = #{roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null" >
+        ROLENAME = #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="channel4code != null" >
+        CHANNEL4CODE = #{channel4code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel4 != null" >
+        CHANNEL4 = #{channel4,jdbcType=VARCHAR},
+      </if>
+      <if test="ghcflag != null" >
+        GHCFLAG = #{ghcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="ghcclientmanagerid != null" >
+        GHCCLIENTMANAGERID = #{ghcclientmanagerid,jdbcType=VARCHAR},
+      </if>
+      <if test="ghcclientmanagername != null" >
+        GHCCLIENTMANAGERNAME = #{ghcclientmanagername,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwyregistertype != null" >
+        MMWYREGISTERTYPE = #{mmwyregistertype,jdbcType=VARCHAR},
+      </if>
+      <if test="mmwysharerole != null" >
+        MMWYSHAREROLE = #{mmwysharerole,jdbcType=VARCHAR},
+      </if>
+      <if test="clientwechatadd != null" >
+        CLIENTWECHATADD = #{clientwechatadd,jdbcType=VARCHAR},
+      </if>
+      <if test="consultwechatadd != null" >
+        CONSULTWECHATADD = #{consultwechatadd,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PATIENTID = #{patientid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.BdCrmPatient" >
+    update CRM.BD_CRM_PATIENT
+    set CARDNO = #{cardno,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      ENGNAME = #{engname,jdbcType=VARCHAR},
+      SPELL = #{spell,jdbcType=VARCHAR},
+      WBSPELL = #{wbspell,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      IDTYPE = #{idtype,jdbcType=VARCHAR},
+      IDNO = #{idno,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      JOB = #{job,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      WECHAT = #{wechat,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      PATIENTLEVEL = #{patientlevel,jdbcType=VARCHAR},
+      PATIENTTYPE = #{patienttype,jdbcType=VARCHAR},
+      CHANNEL1 = #{channel1,jdbcType=VARCHAR},
+      CHANNEL2 = #{channel2,jdbcType=VARCHAR},
+      CHANNEL3 = #{channel3,jdbcType=VARCHAR},
+      DELIVERTIMES = #{delivertimes,jdbcType=NUMERIC},
+      EXPECTEDTIME = #{expectedtime,jdbcType=TIMESTAMP},
+      CLIENTMANAGER = #{clientmanager,jdbcType=VARCHAR},
+      CONSULTMANAGER = #{consultmanager,jdbcType=VARCHAR},
+      CMANAGER = #{cmanager,jdbcType=VARCHAR},
+      SELLMANAGER = #{sellmanager,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      OTHERMEMO = #{othermemo,jdbcType=VARCHAR},
+      FIRSTVISITTIME = #{firstvisittime,jdbcType=TIMESTAMP},
+      LASTVISITIME = #{lastvisitime,jdbcType=TIMESTAMP},
+      TOTCOST = #{totcost,jdbcType=NUMERIC},
+      INTEGRATION = #{integration,jdbcType=NUMERIC},
+      EXTFIELD01 = #{extfield01,jdbcType=VARCHAR},
+      EXTFIELD02 = #{extfield02,jdbcType=VARCHAR},
+      EXTFIELD03 = #{extfield03,jdbcType=VARCHAR},
+      HOSPITALID = #{hospitalid,jdbcType=VARCHAR},
+      HOSPITALNAME = #{hospitalname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      LASTMODIFIYTIME = #{lastmodifiytime,jdbcType=TIMESTAMP},
+      LASTMODIFIYOPERID = #{lastmodifiyoperid,jdbcType=VARCHAR},
+      LASTMODIFIYOPERNAME = #{lastmodifiyopername,jdbcType=VARCHAR},
+      VALIDFLAG = #{validflag,jdbcType=VARCHAR},
+      SEXCODE = #{sexcode,jdbcType=VARCHAR},
+      IDTYPECODE = #{idtypecode,jdbcType=VARCHAR},
+      CHILDFLAG = #{childflag,jdbcType=VARCHAR},
+      GUARDIAN1 = #{guardian1,jdbcType=VARCHAR},
+      GUARDIAN1PHONE = #{guardian1phone,jdbcType=VARCHAR},
+      GUARDIAN2 = #{guardian2,jdbcType=VARCHAR},
+      GUARDIAN2PHONE = #{guardian2phone,jdbcType=VARCHAR},
+      PATIENTLEVELCODE = #{patientlevelcode,jdbcType=VARCHAR},
+      PATIENTTYPECODE = #{patienttypecode,jdbcType=VARCHAR},
+      CHANNEL1CODE = #{channel1code,jdbcType=VARCHAR},
+      CHANNEL2CODE = #{channel2code,jdbcType=VARCHAR},
+      CHANNEL3CODE = #{channel3code,jdbcType=VARCHAR},
+      BCSELLMANAGER = #{bcsellmanager,jdbcType=VARCHAR},
+      MEMO2 = #{memo2,jdbcType=VARCHAR},
+      CREATEOPERNAME = #{createopername,jdbcType=VARCHAR},
+      GUARDIANINFO1ID = #{guardianinfo1id,jdbcType=VARCHAR},
+      GUARDIANINFO1NAME = #{guardianinfo1name,jdbcType=VARCHAR},
+      GUARDIANINFO2ID = #{guardianinfo2id,jdbcType=VARCHAR},
+      GUARDIANINFO2NAME = #{guardianinfo2name,jdbcType=VARCHAR},
+      INTRODUCERID = #{introducerid,jdbcType=VARCHAR},
+      INTRODUCERNAME = #{introducername,jdbcType=VARCHAR},
+      MMWYFLAG = #{mmwyflag,jdbcType=VARCHAR},
+      MMWYEVENTID = #{mmwyeventid,jdbcType=VARCHAR},
+      MMWYEVENTNAME = #{mmwyeventname,jdbcType=VARCHAR},
+      PATIENTLABEL = #{patientlabel,jdbcType=VARCHAR},
+      MMWYID = #{mmwyid,jdbcType=VARCHAR},
+      PACKAGEFLAG = #{packageflag,jdbcType=VARCHAR},
+      DELIVERYDATE = #{deliverydate,jdbcType=TIMESTAMP},
+      FAMILYID = #{familyid,jdbcType=VARCHAR},
+      FAMILYNAME = #{familyname,jdbcType=VARCHAR},
+      ROLEID = #{roleid,jdbcType=VARCHAR},
+      ROLENAME = #{rolename,jdbcType=VARCHAR},
+      CHANNEL4CODE = #{channel4code,jdbcType=VARCHAR},
+      CHANNEL4 = #{channel4,jdbcType=VARCHAR},
+      GHCFLAG = #{ghcflag,jdbcType=VARCHAR},
+      GHCCLIENTMANAGERID = #{ghcclientmanagerid,jdbcType=VARCHAR},
+      GHCCLIENTMANAGERNAME = #{ghcclientmanagername,jdbcType=VARCHAR},
+      MMWYREGISTERTYPE = #{mmwyregistertype,jdbcType=VARCHAR},
+      MMWYSHAREROLE = #{mmwysharerole,jdbcType=VARCHAR},
+      CLIENTWECHATADD = #{clientwechatadd,jdbcType=VARCHAR},
+      CONSULTWECHATADD = #{consultwechatadd,jdbcType=VARCHAR}
+    where PATIENTID = #{patientid,jdbcType=VARCHAR}
+  </update>
+</mapper>

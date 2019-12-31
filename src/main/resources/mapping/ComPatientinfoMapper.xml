@@ -1,0 +1,1635 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.ComPatientinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.ComPatientinfo" >
+    <constructor >
+      <idArg column="CARD_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="HOSPITAL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IC_CARDNO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SPELL_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WB_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BIRTHDAY" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="SEX_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IDENNO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BLOOD_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PROF_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WORK_HOME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WORK_TEL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WORK_ZIP" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOME_TEL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOME_ZIP" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DISTRICT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NATION_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LINKMAN_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LINKMAN_TEL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LINKMAN_ADD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RELA_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MARI" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="COUN_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PAYKIND_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PAYKIND_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACT_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MCARD_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="AREA_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FRAMT" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="ANAPHY_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HEPATITIS_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ACT_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ACT_AMT" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="LACT_SUM" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="LBANK_SUM" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="ARREAR_TIMES" jdbcType="NUMERIC" javaType="java.lang.Short" />
+      <arg column="ARREAR_SUM" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="INHOS_SOURCE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LIHOS_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="INHOS_TIMES" jdbcType="NUMERIC" javaType="java.lang.Short" />
+      <arg column="LOUTHOS_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="FIR_SEE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LREG_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="DISOBY_CNT" jdbcType="NUMERIC" javaType="java.lang.Short" />
+      <arg column="END_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="MARK" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="IS_VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FEE_KIND" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OLD_CARDNO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IS_ENCRYPTNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NORMALNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IDCARDTYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VIP_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MONTHER_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IS_TREATMENT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CASE_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="INSURANCE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="INSURANCE_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOME_DOOR_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LINKMAN_DOOR_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMR_PATID" jdbcType="NUMERIC" javaType="java.lang.Long" />
+      <arg column="HOME_NOW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FAMILY_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OTHER_CARDNO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SERVICE_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SERVICE_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENT_SOURCENO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REFERRAL_PERSON" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FAMILY_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BICOMPANYID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BICOMPANYNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CRMID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL1CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL2CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL3CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHANNEL3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CLIENTMANAGER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONSULTMANAGER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SELLMANAGER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BCSELLMANAGER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHILDFLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACKAGEFLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FAMILYID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FAMILYNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FAMILYROLEID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FAMILYROLENAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    CARD_NO, HOSPITAL_ID, IC_CARDNO, NAME, SPELL_CODE, WB_CODE, BIRTHDAY, SEX_CODE, IDENNO, 
+    BLOOD_CODE, PROF_CODE, WORK_HOME, WORK_TEL, WORK_ZIP, HOME, HOME_TEL, HOME_ZIP, DISTRICT, 
+    NATION_CODE, LINKMAN_NAME, LINKMAN_TEL, LINKMAN_ADD, RELA_CODE, MARI, COUN_CODE, 
+    PAYKIND_CODE, PAYKIND_NAME, PACT_CODE, PACT_NAME, MCARD_NO, AREA_CODE, FRAMT, ANAPHY_FLAG, 
+    HEPATITIS_FLAG, ACT_CODE, ACT_AMT, LACT_SUM, LBANK_SUM, ARREAR_TIMES, ARREAR_SUM, 
+    INHOS_SOURCE, LIHOS_DATE, INHOS_TIMES, LOUTHOS_DATE, FIR_SEE_DATE, LREG_DATE, DISOBY_CNT, 
+    END_DATE, MARK, OPER_CODE, OPER_DATE, IS_VALID, FEE_KIND, OLD_CARDNO, IS_ENCRYPTNAME, 
+    NORMALNAME, IDCARDTYPE, VIP_FLAG, MONTHER_NAME, IS_TREATMENT, CASE_NO, INSURANCE_ID, 
+    INSURANCE_NAME, HOME_DOOR_NO, LINKMAN_DOOR_NO, EMAIL, EMR_PATID, HOME_NOW, FAMILY_CODE, 
+    OTHER_CARDNO, SERVICE_CODE, SERVICE_NAME, PATIENT_SOURCENO, REFERRAL_PERSON, CHANNEL_CODE, 
+    FAMILY_NAME, BICOMPANYID, BICOMPANYNAME, CRMID, CHANNEL1CODE, CHANNEL1, CHANNEL2CODE, 
+    CHANNEL2, CHANNEL3CODE, CHANNEL3, CLIENTMANAGER, CONSULTMANAGER, SELLMANAGER, BCSELLMANAGER, 
+    CHILDFLAG, PACKAGEFLAG, FAMILYID, FAMILYNAME, FAMILYROLEID, FAMILYROLENAME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.ComPatientinfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.COM_PATIENTINFO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.ComPatientinfoKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.COM_PATIENTINFO
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.slionh.patientview.entity.ComPatientinfoKey" >
+    delete from CRM.COM_PATIENTINFO
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.ComPatientinfoExample" >
+    delete from CRM.COM_PATIENTINFO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.ComPatientinfo" >
+    <selectKey resultType="java.lang.String" keyProperty="cardNo" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.COM_PATIENTINFO (HOSPITAL_ID, IC_CARDNO, NAME, 
+      SPELL_CODE, WB_CODE, BIRTHDAY, 
+      SEX_CODE, IDENNO, BLOOD_CODE, 
+      PROF_CODE, WORK_HOME, WORK_TEL, 
+      WORK_ZIP, HOME, HOME_TEL, 
+      HOME_ZIP, DISTRICT, NATION_CODE, 
+      LINKMAN_NAME, LINKMAN_TEL, LINKMAN_ADD, 
+      RELA_CODE, MARI, COUN_CODE, 
+      PAYKIND_CODE, PAYKIND_NAME, PACT_CODE, 
+      PACT_NAME, MCARD_NO, AREA_CODE, 
+      FRAMT, ANAPHY_FLAG, HEPATITIS_FLAG, 
+      ACT_CODE, ACT_AMT, LACT_SUM, 
+      LBANK_SUM, ARREAR_TIMES, ARREAR_SUM, 
+      INHOS_SOURCE, LIHOS_DATE, INHOS_TIMES, 
+      LOUTHOS_DATE, FIR_SEE_DATE, LREG_DATE, 
+      DISOBY_CNT, END_DATE, MARK, 
+      OPER_CODE, OPER_DATE, IS_VALID, 
+      FEE_KIND, OLD_CARDNO, IS_ENCRYPTNAME, 
+      NORMALNAME, IDCARDTYPE, VIP_FLAG, 
+      MONTHER_NAME, IS_TREATMENT, CASE_NO, 
+      INSURANCE_ID, INSURANCE_NAME, HOME_DOOR_NO, 
+      LINKMAN_DOOR_NO, EMAIL, EMR_PATID, 
+      HOME_NOW, FAMILY_CODE, OTHER_CARDNO, 
+      SERVICE_CODE, SERVICE_NAME, PATIENT_SOURCENO, 
+      REFERRAL_PERSON, CHANNEL_CODE, FAMILY_NAME, 
+      BICOMPANYID, BICOMPANYNAME, CRMID, 
+      CHANNEL1CODE, CHANNEL1, CHANNEL2CODE, 
+      CHANNEL2, CHANNEL3CODE, CHANNEL3, 
+      CLIENTMANAGER, CONSULTMANAGER, SELLMANAGER, 
+      BCSELLMANAGER, CHILDFLAG, PACKAGEFLAG, 
+      FAMILYID, FAMILYNAME, FAMILYROLEID, 
+      FAMILYROLENAME)
+    values (#{hospitalId,jdbcType=VARCHAR}, #{icCardno,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{spellCode,jdbcType=VARCHAR}, #{wbCode,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{sexCode,jdbcType=VARCHAR}, #{idenno,jdbcType=VARCHAR}, #{bloodCode,jdbcType=VARCHAR}, 
+      #{profCode,jdbcType=VARCHAR}, #{workHome,jdbcType=VARCHAR}, #{workTel,jdbcType=VARCHAR}, 
+      #{workZip,jdbcType=VARCHAR}, #{home,jdbcType=VARCHAR}, #{homeTel,jdbcType=VARCHAR}, 
+      #{homeZip,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, #{nationCode,jdbcType=VARCHAR}, 
+      #{linkmanName,jdbcType=VARCHAR}, #{linkmanTel,jdbcType=VARCHAR}, #{linkmanAdd,jdbcType=VARCHAR}, 
+      #{relaCode,jdbcType=VARCHAR}, #{mari,jdbcType=VARCHAR}, #{counCode,jdbcType=VARCHAR}, 
+      #{paykindCode,jdbcType=VARCHAR}, #{paykindName,jdbcType=VARCHAR}, #{pactCode,jdbcType=VARCHAR}, 
+      #{pactName,jdbcType=VARCHAR}, #{mcardNo,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{framt,jdbcType=NUMERIC}, #{anaphyFlag,jdbcType=VARCHAR}, #{hepatitisFlag,jdbcType=VARCHAR}, 
+      #{actCode,jdbcType=VARCHAR}, #{actAmt,jdbcType=NUMERIC}, #{lactSum,jdbcType=NUMERIC}, 
+      #{lbankSum,jdbcType=NUMERIC}, #{arrearTimes,jdbcType=NUMERIC}, #{arrearSum,jdbcType=NUMERIC}, 
+      #{inhosSource,jdbcType=VARCHAR}, #{lihosDate,jdbcType=TIMESTAMP}, #{inhosTimes,jdbcType=NUMERIC}, 
+      #{louthosDate,jdbcType=TIMESTAMP}, #{firSeeDate,jdbcType=TIMESTAMP}, #{lregDate,jdbcType=TIMESTAMP}, 
+      #{disobyCnt,jdbcType=NUMERIC}, #{endDate,jdbcType=TIMESTAMP}, #{mark,jdbcType=VARCHAR}, 
+      #{operCode,jdbcType=VARCHAR}, #{operDate,jdbcType=TIMESTAMP}, #{isValid,jdbcType=VARCHAR}, 
+      #{feeKind,jdbcType=VARCHAR}, #{oldCardno,jdbcType=VARCHAR}, #{isEncryptname,jdbcType=VARCHAR}, 
+      #{normalname,jdbcType=VARCHAR}, #{idcardtype,jdbcType=VARCHAR}, #{vipFlag,jdbcType=VARCHAR}, 
+      #{montherName,jdbcType=VARCHAR}, #{isTreatment,jdbcType=VARCHAR}, #{caseNo,jdbcType=VARCHAR}, 
+      #{insuranceId,jdbcType=VARCHAR}, #{insuranceName,jdbcType=VARCHAR}, #{homeDoorNo,jdbcType=VARCHAR}, 
+      #{linkmanDoorNo,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{emrPatid,jdbcType=NUMERIC}, 
+      #{homeNow,jdbcType=VARCHAR}, #{familyCode,jdbcType=VARCHAR}, #{otherCardno,jdbcType=VARCHAR}, 
+      #{serviceCode,jdbcType=VARCHAR}, #{serviceName,jdbcType=VARCHAR}, #{patientSourceno,jdbcType=VARCHAR}, 
+      #{referralPerson,jdbcType=VARCHAR}, #{channelCode,jdbcType=VARCHAR}, #{familyName,jdbcType=VARCHAR}, 
+      #{bicompanyid,jdbcType=VARCHAR}, #{bicompanyname,jdbcType=VARCHAR}, #{crmid,jdbcType=VARCHAR}, 
+      #{channel1code,jdbcType=VARCHAR}, #{channel1,jdbcType=VARCHAR}, #{channel2code,jdbcType=VARCHAR}, 
+      #{channel2,jdbcType=VARCHAR}, #{channel3code,jdbcType=VARCHAR}, #{channel3,jdbcType=VARCHAR}, 
+      #{clientmanager,jdbcType=VARCHAR}, #{consultmanager,jdbcType=VARCHAR}, #{sellmanager,jdbcType=VARCHAR}, 
+      #{bcsellmanager,jdbcType=VARCHAR}, #{childflag,jdbcType=VARCHAR}, #{packageflag,jdbcType=VARCHAR}, 
+      #{familyid,jdbcType=VARCHAR}, #{familyname,jdbcType=VARCHAR}, #{familyroleid,jdbcType=VARCHAR}, 
+      #{familyrolename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.ComPatientinfo" >
+    <selectKey resultType="java.lang.String" keyProperty="cardNo" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.COM_PATIENTINFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hospitalId != null" >
+        HOSPITAL_ID,
+      </if>
+      <if test="icCardno != null" >
+        IC_CARDNO,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="spellCode != null" >
+        SPELL_CODE,
+      </if>
+      <if test="wbCode != null" >
+        WB_CODE,
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY,
+      </if>
+      <if test="sexCode != null" >
+        SEX_CODE,
+      </if>
+      <if test="idenno != null" >
+        IDENNO,
+      </if>
+      <if test="bloodCode != null" >
+        BLOOD_CODE,
+      </if>
+      <if test="profCode != null" >
+        PROF_CODE,
+      </if>
+      <if test="workHome != null" >
+        WORK_HOME,
+      </if>
+      <if test="workTel != null" >
+        WORK_TEL,
+      </if>
+      <if test="workZip != null" >
+        WORK_ZIP,
+      </if>
+      <if test="home != null" >
+        HOME,
+      </if>
+      <if test="homeTel != null" >
+        HOME_TEL,
+      </if>
+      <if test="homeZip != null" >
+        HOME_ZIP,
+      </if>
+      <if test="district != null" >
+        DISTRICT,
+      </if>
+      <if test="nationCode != null" >
+        NATION_CODE,
+      </if>
+      <if test="linkmanName != null" >
+        LINKMAN_NAME,
+      </if>
+      <if test="linkmanTel != null" >
+        LINKMAN_TEL,
+      </if>
+      <if test="linkmanAdd != null" >
+        LINKMAN_ADD,
+      </if>
+      <if test="relaCode != null" >
+        RELA_CODE,
+      </if>
+      <if test="mari != null" >
+        MARI,
+      </if>
+      <if test="counCode != null" >
+        COUN_CODE,
+      </if>
+      <if test="paykindCode != null" >
+        PAYKIND_CODE,
+      </if>
+      <if test="paykindName != null" >
+        PAYKIND_NAME,
+      </if>
+      <if test="pactCode != null" >
+        PACT_CODE,
+      </if>
+      <if test="pactName != null" >
+        PACT_NAME,
+      </if>
+      <if test="mcardNo != null" >
+        MCARD_NO,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="framt != null" >
+        FRAMT,
+      </if>
+      <if test="anaphyFlag != null" >
+        ANAPHY_FLAG,
+      </if>
+      <if test="hepatitisFlag != null" >
+        HEPATITIS_FLAG,
+      </if>
+      <if test="actCode != null" >
+        ACT_CODE,
+      </if>
+      <if test="actAmt != null" >
+        ACT_AMT,
+      </if>
+      <if test="lactSum != null" >
+        LACT_SUM,
+      </if>
+      <if test="lbankSum != null" >
+        LBANK_SUM,
+      </if>
+      <if test="arrearTimes != null" >
+        ARREAR_TIMES,
+      </if>
+      <if test="arrearSum != null" >
+        ARREAR_SUM,
+      </if>
+      <if test="inhosSource != null" >
+        INHOS_SOURCE,
+      </if>
+      <if test="lihosDate != null" >
+        LIHOS_DATE,
+      </if>
+      <if test="inhosTimes != null" >
+        INHOS_TIMES,
+      </if>
+      <if test="louthosDate != null" >
+        LOUTHOS_DATE,
+      </if>
+      <if test="firSeeDate != null" >
+        FIR_SEE_DATE,
+      </if>
+      <if test="lregDate != null" >
+        LREG_DATE,
+      </if>
+      <if test="disobyCnt != null" >
+        DISOBY_CNT,
+      </if>
+      <if test="endDate != null" >
+        END_DATE,
+      </if>
+      <if test="mark != null" >
+        MARK,
+      </if>
+      <if test="operCode != null" >
+        OPER_CODE,
+      </if>
+      <if test="operDate != null" >
+        OPER_DATE,
+      </if>
+      <if test="isValid != null" >
+        IS_VALID,
+      </if>
+      <if test="feeKind != null" >
+        FEE_KIND,
+      </if>
+      <if test="oldCardno != null" >
+        OLD_CARDNO,
+      </if>
+      <if test="isEncryptname != null" >
+        IS_ENCRYPTNAME,
+      </if>
+      <if test="normalname != null" >
+        NORMALNAME,
+      </if>
+      <if test="idcardtype != null" >
+        IDCARDTYPE,
+      </if>
+      <if test="vipFlag != null" >
+        VIP_FLAG,
+      </if>
+      <if test="montherName != null" >
+        MONTHER_NAME,
+      </if>
+      <if test="isTreatment != null" >
+        IS_TREATMENT,
+      </if>
+      <if test="caseNo != null" >
+        CASE_NO,
+      </if>
+      <if test="insuranceId != null" >
+        INSURANCE_ID,
+      </if>
+      <if test="insuranceName != null" >
+        INSURANCE_NAME,
+      </if>
+      <if test="homeDoorNo != null" >
+        HOME_DOOR_NO,
+      </if>
+      <if test="linkmanDoorNo != null" >
+        LINKMAN_DOOR_NO,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="emrPatid != null" >
+        EMR_PATID,
+      </if>
+      <if test="homeNow != null" >
+        HOME_NOW,
+      </if>
+      <if test="familyCode != null" >
+        FAMILY_CODE,
+      </if>
+      <if test="otherCardno != null" >
+        OTHER_CARDNO,
+      </if>
+      <if test="serviceCode != null" >
+        SERVICE_CODE,
+      </if>
+      <if test="serviceName != null" >
+        SERVICE_NAME,
+      </if>
+      <if test="patientSourceno != null" >
+        PATIENT_SOURCENO,
+      </if>
+      <if test="referralPerson != null" >
+        REFERRAL_PERSON,
+      </if>
+      <if test="channelCode != null" >
+        CHANNEL_CODE,
+      </if>
+      <if test="familyName != null" >
+        FAMILY_NAME,
+      </if>
+      <if test="bicompanyid != null" >
+        BICOMPANYID,
+      </if>
+      <if test="bicompanyname != null" >
+        BICOMPANYNAME,
+      </if>
+      <if test="crmid != null" >
+        CRMID,
+      </if>
+      <if test="channel1code != null" >
+        CHANNEL1CODE,
+      </if>
+      <if test="channel1 != null" >
+        CHANNEL1,
+      </if>
+      <if test="channel2code != null" >
+        CHANNEL2CODE,
+      </if>
+      <if test="channel2 != null" >
+        CHANNEL2,
+      </if>
+      <if test="channel3code != null" >
+        CHANNEL3CODE,
+      </if>
+      <if test="channel3 != null" >
+        CHANNEL3,
+      </if>
+      <if test="clientmanager != null" >
+        CLIENTMANAGER,
+      </if>
+      <if test="consultmanager != null" >
+        CONSULTMANAGER,
+      </if>
+      <if test="sellmanager != null" >
+        SELLMANAGER,
+      </if>
+      <if test="bcsellmanager != null" >
+        BCSELLMANAGER,
+      </if>
+      <if test="childflag != null" >
+        CHILDFLAG,
+      </if>
+      <if test="packageflag != null" >
+        PACKAGEFLAG,
+      </if>
+      <if test="familyid != null" >
+        FAMILYID,
+      </if>
+      <if test="familyname != null" >
+        FAMILYNAME,
+      </if>
+      <if test="familyroleid != null" >
+        FAMILYROLEID,
+      </if>
+      <if test="familyrolename != null" >
+        FAMILYROLENAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hospitalId != null" >
+        #{hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="icCardno != null" >
+        #{icCardno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="spellCode != null" >
+        #{spellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="wbCode != null" >
+        #{wbCode,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sexCode != null" >
+        #{sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="idenno != null" >
+        #{idenno,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodCode != null" >
+        #{bloodCode,jdbcType=VARCHAR},
+      </if>
+      <if test="profCode != null" >
+        #{profCode,jdbcType=VARCHAR},
+      </if>
+      <if test="workHome != null" >
+        #{workHome,jdbcType=VARCHAR},
+      </if>
+      <if test="workTel != null" >
+        #{workTel,jdbcType=VARCHAR},
+      </if>
+      <if test="workZip != null" >
+        #{workZip,jdbcType=VARCHAR},
+      </if>
+      <if test="home != null" >
+        #{home,jdbcType=VARCHAR},
+      </if>
+      <if test="homeTel != null" >
+        #{homeTel,jdbcType=VARCHAR},
+      </if>
+      <if test="homeZip != null" >
+        #{homeZip,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="nationCode != null" >
+        #{nationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanName != null" >
+        #{linkmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanTel != null" >
+        #{linkmanTel,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanAdd != null" >
+        #{linkmanAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="relaCode != null" >
+        #{relaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mari != null" >
+        #{mari,jdbcType=VARCHAR},
+      </if>
+      <if test="counCode != null" >
+        #{counCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paykindCode != null" >
+        #{paykindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paykindName != null" >
+        #{paykindName,jdbcType=VARCHAR},
+      </if>
+      <if test="pactCode != null" >
+        #{pactCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pactName != null" >
+        #{pactName,jdbcType=VARCHAR},
+      </if>
+      <if test="mcardNo != null" >
+        #{mcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="framt != null" >
+        #{framt,jdbcType=NUMERIC},
+      </if>
+      <if test="anaphyFlag != null" >
+        #{anaphyFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="hepatitisFlag != null" >
+        #{hepatitisFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="actCode != null" >
+        #{actCode,jdbcType=VARCHAR},
+      </if>
+      <if test="actAmt != null" >
+        #{actAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="lactSum != null" >
+        #{lactSum,jdbcType=NUMERIC},
+      </if>
+      <if test="lbankSum != null" >
+        #{lbankSum,jdbcType=NUMERIC},
+      </if>
+      <if test="arrearTimes != null" >
+        #{arrearTimes,jdbcType=NUMERIC},
+      </if>
+      <if test="arrearSum != null" >
+        #{arrearSum,jdbcType=NUMERIC},
+      </if>
+      <if test="inhosSource != null" >
+        #{inhosSource,jdbcType=VARCHAR},
+      </if>
+      <if test="lihosDate != null" >
+        #{lihosDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inhosTimes != null" >
+        #{inhosTimes,jdbcType=NUMERIC},
+      </if>
+      <if test="louthosDate != null" >
+        #{louthosDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firSeeDate != null" >
+        #{firSeeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lregDate != null" >
+        #{lregDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disobyCnt != null" >
+        #{disobyCnt,jdbcType=NUMERIC},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null" >
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="operCode != null" >
+        #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operDate != null" >
+        #{operDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isValid != null" >
+        #{isValid,jdbcType=VARCHAR},
+      </if>
+      <if test="feeKind != null" >
+        #{feeKind,jdbcType=VARCHAR},
+      </if>
+      <if test="oldCardno != null" >
+        #{oldCardno,jdbcType=VARCHAR},
+      </if>
+      <if test="isEncryptname != null" >
+        #{isEncryptname,jdbcType=VARCHAR},
+      </if>
+      <if test="normalname != null" >
+        #{normalname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardtype != null" >
+        #{idcardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="vipFlag != null" >
+        #{vipFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="montherName != null" >
+        #{montherName,jdbcType=VARCHAR},
+      </if>
+      <if test="isTreatment != null" >
+        #{isTreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="caseNo != null" >
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceId != null" >
+        #{insuranceId,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceName != null" >
+        #{insuranceName,jdbcType=VARCHAR},
+      </if>
+      <if test="homeDoorNo != null" >
+        #{homeDoorNo,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanDoorNo != null" >
+        #{linkmanDoorNo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="emrPatid != null" >
+        #{emrPatid,jdbcType=NUMERIC},
+      </if>
+      <if test="homeNow != null" >
+        #{homeNow,jdbcType=VARCHAR},
+      </if>
+      <if test="familyCode != null" >
+        #{familyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="otherCardno != null" >
+        #{otherCardno,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null" >
+        #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceName != null" >
+        #{serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSourceno != null" >
+        #{patientSourceno,jdbcType=VARCHAR},
+      </if>
+      <if test="referralPerson != null" >
+        #{referralPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null" >
+        #{channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="familyName != null" >
+        #{familyName,jdbcType=VARCHAR},
+      </if>
+      <if test="bicompanyid != null" >
+        #{bicompanyid,jdbcType=VARCHAR},
+      </if>
+      <if test="bicompanyname != null" >
+        #{bicompanyname,jdbcType=VARCHAR},
+      </if>
+      <if test="crmid != null" >
+        #{crmid,jdbcType=VARCHAR},
+      </if>
+      <if test="channel1code != null" >
+        #{channel1code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel1 != null" >
+        #{channel1,jdbcType=VARCHAR},
+      </if>
+      <if test="channel2code != null" >
+        #{channel2code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel2 != null" >
+        #{channel2,jdbcType=VARCHAR},
+      </if>
+      <if test="channel3code != null" >
+        #{channel3code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel3 != null" >
+        #{channel3,jdbcType=VARCHAR},
+      </if>
+      <if test="clientmanager != null" >
+        #{clientmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="consultmanager != null" >
+        #{consultmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="sellmanager != null" >
+        #{sellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="bcsellmanager != null" >
+        #{bcsellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="childflag != null" >
+        #{childflag,jdbcType=VARCHAR},
+      </if>
+      <if test="packageflag != null" >
+        #{packageflag,jdbcType=VARCHAR},
+      </if>
+      <if test="familyid != null" >
+        #{familyid,jdbcType=VARCHAR},
+      </if>
+      <if test="familyname != null" >
+        #{familyname,jdbcType=VARCHAR},
+      </if>
+      <if test="familyroleid != null" >
+        #{familyroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="familyrolename != null" >
+        #{familyrolename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.ComPatientinfoExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.COM_PATIENTINFO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.COM_PATIENTINFO
+    <set >
+      <if test="record.cardNo != null" >
+        CARD_NO = #{record.cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalId != null" >
+        HOSPITAL_ID = #{record.hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.icCardno != null" >
+        IC_CARDNO = #{record.icCardno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spellCode != null" >
+        SPELL_CODE = #{record.spellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wbCode != null" >
+        WB_CODE = #{record.wbCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sexCode != null" >
+        SEX_CODE = #{record.sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idenno != null" >
+        IDENNO = #{record.idenno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bloodCode != null" >
+        BLOOD_CODE = #{record.bloodCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.profCode != null" >
+        PROF_CODE = #{record.profCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workHome != null" >
+        WORK_HOME = #{record.workHome,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workTel != null" >
+        WORK_TEL = #{record.workTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workZip != null" >
+        WORK_ZIP = #{record.workZip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.home != null" >
+        HOME = #{record.home,jdbcType=VARCHAR},
+      </if>
+      <if test="record.homeTel != null" >
+        HOME_TEL = #{record.homeTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.homeZip != null" >
+        HOME_ZIP = #{record.homeZip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.district != null" >
+        DISTRICT = #{record.district,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nationCode != null" >
+        NATION_CODE = #{record.nationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkmanName != null" >
+        LINKMAN_NAME = #{record.linkmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkmanTel != null" >
+        LINKMAN_TEL = #{record.linkmanTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkmanAdd != null" >
+        LINKMAN_ADD = #{record.linkmanAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relaCode != null" >
+        RELA_CODE = #{record.relaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mari != null" >
+        MARI = #{record.mari,jdbcType=VARCHAR},
+      </if>
+      <if test="record.counCode != null" >
+        COUN_CODE = #{record.counCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paykindCode != null" >
+        PAYKIND_CODE = #{record.paykindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paykindName != null" >
+        PAYKIND_NAME = #{record.paykindName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pactCode != null" >
+        PACT_CODE = #{record.pactCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pactName != null" >
+        PACT_NAME = #{record.pactName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mcardNo != null" >
+        MCARD_NO = #{record.mcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaCode != null" >
+        AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.framt != null" >
+        FRAMT = #{record.framt,jdbcType=NUMERIC},
+      </if>
+      <if test="record.anaphyFlag != null" >
+        ANAPHY_FLAG = #{record.anaphyFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hepatitisFlag != null" >
+        HEPATITIS_FLAG = #{record.hepatitisFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actCode != null" >
+        ACT_CODE = #{record.actCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actAmt != null" >
+        ACT_AMT = #{record.actAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="record.lactSum != null" >
+        LACT_SUM = #{record.lactSum,jdbcType=NUMERIC},
+      </if>
+      <if test="record.lbankSum != null" >
+        LBANK_SUM = #{record.lbankSum,jdbcType=NUMERIC},
+      </if>
+      <if test="record.arrearTimes != null" >
+        ARREAR_TIMES = #{record.arrearTimes,jdbcType=NUMERIC},
+      </if>
+      <if test="record.arrearSum != null" >
+        ARREAR_SUM = #{record.arrearSum,jdbcType=NUMERIC},
+      </if>
+      <if test="record.inhosSource != null" >
+        INHOS_SOURCE = #{record.inhosSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lihosDate != null" >
+        LIHOS_DATE = #{record.lihosDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.inhosTimes != null" >
+        INHOS_TIMES = #{record.inhosTimes,jdbcType=NUMERIC},
+      </if>
+      <if test="record.louthosDate != null" >
+        LOUTHOS_DATE = #{record.louthosDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.firSeeDate != null" >
+        FIR_SEE_DATE = #{record.firSeeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lregDate != null" >
+        LREG_DATE = #{record.lregDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.disobyCnt != null" >
+        DISOBY_CNT = #{record.disobyCnt,jdbcType=NUMERIC},
+      </if>
+      <if test="record.endDate != null" >
+        END_DATE = #{record.endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mark != null" >
+        MARK = #{record.mark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operCode != null" >
+        OPER_CODE = #{record.operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operDate != null" >
+        OPER_DATE = #{record.operDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isValid != null" >
+        IS_VALID = #{record.isValid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.feeKind != null" >
+        FEE_KIND = #{record.feeKind,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oldCardno != null" >
+        OLD_CARDNO = #{record.oldCardno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isEncryptname != null" >
+        IS_ENCRYPTNAME = #{record.isEncryptname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.normalname != null" >
+        NORMALNAME = #{record.normalname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcardtype != null" >
+        IDCARDTYPE = #{record.idcardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vipFlag != null" >
+        VIP_FLAG = #{record.vipFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.montherName != null" >
+        MONTHER_NAME = #{record.montherName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isTreatment != null" >
+        IS_TREATMENT = #{record.isTreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.caseNo != null" >
+        CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuranceId != null" >
+        INSURANCE_ID = #{record.insuranceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuranceName != null" >
+        INSURANCE_NAME = #{record.insuranceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.homeDoorNo != null" >
+        HOME_DOOR_NO = #{record.homeDoorNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkmanDoorNo != null" >
+        LINKMAN_DOOR_NO = #{record.linkmanDoorNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        EMAIL = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emrPatid != null" >
+        EMR_PATID = #{record.emrPatid,jdbcType=NUMERIC},
+      </if>
+      <if test="record.homeNow != null" >
+        HOME_NOW = #{record.homeNow,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyCode != null" >
+        FAMILY_CODE = #{record.familyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherCardno != null" >
+        OTHER_CARDNO = #{record.otherCardno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceCode != null" >
+        SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceName != null" >
+        SERVICE_NAME = #{record.serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientSourceno != null" >
+        PATIENT_SOURCENO = #{record.patientSourceno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.referralPerson != null" >
+        REFERRAL_PERSON = #{record.referralPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channelCode != null" >
+        CHANNEL_CODE = #{record.channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyName != null" >
+        FAMILY_NAME = #{record.familyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bicompanyid != null" >
+        BICOMPANYID = #{record.bicompanyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bicompanyname != null" >
+        BICOMPANYNAME = #{record.bicompanyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.crmid != null" >
+        CRMID = #{record.crmid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel1code != null" >
+        CHANNEL1CODE = #{record.channel1code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel1 != null" >
+        CHANNEL1 = #{record.channel1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel2code != null" >
+        CHANNEL2CODE = #{record.channel2code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel2 != null" >
+        CHANNEL2 = #{record.channel2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel3code != null" >
+        CHANNEL3CODE = #{record.channel3code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channel3 != null" >
+        CHANNEL3 = #{record.channel3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clientmanager != null" >
+        CLIENTMANAGER = #{record.clientmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultmanager != null" >
+        CONSULTMANAGER = #{record.consultmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellmanager != null" >
+        SELLMANAGER = #{record.sellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bcsellmanager != null" >
+        BCSELLMANAGER = #{record.bcsellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.childflag != null" >
+        CHILDFLAG = #{record.childflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageflag != null" >
+        PACKAGEFLAG = #{record.packageflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyid != null" >
+        FAMILYID = #{record.familyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyname != null" >
+        FAMILYNAME = #{record.familyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyroleid != null" >
+        FAMILYROLEID = #{record.familyroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyrolename != null" >
+        FAMILYROLENAME = #{record.familyrolename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.COM_PATIENTINFO
+    set CARD_NO = #{record.cardNo,jdbcType=VARCHAR},
+      HOSPITAL_ID = #{record.hospitalId,jdbcType=VARCHAR},
+      IC_CARDNO = #{record.icCardno,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      SPELL_CODE = #{record.spellCode,jdbcType=VARCHAR},
+      WB_CODE = #{record.wbCode,jdbcType=VARCHAR},
+      BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      SEX_CODE = #{record.sexCode,jdbcType=VARCHAR},
+      IDENNO = #{record.idenno,jdbcType=VARCHAR},
+      BLOOD_CODE = #{record.bloodCode,jdbcType=VARCHAR},
+      PROF_CODE = #{record.profCode,jdbcType=VARCHAR},
+      WORK_HOME = #{record.workHome,jdbcType=VARCHAR},
+      WORK_TEL = #{record.workTel,jdbcType=VARCHAR},
+      WORK_ZIP = #{record.workZip,jdbcType=VARCHAR},
+      HOME = #{record.home,jdbcType=VARCHAR},
+      HOME_TEL = #{record.homeTel,jdbcType=VARCHAR},
+      HOME_ZIP = #{record.homeZip,jdbcType=VARCHAR},
+      DISTRICT = #{record.district,jdbcType=VARCHAR},
+      NATION_CODE = #{record.nationCode,jdbcType=VARCHAR},
+      LINKMAN_NAME = #{record.linkmanName,jdbcType=VARCHAR},
+      LINKMAN_TEL = #{record.linkmanTel,jdbcType=VARCHAR},
+      LINKMAN_ADD = #{record.linkmanAdd,jdbcType=VARCHAR},
+      RELA_CODE = #{record.relaCode,jdbcType=VARCHAR},
+      MARI = #{record.mari,jdbcType=VARCHAR},
+      COUN_CODE = #{record.counCode,jdbcType=VARCHAR},
+      PAYKIND_CODE = #{record.paykindCode,jdbcType=VARCHAR},
+      PAYKIND_NAME = #{record.paykindName,jdbcType=VARCHAR},
+      PACT_CODE = #{record.pactCode,jdbcType=VARCHAR},
+      PACT_NAME = #{record.pactName,jdbcType=VARCHAR},
+      MCARD_NO = #{record.mcardNo,jdbcType=VARCHAR},
+      AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      FRAMT = #{record.framt,jdbcType=NUMERIC},
+      ANAPHY_FLAG = #{record.anaphyFlag,jdbcType=VARCHAR},
+      HEPATITIS_FLAG = #{record.hepatitisFlag,jdbcType=VARCHAR},
+      ACT_CODE = #{record.actCode,jdbcType=VARCHAR},
+      ACT_AMT = #{record.actAmt,jdbcType=NUMERIC},
+      LACT_SUM = #{record.lactSum,jdbcType=NUMERIC},
+      LBANK_SUM = #{record.lbankSum,jdbcType=NUMERIC},
+      ARREAR_TIMES = #{record.arrearTimes,jdbcType=NUMERIC},
+      ARREAR_SUM = #{record.arrearSum,jdbcType=NUMERIC},
+      INHOS_SOURCE = #{record.inhosSource,jdbcType=VARCHAR},
+      LIHOS_DATE = #{record.lihosDate,jdbcType=TIMESTAMP},
+      INHOS_TIMES = #{record.inhosTimes,jdbcType=NUMERIC},
+      LOUTHOS_DATE = #{record.louthosDate,jdbcType=TIMESTAMP},
+      FIR_SEE_DATE = #{record.firSeeDate,jdbcType=TIMESTAMP},
+      LREG_DATE = #{record.lregDate,jdbcType=TIMESTAMP},
+      DISOBY_CNT = #{record.disobyCnt,jdbcType=NUMERIC},
+      END_DATE = #{record.endDate,jdbcType=TIMESTAMP},
+      MARK = #{record.mark,jdbcType=VARCHAR},
+      OPER_CODE = #{record.operCode,jdbcType=VARCHAR},
+      OPER_DATE = #{record.operDate,jdbcType=TIMESTAMP},
+      IS_VALID = #{record.isValid,jdbcType=VARCHAR},
+      FEE_KIND = #{record.feeKind,jdbcType=VARCHAR},
+      OLD_CARDNO = #{record.oldCardno,jdbcType=VARCHAR},
+      IS_ENCRYPTNAME = #{record.isEncryptname,jdbcType=VARCHAR},
+      NORMALNAME = #{record.normalname,jdbcType=VARCHAR},
+      IDCARDTYPE = #{record.idcardtype,jdbcType=VARCHAR},
+      VIP_FLAG = #{record.vipFlag,jdbcType=VARCHAR},
+      MONTHER_NAME = #{record.montherName,jdbcType=VARCHAR},
+      IS_TREATMENT = #{record.isTreatment,jdbcType=VARCHAR},
+      CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      INSURANCE_ID = #{record.insuranceId,jdbcType=VARCHAR},
+      INSURANCE_NAME = #{record.insuranceName,jdbcType=VARCHAR},
+      HOME_DOOR_NO = #{record.homeDoorNo,jdbcType=VARCHAR},
+      LINKMAN_DOOR_NO = #{record.linkmanDoorNo,jdbcType=VARCHAR},
+      EMAIL = #{record.email,jdbcType=VARCHAR},
+      EMR_PATID = #{record.emrPatid,jdbcType=NUMERIC},
+      HOME_NOW = #{record.homeNow,jdbcType=VARCHAR},
+      FAMILY_CODE = #{record.familyCode,jdbcType=VARCHAR},
+      OTHER_CARDNO = #{record.otherCardno,jdbcType=VARCHAR},
+      SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      SERVICE_NAME = #{record.serviceName,jdbcType=VARCHAR},
+      PATIENT_SOURCENO = #{record.patientSourceno,jdbcType=VARCHAR},
+      REFERRAL_PERSON = #{record.referralPerson,jdbcType=VARCHAR},
+      CHANNEL_CODE = #{record.channelCode,jdbcType=VARCHAR},
+      FAMILY_NAME = #{record.familyName,jdbcType=VARCHAR},
+      BICOMPANYID = #{record.bicompanyid,jdbcType=VARCHAR},
+      BICOMPANYNAME = #{record.bicompanyname,jdbcType=VARCHAR},
+      CRMID = #{record.crmid,jdbcType=VARCHAR},
+      CHANNEL1CODE = #{record.channel1code,jdbcType=VARCHAR},
+      CHANNEL1 = #{record.channel1,jdbcType=VARCHAR},
+      CHANNEL2CODE = #{record.channel2code,jdbcType=VARCHAR},
+      CHANNEL2 = #{record.channel2,jdbcType=VARCHAR},
+      CHANNEL3CODE = #{record.channel3code,jdbcType=VARCHAR},
+      CHANNEL3 = #{record.channel3,jdbcType=VARCHAR},
+      CLIENTMANAGER = #{record.clientmanager,jdbcType=VARCHAR},
+      CONSULTMANAGER = #{record.consultmanager,jdbcType=VARCHAR},
+      SELLMANAGER = #{record.sellmanager,jdbcType=VARCHAR},
+      BCSELLMANAGER = #{record.bcsellmanager,jdbcType=VARCHAR},
+      CHILDFLAG = #{record.childflag,jdbcType=VARCHAR},
+      PACKAGEFLAG = #{record.packageflag,jdbcType=VARCHAR},
+      FAMILYID = #{record.familyid,jdbcType=VARCHAR},
+      FAMILYNAME = #{record.familyname,jdbcType=VARCHAR},
+      FAMILYROLEID = #{record.familyroleid,jdbcType=VARCHAR},
+      FAMILYROLENAME = #{record.familyrolename,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.ComPatientinfo" >
+    update CRM.COM_PATIENTINFO
+    <set >
+      <if test="icCardno != null" >
+        IC_CARDNO = #{icCardno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="spellCode != null" >
+        SPELL_CODE = #{spellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="wbCode != null" >
+        WB_CODE = #{wbCode,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sexCode != null" >
+        SEX_CODE = #{sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="idenno != null" >
+        IDENNO = #{idenno,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodCode != null" >
+        BLOOD_CODE = #{bloodCode,jdbcType=VARCHAR},
+      </if>
+      <if test="profCode != null" >
+        PROF_CODE = #{profCode,jdbcType=VARCHAR},
+      </if>
+      <if test="workHome != null" >
+        WORK_HOME = #{workHome,jdbcType=VARCHAR},
+      </if>
+      <if test="workTel != null" >
+        WORK_TEL = #{workTel,jdbcType=VARCHAR},
+      </if>
+      <if test="workZip != null" >
+        WORK_ZIP = #{workZip,jdbcType=VARCHAR},
+      </if>
+      <if test="home != null" >
+        HOME = #{home,jdbcType=VARCHAR},
+      </if>
+      <if test="homeTel != null" >
+        HOME_TEL = #{homeTel,jdbcType=VARCHAR},
+      </if>
+      <if test="homeZip != null" >
+        HOME_ZIP = #{homeZip,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        DISTRICT = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="nationCode != null" >
+        NATION_CODE = #{nationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanName != null" >
+        LINKMAN_NAME = #{linkmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanTel != null" >
+        LINKMAN_TEL = #{linkmanTel,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanAdd != null" >
+        LINKMAN_ADD = #{linkmanAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="relaCode != null" >
+        RELA_CODE = #{relaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mari != null" >
+        MARI = #{mari,jdbcType=VARCHAR},
+      </if>
+      <if test="counCode != null" >
+        COUN_CODE = #{counCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paykindCode != null" >
+        PAYKIND_CODE = #{paykindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paykindName != null" >
+        PAYKIND_NAME = #{paykindName,jdbcType=VARCHAR},
+      </if>
+      <if test="pactCode != null" >
+        PACT_CODE = #{pactCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pactName != null" >
+        PACT_NAME = #{pactName,jdbcType=VARCHAR},
+      </if>
+      <if test="mcardNo != null" >
+        MCARD_NO = #{mcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="framt != null" >
+        FRAMT = #{framt,jdbcType=NUMERIC},
+      </if>
+      <if test="anaphyFlag != null" >
+        ANAPHY_FLAG = #{anaphyFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="hepatitisFlag != null" >
+        HEPATITIS_FLAG = #{hepatitisFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="actCode != null" >
+        ACT_CODE = #{actCode,jdbcType=VARCHAR},
+      </if>
+      <if test="actAmt != null" >
+        ACT_AMT = #{actAmt,jdbcType=NUMERIC},
+      </if>
+      <if test="lactSum != null" >
+        LACT_SUM = #{lactSum,jdbcType=NUMERIC},
+      </if>
+      <if test="lbankSum != null" >
+        LBANK_SUM = #{lbankSum,jdbcType=NUMERIC},
+      </if>
+      <if test="arrearTimes != null" >
+        ARREAR_TIMES = #{arrearTimes,jdbcType=NUMERIC},
+      </if>
+      <if test="arrearSum != null" >
+        ARREAR_SUM = #{arrearSum,jdbcType=NUMERIC},
+      </if>
+      <if test="inhosSource != null" >
+        INHOS_SOURCE = #{inhosSource,jdbcType=VARCHAR},
+      </if>
+      <if test="lihosDate != null" >
+        LIHOS_DATE = #{lihosDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inhosTimes != null" >
+        INHOS_TIMES = #{inhosTimes,jdbcType=NUMERIC},
+      </if>
+      <if test="louthosDate != null" >
+        LOUTHOS_DATE = #{louthosDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firSeeDate != null" >
+        FIR_SEE_DATE = #{firSeeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lregDate != null" >
+        LREG_DATE = #{lregDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disobyCnt != null" >
+        DISOBY_CNT = #{disobyCnt,jdbcType=NUMERIC},
+      </if>
+      <if test="endDate != null" >
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null" >
+        MARK = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="operCode != null" >
+        OPER_CODE = #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operDate != null" >
+        OPER_DATE = #{operDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isValid != null" >
+        IS_VALID = #{isValid,jdbcType=VARCHAR},
+      </if>
+      <if test="feeKind != null" >
+        FEE_KIND = #{feeKind,jdbcType=VARCHAR},
+      </if>
+      <if test="oldCardno != null" >
+        OLD_CARDNO = #{oldCardno,jdbcType=VARCHAR},
+      </if>
+      <if test="isEncryptname != null" >
+        IS_ENCRYPTNAME = #{isEncryptname,jdbcType=VARCHAR},
+      </if>
+      <if test="normalname != null" >
+        NORMALNAME = #{normalname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardtype != null" >
+        IDCARDTYPE = #{idcardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="vipFlag != null" >
+        VIP_FLAG = #{vipFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="montherName != null" >
+        MONTHER_NAME = #{montherName,jdbcType=VARCHAR},
+      </if>
+      <if test="isTreatment != null" >
+        IS_TREATMENT = #{isTreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="caseNo != null" >
+        CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceId != null" >
+        INSURANCE_ID = #{insuranceId,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceName != null" >
+        INSURANCE_NAME = #{insuranceName,jdbcType=VARCHAR},
+      </if>
+      <if test="homeDoorNo != null" >
+        HOME_DOOR_NO = #{homeDoorNo,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanDoorNo != null" >
+        LINKMAN_DOOR_NO = #{linkmanDoorNo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="emrPatid != null" >
+        EMR_PATID = #{emrPatid,jdbcType=NUMERIC},
+      </if>
+      <if test="homeNow != null" >
+        HOME_NOW = #{homeNow,jdbcType=VARCHAR},
+      </if>
+      <if test="familyCode != null" >
+        FAMILY_CODE = #{familyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="otherCardno != null" >
+        OTHER_CARDNO = #{otherCardno,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null" >
+        SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceName != null" >
+        SERVICE_NAME = #{serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSourceno != null" >
+        PATIENT_SOURCENO = #{patientSourceno,jdbcType=VARCHAR},
+      </if>
+      <if test="referralPerson != null" >
+        REFERRAL_PERSON = #{referralPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null" >
+        CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="familyName != null" >
+        FAMILY_NAME = #{familyName,jdbcType=VARCHAR},
+      </if>
+      <if test="bicompanyid != null" >
+        BICOMPANYID = #{bicompanyid,jdbcType=VARCHAR},
+      </if>
+      <if test="bicompanyname != null" >
+        BICOMPANYNAME = #{bicompanyname,jdbcType=VARCHAR},
+      </if>
+      <if test="crmid != null" >
+        CRMID = #{crmid,jdbcType=VARCHAR},
+      </if>
+      <if test="channel1code != null" >
+        CHANNEL1CODE = #{channel1code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel1 != null" >
+        CHANNEL1 = #{channel1,jdbcType=VARCHAR},
+      </if>
+      <if test="channel2code != null" >
+        CHANNEL2CODE = #{channel2code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel2 != null" >
+        CHANNEL2 = #{channel2,jdbcType=VARCHAR},
+      </if>
+      <if test="channel3code != null" >
+        CHANNEL3CODE = #{channel3code,jdbcType=VARCHAR},
+      </if>
+      <if test="channel3 != null" >
+        CHANNEL3 = #{channel3,jdbcType=VARCHAR},
+      </if>
+      <if test="clientmanager != null" >
+        CLIENTMANAGER = #{clientmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="consultmanager != null" >
+        CONSULTMANAGER = #{consultmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="sellmanager != null" >
+        SELLMANAGER = #{sellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="bcsellmanager != null" >
+        BCSELLMANAGER = #{bcsellmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="childflag != null" >
+        CHILDFLAG = #{childflag,jdbcType=VARCHAR},
+      </if>
+      <if test="packageflag != null" >
+        PACKAGEFLAG = #{packageflag,jdbcType=VARCHAR},
+      </if>
+      <if test="familyid != null" >
+        FAMILYID = #{familyid,jdbcType=VARCHAR},
+      </if>
+      <if test="familyname != null" >
+        FAMILYNAME = #{familyname,jdbcType=VARCHAR},
+      </if>
+      <if test="familyroleid != null" >
+        FAMILYROLEID = #{familyroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="familyrolename != null" >
+        FAMILYROLENAME = #{familyrolename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.ComPatientinfo" >
+    update CRM.COM_PATIENTINFO
+    set IC_CARDNO = #{icCardno,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      SPELL_CODE = #{spellCode,jdbcType=VARCHAR},
+      WB_CODE = #{wbCode,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      SEX_CODE = #{sexCode,jdbcType=VARCHAR},
+      IDENNO = #{idenno,jdbcType=VARCHAR},
+      BLOOD_CODE = #{bloodCode,jdbcType=VARCHAR},
+      PROF_CODE = #{profCode,jdbcType=VARCHAR},
+      WORK_HOME = #{workHome,jdbcType=VARCHAR},
+      WORK_TEL = #{workTel,jdbcType=VARCHAR},
+      WORK_ZIP = #{workZip,jdbcType=VARCHAR},
+      HOME = #{home,jdbcType=VARCHAR},
+      HOME_TEL = #{homeTel,jdbcType=VARCHAR},
+      HOME_ZIP = #{homeZip,jdbcType=VARCHAR},
+      DISTRICT = #{district,jdbcType=VARCHAR},
+      NATION_CODE = #{nationCode,jdbcType=VARCHAR},
+      LINKMAN_NAME = #{linkmanName,jdbcType=VARCHAR},
+      LINKMAN_TEL = #{linkmanTel,jdbcType=VARCHAR},
+      LINKMAN_ADD = #{linkmanAdd,jdbcType=VARCHAR},
+      RELA_CODE = #{relaCode,jdbcType=VARCHAR},
+      MARI = #{mari,jdbcType=VARCHAR},
+      COUN_CODE = #{counCode,jdbcType=VARCHAR},
+      PAYKIND_CODE = #{paykindCode,jdbcType=VARCHAR},
+      PAYKIND_NAME = #{paykindName,jdbcType=VARCHAR},
+      PACT_CODE = #{pactCode,jdbcType=VARCHAR},
+      PACT_NAME = #{pactName,jdbcType=VARCHAR},
+      MCARD_NO = #{mcardNo,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      FRAMT = #{framt,jdbcType=NUMERIC},
+      ANAPHY_FLAG = #{anaphyFlag,jdbcType=VARCHAR},
+      HEPATITIS_FLAG = #{hepatitisFlag,jdbcType=VARCHAR},
+      ACT_CODE = #{actCode,jdbcType=VARCHAR},
+      ACT_AMT = #{actAmt,jdbcType=NUMERIC},
+      LACT_SUM = #{lactSum,jdbcType=NUMERIC},
+      LBANK_SUM = #{lbankSum,jdbcType=NUMERIC},
+      ARREAR_TIMES = #{arrearTimes,jdbcType=NUMERIC},
+      ARREAR_SUM = #{arrearSum,jdbcType=NUMERIC},
+      INHOS_SOURCE = #{inhosSource,jdbcType=VARCHAR},
+      LIHOS_DATE = #{lihosDate,jdbcType=TIMESTAMP},
+      INHOS_TIMES = #{inhosTimes,jdbcType=NUMERIC},
+      LOUTHOS_DATE = #{louthosDate,jdbcType=TIMESTAMP},
+      FIR_SEE_DATE = #{firSeeDate,jdbcType=TIMESTAMP},
+      LREG_DATE = #{lregDate,jdbcType=TIMESTAMP},
+      DISOBY_CNT = #{disobyCnt,jdbcType=NUMERIC},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      MARK = #{mark,jdbcType=VARCHAR},
+      OPER_CODE = #{operCode,jdbcType=VARCHAR},
+      OPER_DATE = #{operDate,jdbcType=TIMESTAMP},
+      IS_VALID = #{isValid,jdbcType=VARCHAR},
+      FEE_KIND = #{feeKind,jdbcType=VARCHAR},
+      OLD_CARDNO = #{oldCardno,jdbcType=VARCHAR},
+      IS_ENCRYPTNAME = #{isEncryptname,jdbcType=VARCHAR},
+      NORMALNAME = #{normalname,jdbcType=VARCHAR},
+      IDCARDTYPE = #{idcardtype,jdbcType=VARCHAR},
+      VIP_FLAG = #{vipFlag,jdbcType=VARCHAR},
+      MONTHER_NAME = #{montherName,jdbcType=VARCHAR},
+      IS_TREATMENT = #{isTreatment,jdbcType=VARCHAR},
+      CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      INSURANCE_ID = #{insuranceId,jdbcType=VARCHAR},
+      INSURANCE_NAME = #{insuranceName,jdbcType=VARCHAR},
+      HOME_DOOR_NO = #{homeDoorNo,jdbcType=VARCHAR},
+      LINKMAN_DOOR_NO = #{linkmanDoorNo,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      EMR_PATID = #{emrPatid,jdbcType=NUMERIC},
+      HOME_NOW = #{homeNow,jdbcType=VARCHAR},
+      FAMILY_CODE = #{familyCode,jdbcType=VARCHAR},
+      OTHER_CARDNO = #{otherCardno,jdbcType=VARCHAR},
+      SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      SERVICE_NAME = #{serviceName,jdbcType=VARCHAR},
+      PATIENT_SOURCENO = #{patientSourceno,jdbcType=VARCHAR},
+      REFERRAL_PERSON = #{referralPerson,jdbcType=VARCHAR},
+      CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+      FAMILY_NAME = #{familyName,jdbcType=VARCHAR},
+      BICOMPANYID = #{bicompanyid,jdbcType=VARCHAR},
+      BICOMPANYNAME = #{bicompanyname,jdbcType=VARCHAR},
+      CRMID = #{crmid,jdbcType=VARCHAR},
+      CHANNEL1CODE = #{channel1code,jdbcType=VARCHAR},
+      CHANNEL1 = #{channel1,jdbcType=VARCHAR},
+      CHANNEL2CODE = #{channel2code,jdbcType=VARCHAR},
+      CHANNEL2 = #{channel2,jdbcType=VARCHAR},
+      CHANNEL3CODE = #{channel3code,jdbcType=VARCHAR},
+      CHANNEL3 = #{channel3,jdbcType=VARCHAR},
+      CLIENTMANAGER = #{clientmanager,jdbcType=VARCHAR},
+      CONSULTMANAGER = #{consultmanager,jdbcType=VARCHAR},
+      SELLMANAGER = #{sellmanager,jdbcType=VARCHAR},
+      BCSELLMANAGER = #{bcsellmanager,jdbcType=VARCHAR},
+      CHILDFLAG = #{childflag,jdbcType=VARCHAR},
+      PACKAGEFLAG = #{packageflag,jdbcType=VARCHAR},
+      FAMILYID = #{familyid,jdbcType=VARCHAR},
+      FAMILYNAME = #{familyname,jdbcType=VARCHAR},
+      FAMILYROLEID = #{familyroleid,jdbcType=VARCHAR},
+      FAMILYROLENAME = #{familyrolename,jdbcType=VARCHAR}
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </update>
+</mapper>
