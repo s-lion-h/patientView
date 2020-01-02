@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.BdComDictionaryMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.BdComDictionary" >
+    <constructor >
+      <idArg column="DICTIONARY_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="DICTIONARY_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DICTIONARY_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DICTIONARY_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DESCRIPTION" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="USER_DEFINE_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SPELL_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FIVESTROKE_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SORT_ID" jdbcType="NUMERIC" javaType="java.lang.Short" />
+      <arg column="VALID_FLAG" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="OPER_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    DICTIONARY_ID, DICTIONARY_TYPE, DICTIONARY_CODE, DICTIONARY_NAME, DESCRIPTION, USER_DEFINE_CODE, 
+    SPELL_CODE, FIVESTROKE_CODE, SORT_ID, VALID_FLAG, OPER_ID, OPER_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.BdComDictionaryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.BD_COM_DICTIONARY
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.BdComDictionaryKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.BD_COM_DICTIONARY
+    where DICTIONARY_ID = #{dictionaryId,jdbcType=VARCHAR}
+      and DICTIONARY_TYPE = #{dictionaryType,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.slionh.patientview.entity.BdComDictionaryKey" >
+    delete from CRM.BD_COM_DICTIONARY
+    where DICTIONARY_ID = #{dictionaryId,jdbcType=VARCHAR}
+      and DICTIONARY_TYPE = #{dictionaryType,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.BdComDictionaryExample" >
+    delete from CRM.BD_COM_DICTIONARY
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.BdComDictionary" >
+    <selectKey resultType="java.lang.String" keyProperty="dictionaryType" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.BD_COM_DICTIONARY (DICTIONARY_ID, DICTIONARY_CODE, DICTIONARY_NAME, 
+      DESCRIPTION, USER_DEFINE_CODE, SPELL_CODE, 
+      FIVESTROKE_CODE, SORT_ID, VALID_FLAG, 
+      OPER_ID, OPER_TIME)
+    values (#{dictionaryId,jdbcType=VARCHAR}, #{dictionaryCode,jdbcType=VARCHAR}, #{dictionaryName,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{userDefineCode,jdbcType=VARCHAR}, #{spellCode,jdbcType=VARCHAR}, 
+      #{fivestrokeCode,jdbcType=VARCHAR}, #{sortId,jdbcType=NUMERIC}, #{validFlag,jdbcType=CHAR}, 
+      #{operId,jdbcType=VARCHAR}, #{operTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.BdComDictionary" >
+    <selectKey resultType="java.lang.String" keyProperty="dictionaryType" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.BD_COM_DICTIONARY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dictionaryId != null" >
+        DICTIONARY_ID,
+      </if>
+      <if test="dictionaryCode != null" >
+        DICTIONARY_CODE,
+      </if>
+      <if test="dictionaryName != null" >
+        DICTIONARY_NAME,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="userDefineCode != null" >
+        USER_DEFINE_CODE,
+      </if>
+      <if test="spellCode != null" >
+        SPELL_CODE,
+      </if>
+      <if test="fivestrokeCode != null" >
+        FIVESTROKE_CODE,
+      </if>
+      <if test="sortId != null" >
+        SORT_ID,
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG,
+      </if>
+      <if test="operId != null" >
+        OPER_ID,
+      </if>
+      <if test="operTime != null" >
+        OPER_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dictionaryId != null" >
+        #{dictionaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="dictionaryCode != null" >
+        #{dictionaryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dictionaryName != null" >
+        #{dictionaryName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefineCode != null" >
+        #{userDefineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spellCode != null" >
+        #{spellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fivestrokeCode != null" >
+        #{fivestrokeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sortId != null" >
+        #{sortId,jdbcType=NUMERIC},
+      </if>
+      <if test="validFlag != null" >
+        #{validFlag,jdbcType=CHAR},
+      </if>
+      <if test="operId != null" >
+        #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null" >
+        #{operTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.BdComDictionaryExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.BD_COM_DICTIONARY
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.BD_COM_DICTIONARY
+    <set >
+      <if test="record.dictionaryId != null" >
+        DICTIONARY_ID = #{record.dictionaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dictionaryType != null" >
+        DICTIONARY_TYPE = #{record.dictionaryType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dictionaryCode != null" >
+        DICTIONARY_CODE = #{record.dictionaryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dictionaryName != null" >
+        DICTIONARY_NAME = #{record.dictionaryName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefineCode != null" >
+        USER_DEFINE_CODE = #{record.userDefineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spellCode != null" >
+        SPELL_CODE = #{record.spellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fivestrokeCode != null" >
+        FIVESTROKE_CODE = #{record.fivestrokeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sortId != null" >
+        SORT_ID = #{record.sortId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.validFlag != null" >
+        VALID_FLAG = #{record.validFlag,jdbcType=CHAR},
+      </if>
+      <if test="record.operId != null" >
+        OPER_ID = #{record.operId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operTime != null" >
+        OPER_TIME = #{record.operTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.BD_COM_DICTIONARY
+    set DICTIONARY_ID = #{record.dictionaryId,jdbcType=VARCHAR},
+      DICTIONARY_TYPE = #{record.dictionaryType,jdbcType=VARCHAR},
+      DICTIONARY_CODE = #{record.dictionaryCode,jdbcType=VARCHAR},
+      DICTIONARY_NAME = #{record.dictionaryName,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      USER_DEFINE_CODE = #{record.userDefineCode,jdbcType=VARCHAR},
+      SPELL_CODE = #{record.spellCode,jdbcType=VARCHAR},
+      FIVESTROKE_CODE = #{record.fivestrokeCode,jdbcType=VARCHAR},
+      SORT_ID = #{record.sortId,jdbcType=NUMERIC},
+      VALID_FLAG = #{record.validFlag,jdbcType=CHAR},
+      OPER_ID = #{record.operId,jdbcType=VARCHAR},
+      OPER_TIME = #{record.operTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.BdComDictionary" >
+    update CRM.BD_COM_DICTIONARY
+    <set >
+      <if test="dictionaryCode != null" >
+        DICTIONARY_CODE = #{dictionaryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dictionaryName != null" >
+        DICTIONARY_NAME = #{dictionaryName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefineCode != null" >
+        USER_DEFINE_CODE = #{userDefineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spellCode != null" >
+        SPELL_CODE = #{spellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fivestrokeCode != null" >
+        FIVESTROKE_CODE = #{fivestrokeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sortId != null" >
+        SORT_ID = #{sortId,jdbcType=NUMERIC},
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG = #{validFlag,jdbcType=CHAR},
+      </if>
+      <if test="operId != null" >
+        OPER_ID = #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null" >
+        OPER_TIME = #{operTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where DICTIONARY_ID = #{dictionaryId,jdbcType=VARCHAR}
+      and DICTIONARY_TYPE = #{dictionaryType,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.BdComDictionary" >
+    update CRM.BD_COM_DICTIONARY
+    set DICTIONARY_CODE = #{dictionaryCode,jdbcType=VARCHAR},
+      DICTIONARY_NAME = #{dictionaryName,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      USER_DEFINE_CODE = #{userDefineCode,jdbcType=VARCHAR},
+      SPELL_CODE = #{spellCode,jdbcType=VARCHAR},
+      FIVESTROKE_CODE = #{fivestrokeCode,jdbcType=VARCHAR},
+      SORT_ID = #{sortId,jdbcType=NUMERIC},
+      VALID_FLAG = #{validFlag,jdbcType=CHAR},
+      OPER_ID = #{operId,jdbcType=VARCHAR},
+      OPER_TIME = #{operTime,jdbcType=TIMESTAMP}
+    where DICTIONARY_ID = #{dictionaryId,jdbcType=VARCHAR}
+      and DICTIONARY_TYPE = #{dictionaryType,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -16,56 +16,87 @@
 <!--<div class="container-fluid">-->
 <div class="container">
 <!--    <h2 th:text="${msg}"></h2>-->
-    <h1 class="text-center" th:text="${patientInfo.name}"></h1>
+    <h1 class="text-center" th:text="${hisPatientInfo.name}"></h1>
     <div class="row">
         <div class="col">
-            <p>年龄：31岁</p>
-            <p th:text="'地址：'+${patientInfo.address}"></p>
-            <p>证件号：445222198105060045</p>
-            <p>专属客服：刘雨寒</p>
-            <p class="text-info">预产期：2019-07-17</p>
-            <p>电话：13922431110</p>
+            <p th:text="'年龄：'+${year}"></p>
+            <p th:text="${hisPatientInfo.homeNow}!=null?'地址：'+${hisPatientInfo.homeNow}:'地址：'+${patientInfo.address}"></p>
+            <p th:text="${hisPatientInfo.idenno}!=null?'证件号：'+${hisPatientInfo.idenno}:'证件号：'+${patientInfo.idno}"></p>
+            <p th:text="${clientManager.employeeName}==null?'专属客服：无专属客服':'专属客服：'+${clientManager.employeeName}"></p>
+            <p class="text-info" th:text="'预产期：'+${#dates.format(patientInfo.expectedtime, 'yyyy年MM月dd日')}"></p>
+            <p th:text="${hisPatientInfo.homeTel}!=null?'电话：'+${hisPatientInfo.homeTel}:'电话：'+${patientInfo.phone}"></p>
         </div>
         <div class="col">
             <hr>
             <div class="text-center">
-                <h2><span class="badge badge-dark ">黑金客户</span></h2>
-<!--                <div class="spinner-border" role="status">-->
-<!--                    <span class="sr-only">Loading...</span>-->
-<!--                </div>-->
+                <h2><span class="badge badge-dark" th:text="${CRM_PATIENTLEVEL.get('__${coupon.patientlevel}__').dictionaryName}"></span></h2>
+<!--                <h2><span class="badge badge-dark" th:text="${coupon.patientlevel}"></span></h2>-->
             </div>
             <div class="text-center">
-                <code>总消费：96505.38</code>
+                <code th:text="'总消费：'+${coupon.couponaccumulate}"></code>
                 <br>
-                <code>积分：48505.38</code>
+                <code th:text="'积分：'+${coupon.couponvacancy}"></code>
             </div>
         </div>
         <div class="col">
             <h3>客户标签</h3>
             <div class="row"><!--标签-->
-                <button type="button" class="btn btn-danger btn-block text-left">身体：高位妊娠 高龄产妇</button>
-                <button type="button" class="btn btn-info btn-block text-left">背景：军人背景</button>
-                <button type="button" class="btn btn-warning btn-block text-left">性格：严禁 认真 对服务挑剔</button>
-                <button type="button" class="btn btn-success btn-block text-left">兴趣 ：暂无</button>
+                <button type="button" class="btn btn-danger btn-block text-left" th:text="'身体：'+${patientlabel.get('LABELTYPE1')}"></button>
+                <button type="button" class="btn btn-info btn-block text-left" th:text="'背景：'+${patientlabel.get('LABELTYPE2')}"></button>
+                <button type="button" class="btn btn-warning btn-block text-left" th:text="'性格：'+${patientlabel.get('LABELTYPE3')}"></button>
+                <button type="button" class="btn btn-success btn-block text-left" th:text="'兴趣 ：'+${patientlabel.get('LABELTYPE4')}"></button>
             </div>
 
         </div>
     </div>
     <hr>
     <div class="row">
-        <div class="col-7">
-            <div class="col">
-                <h3>最新预约</h3>
-                <hr>
-                <p>登记日期：2019-11-17</p>
-                <p>一级病种：医学美容</p>
-                <p>二级病种：面龄</p>
-                <p>预约科室：医学美容门诊</p>
-                <p>预约日期：2019-11-24</p>
-                <p>预约时间：13:30-14:30</p>
-                <p>备注：共振+无针水光（还没购买）</p>
+<!--        预约的做两个，第一个是就诊预约，第二个是项目预约-->
+        <th:block th:if="${latestAppointment.appointtype}==1">
+            <div class="col-7">
+                <div class="col">
+                    <h3>最新预约——就诊</h3>
+                    <hr>
+                    <p th:text="'预约医生：'+${latestAppointment.doctname}">一级病种：医学美容</p>
+                    <p th:text="'预约科室：'+${latestAppointment.deptname}">预约科室：医学美容门诊</p>
+<!--                    <p th:text="'登记日期：'+${latestAppointment.createtime}"></p>-->
+                    <p th:text="'预约日期：'+${#dates.format(latestAppointment.appointdate, 'yyyy年MM月dd日')}"></p>
+                    <p th:text="'预约时间：'+${#dates.format(latestAppointment.begintime, 'HH:mm')}+'---'+ ${#dates.format(latestAppointment.endtime, 'HH:mm')}"></p>
+                    <p th:text="'记录人：'+${latestAppointment.createopername}"></p>
+                </div>
             </div>
-        </div>
+        </th:block>
+        <th:block th:if="${latestAppointment.appointtype}==2">
+            <div class="col-7">
+                <div class="col">
+                    <h3>最新预约——项目</h3>
+                    <hr>
+                    <p th:text="'预约子项目：'+${latestAppointment.appointchilditem}"></p>
+<!--                    <p th:text="'登记日期：'+${latestAppointment.createtime}"></p>-->
+                    <p th:text="'预约子项目名称：'+${latestAppointment.appointitemname}"></p>
+<!--                    <p>预约科室：医学美容门诊</p>-->
+                    <p th:text="'预约日期：'+${#dates.format(latestAppointment.appointdate, 'yyyy年MM月dd日')}"></p>
+                    <p th:text="'预约时间：'+${#dates.format(latestAppointment.begintime, 'HH:mm')}+'---'+ ${#dates.format(latestAppointment.endtime, 'HH:mm')}"></p>
+                    <!--                    <p>备注：共振+无针水光（还没购买）</p>-->
+                    <p th:text="'记录人：'+${latestAppointment.createopername}"></p>
+
+                </div>
+            </div>
+        </th:block>
+        <th:block th:if="${latestAppointment.appointtype}==3">
+            <div class="col-7">
+                <div class="col">
+                    <h3>最新预约——活动</h3>
+                    <hr>
+                    <p th:text="'活动：'+${latestAppointment.appointmarketing}"></p>
+<!--                    <p th:text="'登记日期：'+${latestAppointment.createtime}"></p>-->
+                    <p th:text="'预约日期：'+${#dates.format(latestAppointment.appointdate, 'yyyy年MM月dd日')}"></p>
+                    <p th:text="'预约时间：'+${#dates.format(latestAppointment.begintime, 'HH:mm')}+'---'+ ${#dates.format(latestAppointment.endtime, 'HH:mm')}"></p>
+                    <p th:text="'记录人：'+${latestAppointment.createopername}"></p>
+
+                </div>
+            </div>
+        </th:block>
         <div class="col-5">
             <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
             <div id="main" style="width: auto;height:400px;"></div>

@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.BdComEmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.BdComEmployee" >
+    <constructor >
+      <idArg column="EMPLOYEE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMPLOYEE_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMPLOYEE_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMPLOYEE_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DEPARTMENT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SPELL_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FIVESTROKE_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SEX_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BIRTHDAY" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="IDENNO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DESCRIPTION" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LEVEL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="POST_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NURSE_CELL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SORT_ID" jdbcType="NUMERIC" javaType="java.lang.Short" />
+      <arg column="VALID_FLAG" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="OPER_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="INTERFACE_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TEMPORARY_REGISTRATION" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="REGISTRATIONP_LEVEL_PERMISSION" jdbcType="CHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    EMPLOYEE_ID, EMPLOYEE_CODE, EMPLOYEE_NAME, EMPLOYEE_TYPE, DEPARTMENT_ID, SPELL_CODE, 
+    FIVESTROKE_CODE, SEX_CODE, BIRTHDAY, IDENNO, PHONE, DESCRIPTION, LEVEL_ID, POST_ID, 
+    NURSE_CELL_ID, SORT_ID, VALID_FLAG, OPER_ID, OPER_TIME, INTERFACE_CODE, TEMPORARY_REGISTRATION, 
+    REGISTRATIONP_LEVEL_PERMISSION
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.BdComEmployeeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.BD_COM_EMPLOYEE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.BD_COM_EMPLOYEE
+    where EMPLOYEE_ID = #{employeeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CRM.BD_COM_EMPLOYEE
+    where EMPLOYEE_ID = #{employeeId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.BdComEmployeeExample" >
+    delete from CRM.BD_COM_EMPLOYEE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.BdComEmployee" >
+    <selectKey resultType="java.lang.String" keyProperty="employeeId" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.BD_COM_EMPLOYEE (EMPLOYEE_CODE, EMPLOYEE_NAME, EMPLOYEE_TYPE, 
+      DEPARTMENT_ID, SPELL_CODE, FIVESTROKE_CODE, 
+      SEX_CODE, BIRTHDAY, IDENNO, 
+      PHONE, DESCRIPTION, LEVEL_ID, 
+      POST_ID, NURSE_CELL_ID, SORT_ID, 
+      VALID_FLAG, OPER_ID, OPER_TIME, 
+      INTERFACE_CODE, TEMPORARY_REGISTRATION, REGISTRATIONP_LEVEL_PERMISSION
+      )
+    values (#{employeeCode,jdbcType=VARCHAR}, #{employeeName,jdbcType=VARCHAR}, #{employeeType,jdbcType=VARCHAR}, 
+      #{departmentId,jdbcType=VARCHAR}, #{spellCode,jdbcType=VARCHAR}, #{fivestrokeCode,jdbcType=VARCHAR}, 
+      #{sexCode,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{idenno,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{levelId,jdbcType=VARCHAR}, 
+      #{postId,jdbcType=VARCHAR}, #{nurseCellId,jdbcType=VARCHAR}, #{sortId,jdbcType=NUMERIC}, 
+      #{validFlag,jdbcType=CHAR}, #{operId,jdbcType=VARCHAR}, #{operTime,jdbcType=TIMESTAMP}, 
+      #{interfaceCode,jdbcType=VARCHAR}, #{temporaryRegistration,jdbcType=CHAR}, #{registrationpLevelPermission,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.BdComEmployee" >
+    <selectKey resultType="java.lang.String" keyProperty="employeeId" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.BD_COM_EMPLOYEE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="employeeCode != null" >
+        EMPLOYEE_CODE,
+      </if>
+      <if test="employeeName != null" >
+        EMPLOYEE_NAME,
+      </if>
+      <if test="employeeType != null" >
+        EMPLOYEE_TYPE,
+      </if>
+      <if test="departmentId != null" >
+        DEPARTMENT_ID,
+      </if>
+      <if test="spellCode != null" >
+        SPELL_CODE,
+      </if>
+      <if test="fivestrokeCode != null" >
+        FIVESTROKE_CODE,
+      </if>
+      <if test="sexCode != null" >
+        SEX_CODE,
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY,
+      </if>
+      <if test="idenno != null" >
+        IDENNO,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="levelId != null" >
+        LEVEL_ID,
+      </if>
+      <if test="postId != null" >
+        POST_ID,
+      </if>
+      <if test="nurseCellId != null" >
+        NURSE_CELL_ID,
+      </if>
+      <if test="sortId != null" >
+        SORT_ID,
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG,
+      </if>
+      <if test="operId != null" >
+        OPER_ID,
+      </if>
+      <if test="operTime != null" >
+        OPER_TIME,
+      </if>
+      <if test="interfaceCode != null" >
+        INTERFACE_CODE,
+      </if>
+      <if test="temporaryRegistration != null" >
+        TEMPORARY_REGISTRATION,
+      </if>
+      <if test="registrationpLevelPermission != null" >
+        REGISTRATIONP_LEVEL_PERMISSION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="employeeCode != null" >
+        #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeName != null" >
+        #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeType != null" >
+        #{employeeType,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="spellCode != null" >
+        #{spellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fivestrokeCode != null" >
+        #{fivestrokeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sexCode != null" >
+        #{sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idenno != null" >
+        #{idenno,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="levelId != null" >
+        #{levelId,jdbcType=VARCHAR},
+      </if>
+      <if test="postId != null" >
+        #{postId,jdbcType=VARCHAR},
+      </if>
+      <if test="nurseCellId != null" >
+        #{nurseCellId,jdbcType=VARCHAR},
+      </if>
+      <if test="sortId != null" >
+        #{sortId,jdbcType=NUMERIC},
+      </if>
+      <if test="validFlag != null" >
+        #{validFlag,jdbcType=CHAR},
+      </if>
+      <if test="operId != null" >
+        #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null" >
+        #{operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interfaceCode != null" >
+        #{interfaceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="temporaryRegistration != null" >
+        #{temporaryRegistration,jdbcType=CHAR},
+      </if>
+      <if test="registrationpLevelPermission != null" >
+        #{registrationpLevelPermission,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.BdComEmployeeExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.BD_COM_EMPLOYEE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.BD_COM_EMPLOYEE
+    <set >
+      <if test="record.employeeId != null" >
+        EMPLOYEE_ID = #{record.employeeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.employeeCode != null" >
+        EMPLOYEE_CODE = #{record.employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.employeeName != null" >
+        EMPLOYEE_NAME = #{record.employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.employeeType != null" >
+        EMPLOYEE_TYPE = #{record.employeeType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.departmentId != null" >
+        DEPARTMENT_ID = #{record.departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spellCode != null" >
+        SPELL_CODE = #{record.spellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fivestrokeCode != null" >
+        FIVESTROKE_CODE = #{record.fivestrokeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sexCode != null" >
+        SEX_CODE = #{record.sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.idenno != null" >
+        IDENNO = #{record.idenno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        PHONE = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.levelId != null" >
+        LEVEL_ID = #{record.levelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postId != null" >
+        POST_ID = #{record.postId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nurseCellId != null" >
+        NURSE_CELL_ID = #{record.nurseCellId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sortId != null" >
+        SORT_ID = #{record.sortId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.validFlag != null" >
+        VALID_FLAG = #{record.validFlag,jdbcType=CHAR},
+      </if>
+      <if test="record.operId != null" >
+        OPER_ID = #{record.operId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operTime != null" >
+        OPER_TIME = #{record.operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.interfaceCode != null" >
+        INTERFACE_CODE = #{record.interfaceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.temporaryRegistration != null" >
+        TEMPORARY_REGISTRATION = #{record.temporaryRegistration,jdbcType=CHAR},
+      </if>
+      <if test="record.registrationpLevelPermission != null" >
+        REGISTRATIONP_LEVEL_PERMISSION = #{record.registrationpLevelPermission,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.BD_COM_EMPLOYEE
+    set EMPLOYEE_ID = #{record.employeeId,jdbcType=VARCHAR},
+      EMPLOYEE_CODE = #{record.employeeCode,jdbcType=VARCHAR},
+      EMPLOYEE_NAME = #{record.employeeName,jdbcType=VARCHAR},
+      EMPLOYEE_TYPE = #{record.employeeType,jdbcType=VARCHAR},
+      DEPARTMENT_ID = #{record.departmentId,jdbcType=VARCHAR},
+      SPELL_CODE = #{record.spellCode,jdbcType=VARCHAR},
+      FIVESTROKE_CODE = #{record.fivestrokeCode,jdbcType=VARCHAR},
+      SEX_CODE = #{record.sexCode,jdbcType=VARCHAR},
+      BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      IDENNO = #{record.idenno,jdbcType=VARCHAR},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      LEVEL_ID = #{record.levelId,jdbcType=VARCHAR},
+      POST_ID = #{record.postId,jdbcType=VARCHAR},
+      NURSE_CELL_ID = #{record.nurseCellId,jdbcType=VARCHAR},
+      SORT_ID = #{record.sortId,jdbcType=NUMERIC},
+      VALID_FLAG = #{record.validFlag,jdbcType=CHAR},
+      OPER_ID = #{record.operId,jdbcType=VARCHAR},
+      OPER_TIME = #{record.operTime,jdbcType=TIMESTAMP},
+      INTERFACE_CODE = #{record.interfaceCode,jdbcType=VARCHAR},
+      TEMPORARY_REGISTRATION = #{record.temporaryRegistration,jdbcType=CHAR},
+      REGISTRATIONP_LEVEL_PERMISSION = #{record.registrationpLevelPermission,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.BdComEmployee" >
+    update CRM.BD_COM_EMPLOYEE
+    <set >
+      <if test="employeeCode != null" >
+        EMPLOYEE_CODE = #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeName != null" >
+        EMPLOYEE_NAME = #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeType != null" >
+        EMPLOYEE_TYPE = #{employeeType,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentId != null" >
+        DEPARTMENT_ID = #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="spellCode != null" >
+        SPELL_CODE = #{spellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fivestrokeCode != null" >
+        FIVESTROKE_CODE = #{fivestrokeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sexCode != null" >
+        SEX_CODE = #{sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idenno != null" >
+        IDENNO = #{idenno,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="levelId != null" >
+        LEVEL_ID = #{levelId,jdbcType=VARCHAR},
+      </if>
+      <if test="postId != null" >
+        POST_ID = #{postId,jdbcType=VARCHAR},
+      </if>
+      <if test="nurseCellId != null" >
+        NURSE_CELL_ID = #{nurseCellId,jdbcType=VARCHAR},
+      </if>
+      <if test="sortId != null" >
+        SORT_ID = #{sortId,jdbcType=NUMERIC},
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG = #{validFlag,jdbcType=CHAR},
+      </if>
+      <if test="operId != null" >
+        OPER_ID = #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null" >
+        OPER_TIME = #{operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interfaceCode != null" >
+        INTERFACE_CODE = #{interfaceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="temporaryRegistration != null" >
+        TEMPORARY_REGISTRATION = #{temporaryRegistration,jdbcType=CHAR},
+      </if>
+      <if test="registrationpLevelPermission != null" >
+        REGISTRATIONP_LEVEL_PERMISSION = #{registrationpLevelPermission,jdbcType=CHAR},
+      </if>
+    </set>
+    where EMPLOYEE_ID = #{employeeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.BdComEmployee" >
+    update CRM.BD_COM_EMPLOYEE
+    set EMPLOYEE_CODE = #{employeeCode,jdbcType=VARCHAR},
+      EMPLOYEE_NAME = #{employeeName,jdbcType=VARCHAR},
+      EMPLOYEE_TYPE = #{employeeType,jdbcType=VARCHAR},
+      DEPARTMENT_ID = #{departmentId,jdbcType=VARCHAR},
+      SPELL_CODE = #{spellCode,jdbcType=VARCHAR},
+      FIVESTROKE_CODE = #{fivestrokeCode,jdbcType=VARCHAR},
+      SEX_CODE = #{sexCode,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      IDENNO = #{idenno,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      LEVEL_ID = #{levelId,jdbcType=VARCHAR},
+      POST_ID = #{postId,jdbcType=VARCHAR},
+      NURSE_CELL_ID = #{nurseCellId,jdbcType=VARCHAR},
+      SORT_ID = #{sortId,jdbcType=NUMERIC},
+      VALID_FLAG = #{validFlag,jdbcType=CHAR},
+      OPER_ID = #{operId,jdbcType=VARCHAR},
+      OPER_TIME = #{operTime,jdbcType=TIMESTAMP},
+      INTERFACE_CODE = #{interfaceCode,jdbcType=VARCHAR},
+      TEMPORARY_REGISTRATION = #{temporaryRegistration,jdbcType=CHAR},
+      REGISTRATIONP_LEVEL_PERMISSION = #{registrationpLevelPermission,jdbcType=CHAR}
+    where EMPLOYEE_ID = #{employeeId,jdbcType=VARCHAR}
+  </update>
+</mapper>

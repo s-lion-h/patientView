@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.CrmCouponMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.CrmCoupon" >
+    <constructor >
+      <idArg column="ACCOUNTNO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENTID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENTNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="COUPONVACANCY" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="DONATECOUPONVACANCY" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="COUPONACCUMULATE" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="PATIENTLEVEL" jdbcType="NUMERIC" javaType="java.lang.Short" />
+      <arg column="LEVELACCUMULATE" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="PERIODACCUMULATE" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="LEVELBEGIN" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LEVELEND" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LASTOPERDATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LASTOPERCODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ACCOUNTNO, PATIENTID, PATIENTNAME, COUPONVACANCY, DONATECOUPONVACANCY, COUPONACCUMULATE, 
+    PATIENTLEVEL, LEVELACCUMULATE, PERIODACCUMULATE, LEVELBEGIN, LEVELEND, LASTOPERDATE, 
+    LASTOPERCODE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.CrmCouponExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.CRM_COUPON
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.CRM_COUPON
+    where ACCOUNTNO = #{accountno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CRM.CRM_COUPON
+    where ACCOUNTNO = #{accountno,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.CrmCouponExample" >
+    delete from CRM.CRM_COUPON
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.CrmCoupon" >
+    <selectKey resultType="java.lang.String" keyProperty="patientid" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.CRM_COUPON (ACCOUNTNO, PATIENTNAME, COUPONVACANCY, 
+      DONATECOUPONVACANCY, COUPONACCUMULATE, 
+      PATIENTLEVEL, LEVELACCUMULATE, PERIODACCUMULATE, 
+      LEVELBEGIN, LEVELEND, LASTOPERDATE, 
+      LASTOPERCODE)
+    values (#{accountno,jdbcType=VARCHAR}, #{patientname,jdbcType=VARCHAR}, #{couponvacancy,jdbcType=NUMERIC}, 
+      #{donatecouponvacancy,jdbcType=NUMERIC}, #{couponaccumulate,jdbcType=NUMERIC}, 
+      #{patientlevel,jdbcType=NUMERIC}, #{levelaccumulate,jdbcType=NUMERIC}, #{periodaccumulate,jdbcType=NUMERIC}, 
+      #{levelbegin,jdbcType=TIMESTAMP}, #{levelend,jdbcType=TIMESTAMP}, #{lastoperdate,jdbcType=TIMESTAMP}, 
+      #{lastopercode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.CrmCoupon" >
+    <selectKey resultType="java.lang.String" keyProperty="patientid" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.CRM_COUPON
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accountno != null" >
+        ACCOUNTNO,
+      </if>
+      <if test="patientname != null" >
+        PATIENTNAME,
+      </if>
+      <if test="couponvacancy != null" >
+        COUPONVACANCY,
+      </if>
+      <if test="donatecouponvacancy != null" >
+        DONATECOUPONVACANCY,
+      </if>
+      <if test="couponaccumulate != null" >
+        COUPONACCUMULATE,
+      </if>
+      <if test="patientlevel != null" >
+        PATIENTLEVEL,
+      </if>
+      <if test="levelaccumulate != null" >
+        LEVELACCUMULATE,
+      </if>
+      <if test="periodaccumulate != null" >
+        PERIODACCUMULATE,
+      </if>
+      <if test="levelbegin != null" >
+        LEVELBEGIN,
+      </if>
+      <if test="levelend != null" >
+        LEVELEND,
+      </if>
+      <if test="lastoperdate != null" >
+        LASTOPERDATE,
+      </if>
+      <if test="lastopercode != null" >
+        LASTOPERCODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accountno != null" >
+        #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="patientname != null" >
+        #{patientname,jdbcType=VARCHAR},
+      </if>
+      <if test="couponvacancy != null" >
+        #{couponvacancy,jdbcType=NUMERIC},
+      </if>
+      <if test="donatecouponvacancy != null" >
+        #{donatecouponvacancy,jdbcType=NUMERIC},
+      </if>
+      <if test="couponaccumulate != null" >
+        #{couponaccumulate,jdbcType=NUMERIC},
+      </if>
+      <if test="patientlevel != null" >
+        #{patientlevel,jdbcType=NUMERIC},
+      </if>
+      <if test="levelaccumulate != null" >
+        #{levelaccumulate,jdbcType=NUMERIC},
+      </if>
+      <if test="periodaccumulate != null" >
+        #{periodaccumulate,jdbcType=NUMERIC},
+      </if>
+      <if test="levelbegin != null" >
+        #{levelbegin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="levelend != null" >
+        #{levelend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastoperdate != null" >
+        #{lastoperdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastopercode != null" >
+        #{lastopercode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.CrmCouponExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.CRM_COUPON
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.CRM_COUPON
+    <set >
+      <if test="record.accountno != null" >
+        ACCOUNTNO = #{record.accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientid != null" >
+        PATIENTID = #{record.patientid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientname != null" >
+        PATIENTNAME = #{record.patientname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.couponvacancy != null" >
+        COUPONVACANCY = #{record.couponvacancy,jdbcType=NUMERIC},
+      </if>
+      <if test="record.donatecouponvacancy != null" >
+        DONATECOUPONVACANCY = #{record.donatecouponvacancy,jdbcType=NUMERIC},
+      </if>
+      <if test="record.couponaccumulate != null" >
+        COUPONACCUMULATE = #{record.couponaccumulate,jdbcType=NUMERIC},
+      </if>
+      <if test="record.patientlevel != null" >
+        PATIENTLEVEL = #{record.patientlevel,jdbcType=NUMERIC},
+      </if>
+      <if test="record.levelaccumulate != null" >
+        LEVELACCUMULATE = #{record.levelaccumulate,jdbcType=NUMERIC},
+      </if>
+      <if test="record.periodaccumulate != null" >
+        PERIODACCUMULATE = #{record.periodaccumulate,jdbcType=NUMERIC},
+      </if>
+      <if test="record.levelbegin != null" >
+        LEVELBEGIN = #{record.levelbegin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.levelend != null" >
+        LEVELEND = #{record.levelend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastoperdate != null" >
+        LASTOPERDATE = #{record.lastoperdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastopercode != null" >
+        LASTOPERCODE = #{record.lastopercode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.CRM_COUPON
+    set ACCOUNTNO = #{record.accountno,jdbcType=VARCHAR},
+      PATIENTID = #{record.patientid,jdbcType=VARCHAR},
+      PATIENTNAME = #{record.patientname,jdbcType=VARCHAR},
+      COUPONVACANCY = #{record.couponvacancy,jdbcType=NUMERIC},
+      DONATECOUPONVACANCY = #{record.donatecouponvacancy,jdbcType=NUMERIC},
+      COUPONACCUMULATE = #{record.couponaccumulate,jdbcType=NUMERIC},
+      PATIENTLEVEL = #{record.patientlevel,jdbcType=NUMERIC},
+      LEVELACCUMULATE = #{record.levelaccumulate,jdbcType=NUMERIC},
+      PERIODACCUMULATE = #{record.periodaccumulate,jdbcType=NUMERIC},
+      LEVELBEGIN = #{record.levelbegin,jdbcType=TIMESTAMP},
+      LEVELEND = #{record.levelend,jdbcType=TIMESTAMP},
+      LASTOPERDATE = #{record.lastoperdate,jdbcType=TIMESTAMP},
+      LASTOPERCODE = #{record.lastopercode,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.CrmCoupon" >
+    update CRM.CRM_COUPON
+    <set >
+      <if test="patientid != null" >
+        PATIENTID = #{patientid,jdbcType=VARCHAR},
+      </if>
+      <if test="patientname != null" >
+        PATIENTNAME = #{patientname,jdbcType=VARCHAR},
+      </if>
+      <if test="couponvacancy != null" >
+        COUPONVACANCY = #{couponvacancy,jdbcType=NUMERIC},
+      </if>
+      <if test="donatecouponvacancy != null" >
+        DONATECOUPONVACANCY = #{donatecouponvacancy,jdbcType=NUMERIC},
+      </if>
+      <if test="couponaccumulate != null" >
+        COUPONACCUMULATE = #{couponaccumulate,jdbcType=NUMERIC},
+      </if>
+      <if test="patientlevel != null" >
+        PATIENTLEVEL = #{patientlevel,jdbcType=NUMERIC},
+      </if>
+      <if test="levelaccumulate != null" >
+        LEVELACCUMULATE = #{levelaccumulate,jdbcType=NUMERIC},
+      </if>
+      <if test="periodaccumulate != null" >
+        PERIODACCUMULATE = #{periodaccumulate,jdbcType=NUMERIC},
+      </if>
+      <if test="levelbegin != null" >
+        LEVELBEGIN = #{levelbegin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="levelend != null" >
+        LEVELEND = #{levelend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastoperdate != null" >
+        LASTOPERDATE = #{lastoperdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastopercode != null" >
+        LASTOPERCODE = #{lastopercode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACCOUNTNO = #{accountno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.CrmCoupon" >
+    update CRM.CRM_COUPON
+    set PATIENTID = #{patientid,jdbcType=VARCHAR},
+      PATIENTNAME = #{patientname,jdbcType=VARCHAR},
+      COUPONVACANCY = #{couponvacancy,jdbcType=NUMERIC},
+      DONATECOUPONVACANCY = #{donatecouponvacancy,jdbcType=NUMERIC},
+      COUPONACCUMULATE = #{couponaccumulate,jdbcType=NUMERIC},
+      PATIENTLEVEL = #{patientlevel,jdbcType=NUMERIC},
+      LEVELACCUMULATE = #{levelaccumulate,jdbcType=NUMERIC},
+      PERIODACCUMULATE = #{periodaccumulate,jdbcType=NUMERIC},
+      LEVELBEGIN = #{levelbegin,jdbcType=TIMESTAMP},
+      LEVELEND = #{levelend,jdbcType=TIMESTAMP},
+      LASTOPERDATE = #{lastoperdate,jdbcType=TIMESTAMP},
+      LASTOPERCODE = #{lastopercode,jdbcType=VARCHAR}
+    where ACCOUNTNO = #{accountno,jdbcType=VARCHAR}
+  </update>
+</mapper>

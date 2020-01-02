@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.ExpPackageMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.ExpPackage" >
+    <constructor >
+      <idArg column="CLINIC_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="TRANS_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="HOSPITAL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACKAGE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PAY_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CARD_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SEX_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BIRTHDAY" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CARD_LEVEL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PAYKIND_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACKAGE_DEPT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONSULTANT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DELIMITING_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DELIMITING_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="PACKAGE_COST" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="REAL_COST" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="GIFT_COST" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="ETC_COST" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="INVOICE_SEQ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="INVOICE_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CANCEL_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CANCEL_OPER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CANCEL_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="ORIGINAL_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RECIPE_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SEQUENCE_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="COST_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="COST_INVOICE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="COSTCLINIC_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="USETYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACKAGE_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACKAGESEQUENCE_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PARENTPACKAGEID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PARENTPACKAGENAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACKAGENUM" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    CLINIC_CODE, TRANS_TYPE, HOSPITAL_ID, PACKAGE_ID, PAY_FLAG, CARD_NO, PATIENT_NAME, 
+    SEX_CODE, BIRTHDAY, CARD_LEVEL, PAYKIND_CODE, PACKAGE_DEPT, CONSULTANT, DELIMITING_CODE, 
+    DELIMITING_DATE, PACKAGE_COST, REAL_COST, GIFT_COST, ETC_COST, INVOICE_SEQ, INVOICE_NO, 
+    OPER_CODE, OPER_DATE, CANCEL_FLAG, CANCEL_OPER, CANCEL_DATE, ORIGINAL_CODE, MEMO, 
+    RECIPE_NO, SEQUENCE_NO, COST_FLAG, COST_INVOICE, COSTCLINIC_CODE, USETYPE, PACKAGE_NAME, 
+    PACKAGESEQUENCE_NO, PARENTPACKAGEID, PARENTPACKAGENAME, PACKAGENUM
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.ExpPackageExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.EXP_PACKAGE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.ExpPackageKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.EXP_PACKAGE
+    where CLINIC_CODE = #{clinicCode,jdbcType=VARCHAR}
+      and TRANS_TYPE = #{transType,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.slionh.patientview.entity.ExpPackageKey" >
+    delete from CRM.EXP_PACKAGE
+    where CLINIC_CODE = #{clinicCode,jdbcType=VARCHAR}
+      and TRANS_TYPE = #{transType,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.ExpPackageExample" >
+    delete from CRM.EXP_PACKAGE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.ExpPackage" >
+    insert into CRM.EXP_PACKAGE (CLINIC_CODE, TRANS_TYPE, HOSPITAL_ID, 
+      PACKAGE_ID, PAY_FLAG, CARD_NO, 
+      PATIENT_NAME, SEX_CODE, BIRTHDAY, 
+      CARD_LEVEL, PAYKIND_CODE, PACKAGE_DEPT, 
+      CONSULTANT, DELIMITING_CODE, DELIMITING_DATE, 
+      PACKAGE_COST, REAL_COST, GIFT_COST, 
+      ETC_COST, INVOICE_SEQ, INVOICE_NO, 
+      OPER_CODE, OPER_DATE, CANCEL_FLAG, 
+      CANCEL_OPER, CANCEL_DATE, ORIGINAL_CODE, 
+      MEMO, RECIPE_NO, SEQUENCE_NO, 
+      COST_FLAG, COST_INVOICE, COSTCLINIC_CODE, 
+      USETYPE, PACKAGE_NAME, PACKAGESEQUENCE_NO, 
+      PARENTPACKAGEID, PARENTPACKAGENAME, PACKAGENUM
+      )
+    values (#{clinicCode,jdbcType=VARCHAR}, #{transType,jdbcType=VARCHAR}, #{hospitalId,jdbcType=VARCHAR}, 
+      #{packageId,jdbcType=VARCHAR}, #{payFlag,jdbcType=VARCHAR}, #{cardNo,jdbcType=VARCHAR}, 
+      #{patientName,jdbcType=VARCHAR}, #{sexCode,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{cardLevel,jdbcType=VARCHAR}, #{paykindCode,jdbcType=VARCHAR}, #{packageDept,jdbcType=VARCHAR}, 
+      #{consultant,jdbcType=VARCHAR}, #{delimitingCode,jdbcType=VARCHAR}, #{delimitingDate,jdbcType=TIMESTAMP}, 
+      #{packageCost,jdbcType=NUMERIC}, #{realCost,jdbcType=NUMERIC}, #{giftCost,jdbcType=NUMERIC}, 
+      #{etcCost,jdbcType=NUMERIC}, #{invoiceSeq,jdbcType=VARCHAR}, #{invoiceNo,jdbcType=VARCHAR}, 
+      #{operCode,jdbcType=VARCHAR}, #{operDate,jdbcType=TIMESTAMP}, #{cancelFlag,jdbcType=VARCHAR}, 
+      #{cancelOper,jdbcType=VARCHAR}, #{cancelDate,jdbcType=TIMESTAMP}, #{originalCode,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{recipeNo,jdbcType=VARCHAR}, #{sequenceNo,jdbcType=VARCHAR}, 
+      #{costFlag,jdbcType=VARCHAR}, #{costInvoice,jdbcType=VARCHAR}, #{costclinicCode,jdbcType=VARCHAR}, 
+      #{usetype,jdbcType=VARCHAR}, #{packageName,jdbcType=VARCHAR}, #{packagesequenceNo,jdbcType=VARCHAR}, 
+      #{parentpackageid,jdbcType=VARCHAR}, #{parentpackagename,jdbcType=VARCHAR}, #{packagenum,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.ExpPackage" >
+    insert into CRM.EXP_PACKAGE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="clinicCode != null" >
+        CLINIC_CODE,
+      </if>
+      <if test="transType != null" >
+        TRANS_TYPE,
+      </if>
+      <if test="hospitalId != null" >
+        HOSPITAL_ID,
+      </if>
+      <if test="packageId != null" >
+        PACKAGE_ID,
+      </if>
+      <if test="payFlag != null" >
+        PAY_FLAG,
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO,
+      </if>
+      <if test="patientName != null" >
+        PATIENT_NAME,
+      </if>
+      <if test="sexCode != null" >
+        SEX_CODE,
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY,
+      </if>
+      <if test="cardLevel != null" >
+        CARD_LEVEL,
+      </if>
+      <if test="paykindCode != null" >
+        PAYKIND_CODE,
+      </if>
+      <if test="packageDept != null" >
+        PACKAGE_DEPT,
+      </if>
+      <if test="consultant != null" >
+        CONSULTANT,
+      </if>
+      <if test="delimitingCode != null" >
+        DELIMITING_CODE,
+      </if>
+      <if test="delimitingDate != null" >
+        DELIMITING_DATE,
+      </if>
+      <if test="packageCost != null" >
+        PACKAGE_COST,
+      </if>
+      <if test="realCost != null" >
+        REAL_COST,
+      </if>
+      <if test="giftCost != null" >
+        GIFT_COST,
+      </if>
+      <if test="etcCost != null" >
+        ETC_COST,
+      </if>
+      <if test="invoiceSeq != null" >
+        INVOICE_SEQ,
+      </if>
+      <if test="invoiceNo != null" >
+        INVOICE_NO,
+      </if>
+      <if test="operCode != null" >
+        OPER_CODE,
+      </if>
+      <if test="operDate != null" >
+        OPER_DATE,
+      </if>
+      <if test="cancelFlag != null" >
+        CANCEL_FLAG,
+      </if>
+      <if test="cancelOper != null" >
+        CANCEL_OPER,
+      </if>
+      <if test="cancelDate != null" >
+        CANCEL_DATE,
+      </if>
+      <if test="originalCode != null" >
+        ORIGINAL_CODE,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+      <if test="recipeNo != null" >
+        RECIPE_NO,
+      </if>
+      <if test="sequenceNo != null" >
+        SEQUENCE_NO,
+      </if>
+      <if test="costFlag != null" >
+        COST_FLAG,
+      </if>
+      <if test="costInvoice != null" >
+        COST_INVOICE,
+      </if>
+      <if test="costclinicCode != null" >
+        COSTCLINIC_CODE,
+      </if>
+      <if test="usetype != null" >
+        USETYPE,
+      </if>
+      <if test="packageName != null" >
+        PACKAGE_NAME,
+      </if>
+      <if test="packagesequenceNo != null" >
+        PACKAGESEQUENCE_NO,
+      </if>
+      <if test="parentpackageid != null" >
+        PARENTPACKAGEID,
+      </if>
+      <if test="parentpackagename != null" >
+        PARENTPACKAGENAME,
+      </if>
+      <if test="packagenum != null" >
+        PACKAGENUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="clinicCode != null" >
+        #{clinicCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalId != null" >
+        #{hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="packageId != null" >
+        #{packageId,jdbcType=VARCHAR},
+      </if>
+      <if test="payFlag != null" >
+        #{payFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="patientName != null" >
+        #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="sexCode != null" >
+        #{sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardLevel != null" >
+        #{cardLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="paykindCode != null" >
+        #{paykindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="packageDept != null" >
+        #{packageDept,jdbcType=VARCHAR},
+      </if>
+      <if test="consultant != null" >
+        #{consultant,jdbcType=VARCHAR},
+      </if>
+      <if test="delimitingCode != null" >
+        #{delimitingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="delimitingDate != null" >
+        #{delimitingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="packageCost != null" >
+        #{packageCost,jdbcType=NUMERIC},
+      </if>
+      <if test="realCost != null" >
+        #{realCost,jdbcType=NUMERIC},
+      </if>
+      <if test="giftCost != null" >
+        #{giftCost,jdbcType=NUMERIC},
+      </if>
+      <if test="etcCost != null" >
+        #{etcCost,jdbcType=NUMERIC},
+      </if>
+      <if test="invoiceSeq != null" >
+        #{invoiceSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null" >
+        #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="operCode != null" >
+        #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operDate != null" >
+        #{operDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelFlag != null" >
+        #{cancelFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelOper != null" >
+        #{cancelOper,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelDate != null" >
+        #{cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="originalCode != null" >
+        #{originalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeNo != null" >
+        #{recipeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sequenceNo != null" >
+        #{sequenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="costFlag != null" >
+        #{costFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="costInvoice != null" >
+        #{costInvoice,jdbcType=VARCHAR},
+      </if>
+      <if test="costclinicCode != null" >
+        #{costclinicCode,jdbcType=VARCHAR},
+      </if>
+      <if test="usetype != null" >
+        #{usetype,jdbcType=VARCHAR},
+      </if>
+      <if test="packageName != null" >
+        #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="packagesequenceNo != null" >
+        #{packagesequenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="parentpackageid != null" >
+        #{parentpackageid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentpackagename != null" >
+        #{parentpackagename,jdbcType=VARCHAR},
+      </if>
+      <if test="packagenum != null" >
+        #{packagenum,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.ExpPackageExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.EXP_PACKAGE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.EXP_PACKAGE
+    <set >
+      <if test="record.clinicCode != null" >
+        CLINIC_CODE = #{record.clinicCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transType != null" >
+        TRANS_TYPE = #{record.transType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalId != null" >
+        HOSPITAL_ID = #{record.hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageId != null" >
+        PACKAGE_ID = #{record.packageId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payFlag != null" >
+        PAY_FLAG = #{record.payFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardNo != null" >
+        CARD_NO = #{record.cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientName != null" >
+        PATIENT_NAME = #{record.patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sexCode != null" >
+        SEX_CODE = #{record.sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cardLevel != null" >
+        CARD_LEVEL = #{record.cardLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paykindCode != null" >
+        PAYKIND_CODE = #{record.paykindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageDept != null" >
+        PACKAGE_DEPT = #{record.packageDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultant != null" >
+        CONSULTANT = #{record.consultant,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delimitingCode != null" >
+        DELIMITING_CODE = #{record.delimitingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delimitingDate != null" >
+        DELIMITING_DATE = #{record.delimitingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.packageCost != null" >
+        PACKAGE_COST = #{record.packageCost,jdbcType=NUMERIC},
+      </if>
+      <if test="record.realCost != null" >
+        REAL_COST = #{record.realCost,jdbcType=NUMERIC},
+      </if>
+      <if test="record.giftCost != null" >
+        GIFT_COST = #{record.giftCost,jdbcType=NUMERIC},
+      </if>
+      <if test="record.etcCost != null" >
+        ETC_COST = #{record.etcCost,jdbcType=NUMERIC},
+      </if>
+      <if test="record.invoiceSeq != null" >
+        INVOICE_SEQ = #{record.invoiceSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceNo != null" >
+        INVOICE_NO = #{record.invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operCode != null" >
+        OPER_CODE = #{record.operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operDate != null" >
+        OPER_DATE = #{record.operDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cancelFlag != null" >
+        CANCEL_FLAG = #{record.cancelFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cancelOper != null" >
+        CANCEL_OPER = #{record.cancelOper,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cancelDate != null" >
+        CANCEL_DATE = #{record.cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.originalCode != null" >
+        ORIGINAL_CODE = #{record.originalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo != null" >
+        MEMO = #{record.memo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipeNo != null" >
+        RECIPE_NO = #{record.recipeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sequenceNo != null" >
+        SEQUENCE_NO = #{record.sequenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costFlag != null" >
+        COST_FLAG = #{record.costFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costInvoice != null" >
+        COST_INVOICE = #{record.costInvoice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costclinicCode != null" >
+        COSTCLINIC_CODE = #{record.costclinicCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usetype != null" >
+        USETYPE = #{record.usetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageName != null" >
+        PACKAGE_NAME = #{record.packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packagesequenceNo != null" >
+        PACKAGESEQUENCE_NO = #{record.packagesequenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentpackageid != null" >
+        PARENTPACKAGEID = #{record.parentpackageid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentpackagename != null" >
+        PARENTPACKAGENAME = #{record.parentpackagename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packagenum != null" >
+        PACKAGENUM = #{record.packagenum,jdbcType=NUMERIC},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.EXP_PACKAGE
+    set CLINIC_CODE = #{record.clinicCode,jdbcType=VARCHAR},
+      TRANS_TYPE = #{record.transType,jdbcType=VARCHAR},
+      HOSPITAL_ID = #{record.hospitalId,jdbcType=VARCHAR},
+      PACKAGE_ID = #{record.packageId,jdbcType=VARCHAR},
+      PAY_FLAG = #{record.payFlag,jdbcType=VARCHAR},
+      CARD_NO = #{record.cardNo,jdbcType=VARCHAR},
+      PATIENT_NAME = #{record.patientName,jdbcType=VARCHAR},
+      SEX_CODE = #{record.sexCode,jdbcType=VARCHAR},
+      BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      CARD_LEVEL = #{record.cardLevel,jdbcType=VARCHAR},
+      PAYKIND_CODE = #{record.paykindCode,jdbcType=VARCHAR},
+      PACKAGE_DEPT = #{record.packageDept,jdbcType=VARCHAR},
+      CONSULTANT = #{record.consultant,jdbcType=VARCHAR},
+      DELIMITING_CODE = #{record.delimitingCode,jdbcType=VARCHAR},
+      DELIMITING_DATE = #{record.delimitingDate,jdbcType=TIMESTAMP},
+      PACKAGE_COST = #{record.packageCost,jdbcType=NUMERIC},
+      REAL_COST = #{record.realCost,jdbcType=NUMERIC},
+      GIFT_COST = #{record.giftCost,jdbcType=NUMERIC},
+      ETC_COST = #{record.etcCost,jdbcType=NUMERIC},
+      INVOICE_SEQ = #{record.invoiceSeq,jdbcType=VARCHAR},
+      INVOICE_NO = #{record.invoiceNo,jdbcType=VARCHAR},
+      OPER_CODE = #{record.operCode,jdbcType=VARCHAR},
+      OPER_DATE = #{record.operDate,jdbcType=TIMESTAMP},
+      CANCEL_FLAG = #{record.cancelFlag,jdbcType=VARCHAR},
+      CANCEL_OPER = #{record.cancelOper,jdbcType=VARCHAR},
+      CANCEL_DATE = #{record.cancelDate,jdbcType=TIMESTAMP},
+      ORIGINAL_CODE = #{record.originalCode,jdbcType=VARCHAR},
+      MEMO = #{record.memo,jdbcType=VARCHAR},
+      RECIPE_NO = #{record.recipeNo,jdbcType=VARCHAR},
+      SEQUENCE_NO = #{record.sequenceNo,jdbcType=VARCHAR},
+      COST_FLAG = #{record.costFlag,jdbcType=VARCHAR},
+      COST_INVOICE = #{record.costInvoice,jdbcType=VARCHAR},
+      COSTCLINIC_CODE = #{record.costclinicCode,jdbcType=VARCHAR},
+      USETYPE = #{record.usetype,jdbcType=VARCHAR},
+      PACKAGE_NAME = #{record.packageName,jdbcType=VARCHAR},
+      PACKAGESEQUENCE_NO = #{record.packagesequenceNo,jdbcType=VARCHAR},
+      PARENTPACKAGEID = #{record.parentpackageid,jdbcType=VARCHAR},
+      PARENTPACKAGENAME = #{record.parentpackagename,jdbcType=VARCHAR},
+      PACKAGENUM = #{record.packagenum,jdbcType=NUMERIC}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.ExpPackage" >
+    update CRM.EXP_PACKAGE
+    <set >
+      <if test="packageId != null" >
+        PACKAGE_ID = #{packageId,jdbcType=VARCHAR},
+      </if>
+      <if test="payFlag != null" >
+        PAY_FLAG = #{payFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="patientName != null" >
+        PATIENT_NAME = #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="sexCode != null" >
+        SEX_CODE = #{sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardLevel != null" >
+        CARD_LEVEL = #{cardLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="paykindCode != null" >
+        PAYKIND_CODE = #{paykindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="packageDept != null" >
+        PACKAGE_DEPT = #{packageDept,jdbcType=VARCHAR},
+      </if>
+      <if test="consultant != null" >
+        CONSULTANT = #{consultant,jdbcType=VARCHAR},
+      </if>
+      <if test="delimitingCode != null" >
+        DELIMITING_CODE = #{delimitingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="delimitingDate != null" >
+        DELIMITING_DATE = #{delimitingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="packageCost != null" >
+        PACKAGE_COST = #{packageCost,jdbcType=NUMERIC},
+      </if>
+      <if test="realCost != null" >
+        REAL_COST = #{realCost,jdbcType=NUMERIC},
+      </if>
+      <if test="giftCost != null" >
+        GIFT_COST = #{giftCost,jdbcType=NUMERIC},
+      </if>
+      <if test="etcCost != null" >
+        ETC_COST = #{etcCost,jdbcType=NUMERIC},
+      </if>
+      <if test="invoiceSeq != null" >
+        INVOICE_SEQ = #{invoiceSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null" >
+        INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="operCode != null" >
+        OPER_CODE = #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operDate != null" >
+        OPER_DATE = #{operDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelFlag != null" >
+        CANCEL_FLAG = #{cancelFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelOper != null" >
+        CANCEL_OPER = #{cancelOper,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelDate != null" >
+        CANCEL_DATE = #{cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="originalCode != null" >
+        ORIGINAL_CODE = #{originalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeNo != null" >
+        RECIPE_NO = #{recipeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sequenceNo != null" >
+        SEQUENCE_NO = #{sequenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="costFlag != null" >
+        COST_FLAG = #{costFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="costInvoice != null" >
+        COST_INVOICE = #{costInvoice,jdbcType=VARCHAR},
+      </if>
+      <if test="costclinicCode != null" >
+        COSTCLINIC_CODE = #{costclinicCode,jdbcType=VARCHAR},
+      </if>
+      <if test="usetype != null" >
+        USETYPE = #{usetype,jdbcType=VARCHAR},
+      </if>
+      <if test="packageName != null" >
+        PACKAGE_NAME = #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="packagesequenceNo != null" >
+        PACKAGESEQUENCE_NO = #{packagesequenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="parentpackageid != null" >
+        PARENTPACKAGEID = #{parentpackageid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentpackagename != null" >
+        PARENTPACKAGENAME = #{parentpackagename,jdbcType=VARCHAR},
+      </if>
+      <if test="packagenum != null" >
+        PACKAGENUM = #{packagenum,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where CLINIC_CODE = #{clinicCode,jdbcType=VARCHAR}
+      and TRANS_TYPE = #{transType,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.ExpPackage" >
+    update CRM.EXP_PACKAGE
+    set PACKAGE_ID = #{packageId,jdbcType=VARCHAR},
+      PAY_FLAG = #{payFlag,jdbcType=VARCHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      PATIENT_NAME = #{patientName,jdbcType=VARCHAR},
+      SEX_CODE = #{sexCode,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      CARD_LEVEL = #{cardLevel,jdbcType=VARCHAR},
+      PAYKIND_CODE = #{paykindCode,jdbcType=VARCHAR},
+      PACKAGE_DEPT = #{packageDept,jdbcType=VARCHAR},
+      CONSULTANT = #{consultant,jdbcType=VARCHAR},
+      DELIMITING_CODE = #{delimitingCode,jdbcType=VARCHAR},
+      DELIMITING_DATE = #{delimitingDate,jdbcType=TIMESTAMP},
+      PACKAGE_COST = #{packageCost,jdbcType=NUMERIC},
+      REAL_COST = #{realCost,jdbcType=NUMERIC},
+      GIFT_COST = #{giftCost,jdbcType=NUMERIC},
+      ETC_COST = #{etcCost,jdbcType=NUMERIC},
+      INVOICE_SEQ = #{invoiceSeq,jdbcType=VARCHAR},
+      INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      OPER_CODE = #{operCode,jdbcType=VARCHAR},
+      OPER_DATE = #{operDate,jdbcType=TIMESTAMP},
+      CANCEL_FLAG = #{cancelFlag,jdbcType=VARCHAR},
+      CANCEL_OPER = #{cancelOper,jdbcType=VARCHAR},
+      CANCEL_DATE = #{cancelDate,jdbcType=TIMESTAMP},
+      ORIGINAL_CODE = #{originalCode,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      RECIPE_NO = #{recipeNo,jdbcType=VARCHAR},
+      SEQUENCE_NO = #{sequenceNo,jdbcType=VARCHAR},
+      COST_FLAG = #{costFlag,jdbcType=VARCHAR},
+      COST_INVOICE = #{costInvoice,jdbcType=VARCHAR},
+      COSTCLINIC_CODE = #{costclinicCode,jdbcType=VARCHAR},
+      USETYPE = #{usetype,jdbcType=VARCHAR},
+      PACKAGE_NAME = #{packageName,jdbcType=VARCHAR},
+      PACKAGESEQUENCE_NO = #{packagesequenceNo,jdbcType=VARCHAR},
+      PARENTPACKAGEID = #{parentpackageid,jdbcType=VARCHAR},
+      PARENTPACKAGENAME = #{parentpackagename,jdbcType=VARCHAR},
+      PACKAGENUM = #{packagenum,jdbcType=NUMERIC}
+    where CLINIC_CODE = #{clinicCode,jdbcType=VARCHAR}
+      and TRANS_TYPE = #{transType,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </update>
+</mapper>

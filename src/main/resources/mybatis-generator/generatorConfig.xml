@@ -81,7 +81,7 @@
 
 
 
-        <table tableName="com_patientinfo" schema="crm">
+        <table tableName="exp_package" schema="crm">
 
             <!-- optional   , only for mybatis3 runtime
                  自动生成的键值（identity,或者序列值）
@@ -101,7 +101,7 @@
                   identity: 自增主键  If true, then the column is flagged as an identity column and the generated <selectKey> element will be placed after the insert (for an identity column). If false, then the generated <selectKey> will be placed before the insert (typically for a sequence).
 
             -->
-            <generatedKey column="CARD_NO" sqlStatement="Oracle" identity="true" type=""/>
+<!--            <generatedKey column="APPOINTID" sqlStatement="Oracle" identity="true" type=""/>-->
 
 
             <!-- optional.

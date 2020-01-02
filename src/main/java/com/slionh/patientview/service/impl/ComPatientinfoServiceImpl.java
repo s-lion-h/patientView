@@ -3,11 +3,13 @@ package com.slionh.patientview.service.impl;
 import com.slionh.patientview.entity.ComPatientinfo;
 import com.slionh.patientview.entity.ComPatientinfoExample;
 import com.slionh.patientview.entity.ComPatientinfoKey;
+import com.slionh.patientview.entity.CrmCoupon;
 import com.slionh.patientview.mapper.ComPatientinfoMapper;
 import com.slionh.patientview.service.ComPatientinfoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class ComPatientinfoServiceImpl implements ComPatientinfoService {
@@ -24,6 +26,15 @@ public class ComPatientinfoServiceImpl implements ComPatientinfoService {
 
     @Override
     public ComPatientinfo getComPatientinfoByPatientId(String patientId) {
-        return null;
+        ComPatientinfoExample example = new ComPatientinfoExample();
+        example.createCriteria().andCrmidEqualTo(patientId);
+
+        List<ComPatientinfo> list = comPatientinfoMapper.selectByExample(example);
+
+        if (list.size()>0){
+            return list.get(0);
+        }else{
+            return new ComPatientinfo();
+        }
     }
 }

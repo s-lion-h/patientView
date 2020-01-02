@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.CrmPatientlabelMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.CrmPatientlabel" >
+    <constructor >
+      <idArg column="PATIENTLABEL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LABEL_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LABEL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LABEL_SPECIES" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LABEL_CONTENT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXTFILED1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXTFILED2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXTFILED3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LABEL_STATE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_DEPT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    PATIENTLABEL_ID, PATIENT_ID, LABEL_TYPE, LABEL_ID, LABEL_SPECIES, LABEL_CONTENT, 
+    MEMO, EXTFILED1, EXTFILED2, EXTFILED3, LABEL_STATE, OPER_DEPT, OPER_CODE, OPER_NAME, 
+    OPER_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.CrmPatientlabelExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.CRM_PATIENTLABEL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.CRM_PATIENTLABEL
+    where PATIENTLABEL_ID = #{patientlabelId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CRM.CRM_PATIENTLABEL
+    where PATIENTLABEL_ID = #{patientlabelId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.CrmPatientlabelExample" >
+    delete from CRM.CRM_PATIENTLABEL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.CrmPatientlabel" >
+    <selectKey resultType="java.lang.String" keyProperty="patientlabelId" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.CRM_PATIENTLABEL (PATIENT_ID, LABEL_TYPE, LABEL_ID, 
+      LABEL_SPECIES, LABEL_CONTENT, MEMO, 
+      EXTFILED1, EXTFILED2, EXTFILED3, 
+      LABEL_STATE, OPER_DEPT, OPER_CODE, 
+      OPER_NAME, OPER_TIME)
+    values (#{patientId,jdbcType=VARCHAR}, #{labelType,jdbcType=VARCHAR}, #{labelId,jdbcType=VARCHAR}, 
+      #{labelSpecies,jdbcType=VARCHAR}, #{labelContent,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{extfiled1,jdbcType=VARCHAR}, #{extfiled2,jdbcType=VARCHAR}, #{extfiled3,jdbcType=VARCHAR}, 
+      #{labelState,jdbcType=VARCHAR}, #{operDept,jdbcType=VARCHAR}, #{operCode,jdbcType=VARCHAR}, 
+      #{operName,jdbcType=VARCHAR}, #{operTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.CrmPatientlabel" >
+    <selectKey resultType="java.lang.String" keyProperty="patientlabelId" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.CRM_PATIENTLABEL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="patientId != null" >
+        PATIENT_ID,
+      </if>
+      <if test="labelType != null" >
+        LABEL_TYPE,
+      </if>
+      <if test="labelId != null" >
+        LABEL_ID,
+      </if>
+      <if test="labelSpecies != null" >
+        LABEL_SPECIES,
+      </if>
+      <if test="labelContent != null" >
+        LABEL_CONTENT,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+      <if test="extfiled1 != null" >
+        EXTFILED1,
+      </if>
+      <if test="extfiled2 != null" >
+        EXTFILED2,
+      </if>
+      <if test="extfiled3 != null" >
+        EXTFILED3,
+      </if>
+      <if test="labelState != null" >
+        LABEL_STATE,
+      </if>
+      <if test="operDept != null" >
+        OPER_DEPT,
+      </if>
+      <if test="operCode != null" >
+        OPER_CODE,
+      </if>
+      <if test="operName != null" >
+        OPER_NAME,
+      </if>
+      <if test="operTime != null" >
+        OPER_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="patientId != null" >
+        #{patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="labelType != null" >
+        #{labelType,jdbcType=VARCHAR},
+      </if>
+      <if test="labelId != null" >
+        #{labelId,jdbcType=VARCHAR},
+      </if>
+      <if test="labelSpecies != null" >
+        #{labelSpecies,jdbcType=VARCHAR},
+      </if>
+      <if test="labelContent != null" >
+        #{labelContent,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="extfiled1 != null" >
+        #{extfiled1,jdbcType=VARCHAR},
+      </if>
+      <if test="extfiled2 != null" >
+        #{extfiled2,jdbcType=VARCHAR},
+      </if>
+      <if test="extfiled3 != null" >
+        #{extfiled3,jdbcType=VARCHAR},
+      </if>
+      <if test="labelState != null" >
+        #{labelState,jdbcType=VARCHAR},
+      </if>
+      <if test="operDept != null" >
+        #{operDept,jdbcType=VARCHAR},
+      </if>
+      <if test="operCode != null" >
+        #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null" >
+        #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null" >
+        #{operTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.CrmPatientlabelExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.CRM_PATIENTLABEL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.CRM_PATIENTLABEL
+    <set >
+      <if test="record.patientlabelId != null" >
+        PATIENTLABEL_ID = #{record.patientlabelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientId != null" >
+        PATIENT_ID = #{record.patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.labelType != null" >
+        LABEL_TYPE = #{record.labelType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.labelId != null" >
+        LABEL_ID = #{record.labelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.labelSpecies != null" >
+        LABEL_SPECIES = #{record.labelSpecies,jdbcType=VARCHAR},
+      </if>
+      <if test="record.labelContent != null" >
+        LABEL_CONTENT = #{record.labelContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo != null" >
+        MEMO = #{record.memo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extfiled1 != null" >
+        EXTFILED1 = #{record.extfiled1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extfiled2 != null" >
+        EXTFILED2 = #{record.extfiled2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extfiled3 != null" >
+        EXTFILED3 = #{record.extfiled3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.labelState != null" >
+        LABEL_STATE = #{record.labelState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operDept != null" >
+        OPER_DEPT = #{record.operDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operCode != null" >
+        OPER_CODE = #{record.operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operName != null" >
+        OPER_NAME = #{record.operName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operTime != null" >
+        OPER_TIME = #{record.operTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.CRM_PATIENTLABEL
+    set PATIENTLABEL_ID = #{record.patientlabelId,jdbcType=VARCHAR},
+      PATIENT_ID = #{record.patientId,jdbcType=VARCHAR},
+      LABEL_TYPE = #{record.labelType,jdbcType=VARCHAR},
+      LABEL_ID = #{record.labelId,jdbcType=VARCHAR},
+      LABEL_SPECIES = #{record.labelSpecies,jdbcType=VARCHAR},
+      LABEL_CONTENT = #{record.labelContent,jdbcType=VARCHAR},
+      MEMO = #{record.memo,jdbcType=VARCHAR},
+      EXTFILED1 = #{record.extfiled1,jdbcType=VARCHAR},
+      EXTFILED2 = #{record.extfiled2,jdbcType=VARCHAR},
+      EXTFILED3 = #{record.extfiled3,jdbcType=VARCHAR},
+      LABEL_STATE = #{record.labelState,jdbcType=VARCHAR},
+      OPER_DEPT = #{record.operDept,jdbcType=VARCHAR},
+      OPER_CODE = #{record.operCode,jdbcType=VARCHAR},
+      OPER_NAME = #{record.operName,jdbcType=VARCHAR},
+      OPER_TIME = #{record.operTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.CrmPatientlabel" >
+    update CRM.CRM_PATIENTLABEL
+    <set >
+      <if test="patientId != null" >
+        PATIENT_ID = #{patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="labelType != null" >
+        LABEL_TYPE = #{labelType,jdbcType=VARCHAR},
+      </if>
+      <if test="labelId != null" >
+        LABEL_ID = #{labelId,jdbcType=VARCHAR},
+      </if>
+      <if test="labelSpecies != null" >
+        LABEL_SPECIES = #{labelSpecies,jdbcType=VARCHAR},
+      </if>
+      <if test="labelContent != null" >
+        LABEL_CONTENT = #{labelContent,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="extfiled1 != null" >
+        EXTFILED1 = #{extfiled1,jdbcType=VARCHAR},
+      </if>
+      <if test="extfiled2 != null" >
+        EXTFILED2 = #{extfiled2,jdbcType=VARCHAR},
+      </if>
+      <if test="extfiled3 != null" >
+        EXTFILED3 = #{extfiled3,jdbcType=VARCHAR},
+      </if>
+      <if test="labelState != null" >
+        LABEL_STATE = #{labelState,jdbcType=VARCHAR},
+      </if>
+      <if test="operDept != null" >
+        OPER_DEPT = #{operDept,jdbcType=VARCHAR},
+      </if>
+      <if test="operCode != null" >
+        OPER_CODE = #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null" >
+        OPER_NAME = #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null" >
+        OPER_TIME = #{operTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PATIENTLABEL_ID = #{patientlabelId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.CrmPatientlabel" >
+    update CRM.CRM_PATIENTLABEL
+    set PATIENT_ID = #{patientId,jdbcType=VARCHAR},
+      LABEL_TYPE = #{labelType,jdbcType=VARCHAR},
+      LABEL_ID = #{labelId,jdbcType=VARCHAR},
+      LABEL_SPECIES = #{labelSpecies,jdbcType=VARCHAR},
+      LABEL_CONTENT = #{labelContent,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      EXTFILED1 = #{extfiled1,jdbcType=VARCHAR},
+      EXTFILED2 = #{extfiled2,jdbcType=VARCHAR},
+      EXTFILED3 = #{extfiled3,jdbcType=VARCHAR},
+      LABEL_STATE = #{labelState,jdbcType=VARCHAR},
+      OPER_DEPT = #{operDept,jdbcType=VARCHAR},
+      OPER_CODE = #{operCode,jdbcType=VARCHAR},
+      OPER_NAME = #{operName,jdbcType=VARCHAR},
+      OPER_TIME = #{operTime,jdbcType=TIMESTAMP}
+    where PATIENTLABEL_ID = #{patientlabelId,jdbcType=VARCHAR}
+  </update>
+</mapper>

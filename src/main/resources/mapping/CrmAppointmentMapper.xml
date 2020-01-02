@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.CrmAppointmentMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.CrmAppointment" >
+    <constructor >
+      <idArg column="APPOINTID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENTID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONSULTID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APPOINTDATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="APPOINTTYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DEPTID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DEPTNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DOCTID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DOCTNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APPOINTITEM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APPOINTMARKETING" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APPOINTSMS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REMINDSMS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CLINICCODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TRIAGEOPERID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TRIAGEOPERNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TRIAGETIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="EXTFIELD01" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXTFIELD02" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXTFIELD03" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOSPITALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOSPITALNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CANCELTIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CANCELOPERID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CANCELOPERNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATETIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CREATEOPERID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATEOPERNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LASTMODIFIYOPERID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LASTMODIFIYOPERNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SCHEMAID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BEGINTIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="ENDTIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LASTMODIFIYTIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="APPOINTCHILDITEM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APPOINTITEMNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RECEIVEOPERID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RECEIVEOPERNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RECEIVETIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="ISFIRSTSEE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ISREVISIT" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    APPOINTID, PATIENTID, CONSULTID, APPOINTDATE, APPOINTTYPE, DEPTID, DEPTNAME, DOCTID, 
+    DOCTNAME, APPOINTITEM, APPOINTMARKETING, APPOINTSMS, REMINDSMS, STATE, CLINICCODE, 
+    TRIAGEOPERID, TRIAGEOPERNAME, TRIAGETIME, EXTFIELD01, EXTFIELD02, EXTFIELD03, HOSPITALID, 
+    HOSPITALNAME, CANCELTIME, CANCELOPERID, CANCELOPERNAME, CREATETIME, CREATEOPERID, 
+    CREATEOPERNAME, LASTMODIFIYOPERID, LASTMODIFIYOPERNAME, SCHEMAID, BEGINTIME, ENDTIME, 
+    LASTMODIFIYTIME, APPOINTCHILDITEM, APPOINTITEMNAME, RECEIVEOPERID, RECEIVEOPERNAME, 
+    RECEIVETIME, ISFIRSTSEE, ISREVISIT
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.CrmAppointmentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.CRM_APPOINTMENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.CRM_APPOINTMENT
+    where APPOINTID = #{appointid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CRM.CRM_APPOINTMENT
+    where APPOINTID = #{appointid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.CrmAppointmentExample" >
+    delete from CRM.CRM_APPOINTMENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.CrmAppointment" >
+    <selectKey resultType="java.lang.String" keyProperty="appointid" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.CRM_APPOINTMENT (PATIENTID, CONSULTID, APPOINTDATE, 
+      APPOINTTYPE, DEPTID, DEPTNAME, 
+      DOCTID, DOCTNAME, APPOINTITEM, 
+      APPOINTMARKETING, APPOINTSMS, REMINDSMS, 
+      STATE, CLINICCODE, TRIAGEOPERID, 
+      TRIAGEOPERNAME, TRIAGETIME, EXTFIELD01, 
+      EXTFIELD02, EXTFIELD03, HOSPITALID, 
+      HOSPITALNAME, CANCELTIME, CANCELOPERID, 
+      CANCELOPERNAME, CREATETIME, CREATEOPERID, 
+      CREATEOPERNAME, LASTMODIFIYOPERID, LASTMODIFIYOPERNAME, 
+      SCHEMAID, BEGINTIME, ENDTIME, 
+      LASTMODIFIYTIME, APPOINTCHILDITEM, APPOINTITEMNAME, 
+      RECEIVEOPERID, RECEIVEOPERNAME, RECEIVETIME, 
+      ISFIRSTSEE, ISREVISIT)
+    values (#{patientid,jdbcType=VARCHAR}, #{consultid,jdbcType=VARCHAR}, #{appointdate,jdbcType=TIMESTAMP}, 
+      #{appointtype,jdbcType=VARCHAR}, #{deptid,jdbcType=VARCHAR}, #{deptname,jdbcType=VARCHAR}, 
+      #{doctid,jdbcType=VARCHAR}, #{doctname,jdbcType=VARCHAR}, #{appointitem,jdbcType=VARCHAR}, 
+      #{appointmarketing,jdbcType=VARCHAR}, #{appointsms,jdbcType=VARCHAR}, #{remindsms,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR}, #{cliniccode,jdbcType=VARCHAR}, #{triageoperid,jdbcType=VARCHAR}, 
+      #{triageopername,jdbcType=VARCHAR}, #{triagetime,jdbcType=TIMESTAMP}, #{extfield01,jdbcType=VARCHAR}, 
+      #{extfield02,jdbcType=VARCHAR}, #{extfield03,jdbcType=VARCHAR}, #{hospitalid,jdbcType=VARCHAR}, 
+      #{hospitalname,jdbcType=VARCHAR}, #{canceltime,jdbcType=TIMESTAMP}, #{canceloperid,jdbcType=VARCHAR}, 
+      #{cancelopername,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{createoperid,jdbcType=VARCHAR}, 
+      #{createopername,jdbcType=VARCHAR}, #{lastmodifiyoperid,jdbcType=VARCHAR}, #{lastmodifiyopername,jdbcType=VARCHAR}, 
+      #{schemaid,jdbcType=VARCHAR}, #{begintime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, 
+      #{lastmodifiytime,jdbcType=TIMESTAMP}, #{appointchilditem,jdbcType=VARCHAR}, #{appointitemname,jdbcType=VARCHAR}, 
+      #{receiveoperid,jdbcType=VARCHAR}, #{receiveopername,jdbcType=VARCHAR}, #{receivetime,jdbcType=TIMESTAMP}, 
+      #{isfirstsee,jdbcType=VARCHAR}, #{isrevisit,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.CrmAppointment" >
+    <selectKey resultType="java.lang.String" keyProperty="appointid" order="AFTER" >
+      Oracle
+    </selectKey>
+    insert into CRM.CRM_APPOINTMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="patientid != null" >
+        PATIENTID,
+      </if>
+      <if test="consultid != null" >
+        CONSULTID,
+      </if>
+      <if test="appointdate != null" >
+        APPOINTDATE,
+      </if>
+      <if test="appointtype != null" >
+        APPOINTTYPE,
+      </if>
+      <if test="deptid != null" >
+        DEPTID,
+      </if>
+      <if test="deptname != null" >
+        DEPTNAME,
+      </if>
+      <if test="doctid != null" >
+        DOCTID,
+      </if>
+      <if test="doctname != null" >
+        DOCTNAME,
+      </if>
+      <if test="appointitem != null" >
+        APPOINTITEM,
+      </if>
+      <if test="appointmarketing != null" >
+        APPOINTMARKETING,
+      </if>
+      <if test="appointsms != null" >
+        APPOINTSMS,
+      </if>
+      <if test="remindsms != null" >
+        REMINDSMS,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="cliniccode != null" >
+        CLINICCODE,
+      </if>
+      <if test="triageoperid != null" >
+        TRIAGEOPERID,
+      </if>
+      <if test="triageopername != null" >
+        TRIAGEOPERNAME,
+      </if>
+      <if test="triagetime != null" >
+        TRIAGETIME,
+      </if>
+      <if test="extfield01 != null" >
+        EXTFIELD01,
+      </if>
+      <if test="extfield02 != null" >
+        EXTFIELD02,
+      </if>
+      <if test="extfield03 != null" >
+        EXTFIELD03,
+      </if>
+      <if test="hospitalid != null" >
+        HOSPITALID,
+      </if>
+      <if test="hospitalname != null" >
+        HOSPITALNAME,
+      </if>
+      <if test="canceltime != null" >
+        CANCELTIME,
+      </if>
+      <if test="canceloperid != null" >
+        CANCELOPERID,
+      </if>
+      <if test="cancelopername != null" >
+        CANCELOPERNAME,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="createoperid != null" >
+        CREATEOPERID,
+      </if>
+      <if test="createopername != null" >
+        CREATEOPERNAME,
+      </if>
+      <if test="lastmodifiyoperid != null" >
+        LASTMODIFIYOPERID,
+      </if>
+      <if test="lastmodifiyopername != null" >
+        LASTMODIFIYOPERNAME,
+      </if>
+      <if test="schemaid != null" >
+        SCHEMAID,
+      </if>
+      <if test="begintime != null" >
+        BEGINTIME,
+      </if>
+      <if test="endtime != null" >
+        ENDTIME,
+      </if>
+      <if test="lastmodifiytime != null" >
+        LASTMODIFIYTIME,
+      </if>
+      <if test="appointchilditem != null" >
+        APPOINTCHILDITEM,
+      </if>
+      <if test="appointitemname != null" >
+        APPOINTITEMNAME,
+      </if>
+      <if test="receiveoperid != null" >
+        RECEIVEOPERID,
+      </if>
+      <if test="receiveopername != null" >
+        RECEIVEOPERNAME,
+      </if>
+      <if test="receivetime != null" >
+        RECEIVETIME,
+      </if>
+      <if test="isfirstsee != null" >
+        ISFIRSTSEE,
+      </if>
+      <if test="isrevisit != null" >
+        ISREVISIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="patientid != null" >
+        #{patientid,jdbcType=VARCHAR},
+      </if>
+      <if test="consultid != null" >
+        #{consultid,jdbcType=VARCHAR},
+      </if>
+      <if test="appointdate != null" >
+        #{appointdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appointtype != null" >
+        #{appointtype,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null" >
+        #{deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null" >
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="doctid != null" >
+        #{doctid,jdbcType=VARCHAR},
+      </if>
+      <if test="doctname != null" >
+        #{doctname,jdbcType=VARCHAR},
+      </if>
+      <if test="appointitem != null" >
+        #{appointitem,jdbcType=VARCHAR},
+      </if>
+      <if test="appointmarketing != null" >
+        #{appointmarketing,jdbcType=VARCHAR},
+      </if>
+      <if test="appointsms != null" >
+        #{appointsms,jdbcType=VARCHAR},
+      </if>
+      <if test="remindsms != null" >
+        #{remindsms,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="cliniccode != null" >
+        #{cliniccode,jdbcType=VARCHAR},
+      </if>
+      <if test="triageoperid != null" >
+        #{triageoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="triageopername != null" >
+        #{triageopername,jdbcType=VARCHAR},
+      </if>
+      <if test="triagetime != null" >
+        #{triagetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extfield01 != null" >
+        #{extfield01,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield02 != null" >
+        #{extfield02,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield03 != null" >
+        #{extfield03,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalname != null" >
+        #{hospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="canceltime != null" >
+        #{canceltime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="canceloperid != null" >
+        #{canceloperid,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelopername != null" >
+        #{cancelopername,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createoperid != null" >
+        #{createoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="createopername != null" >
+        #{createopername,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiyoperid != null" >
+        #{lastmodifiyoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiyopername != null" >
+        #{lastmodifiyopername,jdbcType=VARCHAR},
+      </if>
+      <if test="schemaid != null" >
+        #{schemaid,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null" >
+        #{begintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastmodifiytime != null" >
+        #{lastmodifiytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appointchilditem != null" >
+        #{appointchilditem,jdbcType=VARCHAR},
+      </if>
+      <if test="appointitemname != null" >
+        #{appointitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveoperid != null" >
+        #{receiveoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveopername != null" >
+        #{receiveopername,jdbcType=VARCHAR},
+      </if>
+      <if test="receivetime != null" >
+        #{receivetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isfirstsee != null" >
+        #{isfirstsee,jdbcType=VARCHAR},
+      </if>
+      <if test="isrevisit != null" >
+        #{isrevisit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.CrmAppointmentExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.CRM_APPOINTMENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.CRM_APPOINTMENT
+    <set >
+      <if test="record.appointid != null" >
+        APPOINTID = #{record.appointid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientid != null" >
+        PATIENTID = #{record.patientid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultid != null" >
+        CONSULTID = #{record.consultid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appointdate != null" >
+        APPOINTDATE = #{record.appointdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.appointtype != null" >
+        APPOINTTYPE = #{record.appointtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptid != null" >
+        DEPTID = #{record.deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptname != null" >
+        DEPTNAME = #{record.deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.doctid != null" >
+        DOCTID = #{record.doctid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.doctname != null" >
+        DOCTNAME = #{record.doctname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appointitem != null" >
+        APPOINTITEM = #{record.appointitem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appointmarketing != null" >
+        APPOINTMARKETING = #{record.appointmarketing,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appointsms != null" >
+        APPOINTSMS = #{record.appointsms,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remindsms != null" >
+        REMINDSMS = #{record.remindsms,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        STATE = #{record.state,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cliniccode != null" >
+        CLINICCODE = #{record.cliniccode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.triageoperid != null" >
+        TRIAGEOPERID = #{record.triageoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.triageopername != null" >
+        TRIAGEOPERNAME = #{record.triageopername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.triagetime != null" >
+        TRIAGETIME = #{record.triagetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.extfield01 != null" >
+        EXTFIELD01 = #{record.extfield01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extfield02 != null" >
+        EXTFIELD02 = #{record.extfield02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extfield03 != null" >
+        EXTFIELD03 = #{record.extfield03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalid != null" >
+        HOSPITALID = #{record.hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalname != null" >
+        HOSPITALNAME = #{record.hospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.canceltime != null" >
+        CANCELTIME = #{record.canceltime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.canceloperid != null" >
+        CANCELOPERID = #{record.canceloperid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cancelopername != null" >
+        CANCELOPERNAME = #{record.cancelopername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createoperid != null" >
+        CREATEOPERID = #{record.createoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createopername != null" >
+        CREATEOPERNAME = #{record.createopername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastmodifiyoperid != null" >
+        LASTMODIFIYOPERID = #{record.lastmodifiyoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastmodifiyopername != null" >
+        LASTMODIFIYOPERNAME = #{record.lastmodifiyopername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.schemaid != null" >
+        SCHEMAID = #{record.schemaid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.begintime != null" >
+        BEGINTIME = #{record.begintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endtime != null" >
+        ENDTIME = #{record.endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastmodifiytime != null" >
+        LASTMODIFIYTIME = #{record.lastmodifiytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.appointchilditem != null" >
+        APPOINTCHILDITEM = #{record.appointchilditem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appointitemname != null" >
+        APPOINTITEMNAME = #{record.appointitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveoperid != null" >
+        RECEIVEOPERID = #{record.receiveoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveopername != null" >
+        RECEIVEOPERNAME = #{record.receiveopername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receivetime != null" >
+        RECEIVETIME = #{record.receivetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isfirstsee != null" >
+        ISFIRSTSEE = #{record.isfirstsee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isrevisit != null" >
+        ISREVISIT = #{record.isrevisit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.CRM_APPOINTMENT
+    set APPOINTID = #{record.appointid,jdbcType=VARCHAR},
+      PATIENTID = #{record.patientid,jdbcType=VARCHAR},
+      CONSULTID = #{record.consultid,jdbcType=VARCHAR},
+      APPOINTDATE = #{record.appointdate,jdbcType=TIMESTAMP},
+      APPOINTTYPE = #{record.appointtype,jdbcType=VARCHAR},
+      DEPTID = #{record.deptid,jdbcType=VARCHAR},
+      DEPTNAME = #{record.deptname,jdbcType=VARCHAR},
+      DOCTID = #{record.doctid,jdbcType=VARCHAR},
+      DOCTNAME = #{record.doctname,jdbcType=VARCHAR},
+      APPOINTITEM = #{record.appointitem,jdbcType=VARCHAR},
+      APPOINTMARKETING = #{record.appointmarketing,jdbcType=VARCHAR},
+      APPOINTSMS = #{record.appointsms,jdbcType=VARCHAR},
+      REMINDSMS = #{record.remindsms,jdbcType=VARCHAR},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      CLINICCODE = #{record.cliniccode,jdbcType=VARCHAR},
+      TRIAGEOPERID = #{record.triageoperid,jdbcType=VARCHAR},
+      TRIAGEOPERNAME = #{record.triageopername,jdbcType=VARCHAR},
+      TRIAGETIME = #{record.triagetime,jdbcType=TIMESTAMP},
+      EXTFIELD01 = #{record.extfield01,jdbcType=VARCHAR},
+      EXTFIELD02 = #{record.extfield02,jdbcType=VARCHAR},
+      EXTFIELD03 = #{record.extfield03,jdbcType=VARCHAR},
+      HOSPITALID = #{record.hospitalid,jdbcType=VARCHAR},
+      HOSPITALNAME = #{record.hospitalname,jdbcType=VARCHAR},
+      CANCELTIME = #{record.canceltime,jdbcType=TIMESTAMP},
+      CANCELOPERID = #{record.canceloperid,jdbcType=VARCHAR},
+      CANCELOPERNAME = #{record.cancelopername,jdbcType=VARCHAR},
+      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      CREATEOPERID = #{record.createoperid,jdbcType=VARCHAR},
+      CREATEOPERNAME = #{record.createopername,jdbcType=VARCHAR},
+      LASTMODIFIYOPERID = #{record.lastmodifiyoperid,jdbcType=VARCHAR},
+      LASTMODIFIYOPERNAME = #{record.lastmodifiyopername,jdbcType=VARCHAR},
+      SCHEMAID = #{record.schemaid,jdbcType=VARCHAR},
+      BEGINTIME = #{record.begintime,jdbcType=TIMESTAMP},
+      ENDTIME = #{record.endtime,jdbcType=TIMESTAMP},
+      LASTMODIFIYTIME = #{record.lastmodifiytime,jdbcType=TIMESTAMP},
+      APPOINTCHILDITEM = #{record.appointchilditem,jdbcType=VARCHAR},
+      APPOINTITEMNAME = #{record.appointitemname,jdbcType=VARCHAR},
+      RECEIVEOPERID = #{record.receiveoperid,jdbcType=VARCHAR},
+      RECEIVEOPERNAME = #{record.receiveopername,jdbcType=VARCHAR},
+      RECEIVETIME = #{record.receivetime,jdbcType=TIMESTAMP},
+      ISFIRSTSEE = #{record.isfirstsee,jdbcType=VARCHAR},
+      ISREVISIT = #{record.isrevisit,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.CrmAppointment" >
+    update CRM.CRM_APPOINTMENT
+    <set >
+      <if test="patientid != null" >
+        PATIENTID = #{patientid,jdbcType=VARCHAR},
+      </if>
+      <if test="consultid != null" >
+        CONSULTID = #{consultid,jdbcType=VARCHAR},
+      </if>
+      <if test="appointdate != null" >
+        APPOINTDATE = #{appointdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appointtype != null" >
+        APPOINTTYPE = #{appointtype,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null" >
+        DEPTID = #{deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null" >
+        DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="doctid != null" >
+        DOCTID = #{doctid,jdbcType=VARCHAR},
+      </if>
+      <if test="doctname != null" >
+        DOCTNAME = #{doctname,jdbcType=VARCHAR},
+      </if>
+      <if test="appointitem != null" >
+        APPOINTITEM = #{appointitem,jdbcType=VARCHAR},
+      </if>
+      <if test="appointmarketing != null" >
+        APPOINTMARKETING = #{appointmarketing,jdbcType=VARCHAR},
+      </if>
+      <if test="appointsms != null" >
+        APPOINTSMS = #{appointsms,jdbcType=VARCHAR},
+      </if>
+      <if test="remindsms != null" >
+        REMINDSMS = #{remindsms,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="cliniccode != null" >
+        CLINICCODE = #{cliniccode,jdbcType=VARCHAR},
+      </if>
+      <if test="triageoperid != null" >
+        TRIAGEOPERID = #{triageoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="triageopername != null" >
+        TRIAGEOPERNAME = #{triageopername,jdbcType=VARCHAR},
+      </if>
+      <if test="triagetime != null" >
+        TRIAGETIME = #{triagetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extfield01 != null" >
+        EXTFIELD01 = #{extfield01,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield02 != null" >
+        EXTFIELD02 = #{extfield02,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield03 != null" >
+        EXTFIELD03 = #{extfield03,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        HOSPITALID = #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalname != null" >
+        HOSPITALNAME = #{hospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="canceltime != null" >
+        CANCELTIME = #{canceltime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="canceloperid != null" >
+        CANCELOPERID = #{canceloperid,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelopername != null" >
+        CANCELOPERNAME = #{cancelopername,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createoperid != null" >
+        CREATEOPERID = #{createoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="createopername != null" >
+        CREATEOPERNAME = #{createopername,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiyoperid != null" >
+        LASTMODIFIYOPERID = #{lastmodifiyoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiyopername != null" >
+        LASTMODIFIYOPERNAME = #{lastmodifiyopername,jdbcType=VARCHAR},
+      </if>
+      <if test="schemaid != null" >
+        SCHEMAID = #{schemaid,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null" >
+        BEGINTIME = #{begintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        ENDTIME = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastmodifiytime != null" >
+        LASTMODIFIYTIME = #{lastmodifiytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appointchilditem != null" >
+        APPOINTCHILDITEM = #{appointchilditem,jdbcType=VARCHAR},
+      </if>
+      <if test="appointitemname != null" >
+        APPOINTITEMNAME = #{appointitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveoperid != null" >
+        RECEIVEOPERID = #{receiveoperid,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveopername != null" >
+        RECEIVEOPERNAME = #{receiveopername,jdbcType=VARCHAR},
+      </if>
+      <if test="receivetime != null" >
+        RECEIVETIME = #{receivetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isfirstsee != null" >
+        ISFIRSTSEE = #{isfirstsee,jdbcType=VARCHAR},
+      </if>
+      <if test="isrevisit != null" >
+        ISREVISIT = #{isrevisit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where APPOINTID = #{appointid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.CrmAppointment" >
+    update CRM.CRM_APPOINTMENT
+    set PATIENTID = #{patientid,jdbcType=VARCHAR},
+      CONSULTID = #{consultid,jdbcType=VARCHAR},
+      APPOINTDATE = #{appointdate,jdbcType=TIMESTAMP},
+      APPOINTTYPE = #{appointtype,jdbcType=VARCHAR},
+      DEPTID = #{deptid,jdbcType=VARCHAR},
+      DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      DOCTID = #{doctid,jdbcType=VARCHAR},
+      DOCTNAME = #{doctname,jdbcType=VARCHAR},
+      APPOINTITEM = #{appointitem,jdbcType=VARCHAR},
+      APPOINTMARKETING = #{appointmarketing,jdbcType=VARCHAR},
+      APPOINTSMS = #{appointsms,jdbcType=VARCHAR},
+      REMINDSMS = #{remindsms,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      CLINICCODE = #{cliniccode,jdbcType=VARCHAR},
+      TRIAGEOPERID = #{triageoperid,jdbcType=VARCHAR},
+      TRIAGEOPERNAME = #{triageopername,jdbcType=VARCHAR},
+      TRIAGETIME = #{triagetime,jdbcType=TIMESTAMP},
+      EXTFIELD01 = #{extfield01,jdbcType=VARCHAR},
+      EXTFIELD02 = #{extfield02,jdbcType=VARCHAR},
+      EXTFIELD03 = #{extfield03,jdbcType=VARCHAR},
+      HOSPITALID = #{hospitalid,jdbcType=VARCHAR},
+      HOSPITALNAME = #{hospitalname,jdbcType=VARCHAR},
+      CANCELTIME = #{canceltime,jdbcType=TIMESTAMP},
+      CANCELOPERID = #{canceloperid,jdbcType=VARCHAR},
+      CANCELOPERNAME = #{cancelopername,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      CREATEOPERID = #{createoperid,jdbcType=VARCHAR},
+      CREATEOPERNAME = #{createopername,jdbcType=VARCHAR},
+      LASTMODIFIYOPERID = #{lastmodifiyoperid,jdbcType=VARCHAR},
+      LASTMODIFIYOPERNAME = #{lastmodifiyopername,jdbcType=VARCHAR},
+      SCHEMAID = #{schemaid,jdbcType=VARCHAR},
+      BEGINTIME = #{begintime,jdbcType=TIMESTAMP},
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP},
+      LASTMODIFIYTIME = #{lastmodifiytime,jdbcType=TIMESTAMP},
+      APPOINTCHILDITEM = #{appointchilditem,jdbcType=VARCHAR},
+      APPOINTITEMNAME = #{appointitemname,jdbcType=VARCHAR},
+      RECEIVEOPERID = #{receiveoperid,jdbcType=VARCHAR},
+      RECEIVEOPERNAME = #{receiveopername,jdbcType=VARCHAR},
+      RECEIVETIME = #{receivetime,jdbcType=TIMESTAMP},
+      ISFIRSTSEE = #{isfirstsee,jdbcType=VARCHAR},
+      ISREVISIT = #{isrevisit,jdbcType=VARCHAR}
+    where APPOINTID = #{appointid,jdbcType=VARCHAR}
+  </update>
+</mapper>
