@@ -30,9 +30,22 @@ public class IndexController {
     private PatientLabelService patientLabelService;
     @Autowired
     private AppointmentService appointmentService;
+    @Autowired
+    private PackageService packageService;
+    @Autowired
+    private RegisterService registerService;
+    @Autowired
+    private RevisitService revisitService;
+    @Autowired
+    private FeeDetailService feeDetailService;
+
+    int count=0;
 
     @RequestMapping("/")
     public ModelAndView toDemo(ModelAndView modelAndView,String patientId){
+        System.out.println(count+"index");
+        count++;
+
         modelAndView.setViewName("demo");
         if (patientId==null||patientId.equals(""))
             patientId = "1000059574";
@@ -43,6 +56,8 @@ public class IndexController {
         CrmCoupon coupon = couponService.getCouponByPatientId(patientId);
 
         modelAndView.addObject("CRM_PATIENTLEVEL", dictionary.getDictionary("CRM_PATIENTLEVEL"));
+        modelAndView.addObject("visitTypeMap", dictionary.getDictionary("VISITTYPE"));
+        modelAndView.addObject("visitDeptMap", dictionary.getDictionary("CRM_GHCPRIV"));
         modelAndView.addObject("patientInfo",bdCrmPatient);
         modelAndView.addObject("hisPatientInfo",comPatientinfo);
         modelAndView.addObject("clientManager", employee==null?new BdComEmployee():employee);
@@ -50,6 +65,11 @@ public class IndexController {
         modelAndView.addObject("year", PatientUtil.getYearByBirthday(comPatientinfo.getBirthday()));
         modelAndView.addObject("patientlabel", patientLabelService.mapStringPatientLabel(patientId));
         modelAndView.addObject("latestAppointment", appointmentService.getLatestAppointmentByPatientId(patientId));
+        modelAndView.addObject("packageList", packageService.listPackageByPatientId(patientId));
+        modelAndView.addObject("registerList", registerService.listPackageByPatientId(patientId));
+        modelAndView.addObject("revisitList", revisitService.listLatestRevisit(patientId));
+        modelAndView.addObject("feeDetailList", feeDetailService.listLatestFeedetail(patientId));
+        modelAndView.addObject("arriveDates", registerService.listAllToHospitalDateByPatientId(patientId));
 
         return  modelAndView;
     }

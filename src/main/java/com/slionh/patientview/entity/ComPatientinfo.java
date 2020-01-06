@@ -1034,4 +1034,103 @@ public class ComPatientinfo extends ComPatientinfoKey {
     public void setFamilyrolename(String familyrolename) {
         this.familyrolename = familyrolename == null ? null : familyrolename.trim();
     }
+
+    @Override
+    public String toString() {
+        return "ComPatientinfo{" +
+                "icCardno='" + icCardno + '\'' +
+                ", name='" + name + '\'' +
+                ", spellCode='" + spellCode + '\'' +
+                ", wbCode='" + wbCode + '\'' +
+                ", birthday=" + birthday +
+                ", sexCode='" + sexCode + '\'' +
+                ", idenno='" + idenno + '\'' +
+                ", bloodCode='" + bloodCode + '\'' +
+                ", profCode='" + profCode + '\'' +
+                ", workHome='" + workHome + '\'' +
+                ", workTel='" + workTel + '\'' +
+                ", workZip='" + workZip + '\'' +
+                ", home='" + home + '\'' +
+                ", homeTel='" + homeTel + '\'' +
+                ", homeZip='" + homeZip + '\'' +
+                ", district='" + district + '\'' +
+                ", nationCode='" + nationCode + '\'' +
+                ", linkmanName='" + linkmanName + '\'' +
+                ", linkmanTel='" + linkmanTel + '\'' +
+                ", linkmanAdd='" + linkmanAdd + '\'' +
+                ", relaCode='" + relaCode + '\'' +
+                ", mari='" + mari + '\'' +
+                ", counCode='" + counCode + '\'' +
+                ", paykindCode='" + paykindCode + '\'' +
+                ", paykindName='" + paykindName + '\'' +
+                ", pactCode='" + pactCode + '\'' +
+                ", pactName='" + pactName + '\'' +
+                ", mcardNo='" + mcardNo + '\'' +
+                ", areaCode='" + areaCode + '\'' +
+                ", framt=" + framt +
+                ", anaphyFlag='" + anaphyFlag + '\'' +
+                ", hepatitisFlag='" + hepatitisFlag + '\'' +
+                ", actCode='" + actCode + '\'' +
+                ", actAmt=" + actAmt +
+                ", lactSum=" + lactSum +
+                ", lbankSum=" + lbankSum +
+                ", arrearTimes=" + arrearTimes +
+                ", arrearSum=" + arrearSum +
+                ", inhosSource='" + inhosSource + '\'' +
+                ", lihosDate=" + lihosDate +
+                ", inhosTimes=" + inhosTimes +
+                ", louthosDate=" + louthosDate +
+                ", firSeeDate=" + firSeeDate +
+                ", lregDate=" + lregDate +
+                ", disobyCnt=" + disobyCnt +
+                ", endDate=" + endDate +
+                ", mark='" + mark + '\'' +
+                ", operCode='" + operCode + '\'' +
+                ", operDate=" + operDate +
+                ", isValid='" + isValid + '\'' +
+                ", feeKind='" + feeKind + '\'' +
+                ", oldCardno='" + oldCardno + '\'' +
+                ", isEncryptname='" + isEncryptname + '\'' +
+                ", normalname='" + normalname + '\'' +
+                ", idcardtype='" + idcardtype + '\'' +
+                ", vipFlag='" + vipFlag + '\'' +
+                ", montherName='" + montherName + '\'' +
+                ", isTreatment='" + isTreatment + '\'' +
+                ", caseNo='" + caseNo + '\'' +
+                ", insuranceId='" + insuranceId + '\'' +
+                ", insuranceName='" + insuranceName + '\'' +
+                ", homeDoorNo='" + homeDoorNo + '\'' +
+                ", linkmanDoorNo='" + linkmanDoorNo + '\'' +
+                ", email='" + email + '\'' +
+                ", emrPatid=" + emrPatid +
+                ", homeNow='" + homeNow + '\'' +
+                ", familyCode='" + familyCode + '\'' +
+                ", otherCardno='" + otherCardno + '\'' +
+                ", serviceCode='" + serviceCode + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", patientSourceno='" + patientSourceno + '\'' +
+                ", referralPerson='" + referralPerson + '\'' +
+                ", channelCode='" + channelCode + '\'' +
+                ", familyName='" + familyName + '\'' +
+                ", bicompanyid='" + bicompanyid + '\'' +
+                ", bicompanyname='" + bicompanyname + '\'' +
+                ", crmid='" + crmid + '\'' +
+                ", channel1code='" + channel1code + '\'' +
+                ", channel1='" + channel1 + '\'' +
+                ", channel2code='" + channel2code + '\'' +
+                ", channel2='" + channel2 + '\'' +
+                ", channel3code='" + channel3code + '\'' +
+                ", channel3='" + channel3 + '\'' +
+                ", clientmanager='" + clientmanager + '\'' +
+                ", consultmanager='" + consultmanager + '\'' +
+                ", sellmanager='" + sellmanager + '\'' +
+                ", bcsellmanager='" + bcsellmanager + '\'' +
+                ", childflag='" + childflag + '\'' +
+                ", packageflag='" + packageflag + '\'' +
+                ", familyid='" + familyid + '\'' +
+                ", familyname='" + familyname + '\'' +
+                ", familyroleid='" + familyroleid + '\'' +
+                ", familyrolename='" + familyrolename + '\'' +
+                '}';
+    }
 }

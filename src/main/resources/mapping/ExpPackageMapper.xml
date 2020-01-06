@@ -124,6 +124,22 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectFatherPackage" resultMap="BaseResultMap" parameterType="String">
+    select HIS_BD_COM_PACKAGE.PACKAGE_NAME
+    ,HIS_BD_COM_PACKAGE.PACKAGE_KIND
+    ,EXP_PACKAGE.*
+     from  EXP_PACKAGE Inner join  COM_PATIENTINFO on  1=1
+     and EXP_PACKAGE.CARD_NO = COM_PATIENTINFO.CARD_NO Inner join  HIS_BD_COM_PACKAGE on  1=1
+     and EXP_PACKAGE.PACKAGE_ID = HIS_BD_COM_PACKAGE.PACKAGE_ID
+     where  1=1
+     and EXP_PACKAGE.HOSPITAL_ID = HIS_BD_COM_PACKAGE.HOSPITAL_ID
+     and EXP_PACKAGE.TRANS_TYPE = '1'--TRANS_TYPE
+     and EXP_PACKAGE.PAY_FLAG = '1'--PAY_FLAG
+     and EXP_PACKAGE.CANCEL_FLAG = '0'--CANCEL_FLAG
+     and COM_PATIENTINFO.CRMID = #{patientId}--CRMID
+     and rownum &lt; 7
+     order by EXP_PACKAGE.OPER_DATE DESC
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.ExpPackageKey" >
     select 
     <include refid="Base_Column_List" />

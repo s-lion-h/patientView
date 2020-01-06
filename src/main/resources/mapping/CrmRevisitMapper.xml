@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.CrmRevisitMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.CrmRevisit" >
+    <constructor >
+      <idArg column="VISIT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PATIENT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_DISEASE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_TITLE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_WAY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="VISIT_DEPT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_OPER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REAL_VISIT_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="REAL_VISIT_DEPT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REAL_VISIT_OPER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CUSTOMER_STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CUSTOMER_WHERE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_RESULT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_ENVIRONMENT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_SERVICE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_EFFECT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VISIT_NEXT_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="VISIT_NEXT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATED_OPER_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATED_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="OPER_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="APPOINT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOSPITAL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOSPITAL_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    VISIT_ID, PATIENT_ID, PATIENT_NAME, VISIT_TYPE, VISIT_DISEASE, VISIT_TITLE, VISIT_WAY, 
+    VISIT_TIME, VISIT_DEPT, VISIT_OPER, REAL_VISIT_TIME, REAL_VISIT_DEPT, REAL_VISIT_OPER, 
+    CUSTOMER_STATUS, CUSTOMER_WHERE, VISIT_RESULT, VISIT_ENVIRONMENT, VISIT_SERVICE, 
+    VISIT_EFFECT, VISIT_NEXT_DATE, VISIT_NEXT_ID, STATE, VALID_FLAG, MEMO, CREATED_OPER_ID, 
+    CREATED_TIME, OPER_ID, OPER_TIME, APPOINT_ID, HOSPITAL_ID, HOSPITAL_NAME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.CrmRevisitExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.CRM_REVISIT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectLatestRevisit" resultMap="BaseResultMap" parameterType="String">
+    select
+    *
+    from CRM_REVISIT
+    where 1=1
+    and PATIENT_ID = #{patientId}--PATIENT_ID
+    and rownum &lt; 6
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.CRM_REVISIT
+    where VISIT_ID = #{visitId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CRM.CRM_REVISIT
+    where VISIT_ID = #{visitId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.CrmRevisitExample" >
+    delete from CRM.CRM_REVISIT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.CrmRevisit" >
+    insert into CRM.CRM_REVISIT (VISIT_ID, PATIENT_ID, PATIENT_NAME, 
+      VISIT_TYPE, VISIT_DISEASE, VISIT_TITLE, 
+      VISIT_WAY, VISIT_TIME, VISIT_DEPT, 
+      VISIT_OPER, REAL_VISIT_TIME, REAL_VISIT_DEPT, 
+      REAL_VISIT_OPER, CUSTOMER_STATUS, CUSTOMER_WHERE, 
+      VISIT_RESULT, VISIT_ENVIRONMENT, VISIT_SERVICE, 
+      VISIT_EFFECT, VISIT_NEXT_DATE, VISIT_NEXT_ID, 
+      STATE, VALID_FLAG, MEMO, 
+      CREATED_OPER_ID, CREATED_TIME, OPER_ID, 
+      OPER_TIME, APPOINT_ID, HOSPITAL_ID, 
+      HOSPITAL_NAME)
+    values (#{visitId,jdbcType=VARCHAR}, #{patientId,jdbcType=VARCHAR}, #{patientName,jdbcType=VARCHAR}, 
+      #{visitType,jdbcType=VARCHAR}, #{visitDisease,jdbcType=VARCHAR}, #{visitTitle,jdbcType=VARCHAR}, 
+      #{visitWay,jdbcType=VARCHAR}, #{visitTime,jdbcType=TIMESTAMP}, #{visitDept,jdbcType=VARCHAR}, 
+      #{visitOper,jdbcType=VARCHAR}, #{realVisitTime,jdbcType=TIMESTAMP}, #{realVisitDept,jdbcType=VARCHAR}, 
+      #{realVisitOper,jdbcType=VARCHAR}, #{customerStatus,jdbcType=VARCHAR}, #{customerWhere,jdbcType=VARCHAR}, 
+      #{visitResult,jdbcType=VARCHAR}, #{visitEnvironment,jdbcType=VARCHAR}, #{visitService,jdbcType=VARCHAR}, 
+      #{visitEffect,jdbcType=VARCHAR}, #{visitNextDate,jdbcType=TIMESTAMP}, #{visitNextId,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR}, #{validFlag,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{createdOperId,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{operId,jdbcType=VARCHAR}, 
+      #{operTime,jdbcType=TIMESTAMP}, #{appointId,jdbcType=VARCHAR}, #{hospitalId,jdbcType=VARCHAR}, 
+      #{hospitalName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.CrmRevisit" >
+    insert into CRM.CRM_REVISIT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="visitId != null" >
+        VISIT_ID,
+      </if>
+      <if test="patientId != null" >
+        PATIENT_ID,
+      </if>
+      <if test="patientName != null" >
+        PATIENT_NAME,
+      </if>
+      <if test="visitType != null" >
+        VISIT_TYPE,
+      </if>
+      <if test="visitDisease != null" >
+        VISIT_DISEASE,
+      </if>
+      <if test="visitTitle != null" >
+        VISIT_TITLE,
+      </if>
+      <if test="visitWay != null" >
+        VISIT_WAY,
+      </if>
+      <if test="visitTime != null" >
+        VISIT_TIME,
+      </if>
+      <if test="visitDept != null" >
+        VISIT_DEPT,
+      </if>
+      <if test="visitOper != null" >
+        VISIT_OPER,
+      </if>
+      <if test="realVisitTime != null" >
+        REAL_VISIT_TIME,
+      </if>
+      <if test="realVisitDept != null" >
+        REAL_VISIT_DEPT,
+      </if>
+      <if test="realVisitOper != null" >
+        REAL_VISIT_OPER,
+      </if>
+      <if test="customerStatus != null" >
+        CUSTOMER_STATUS,
+      </if>
+      <if test="customerWhere != null" >
+        CUSTOMER_WHERE,
+      </if>
+      <if test="visitResult != null" >
+        VISIT_RESULT,
+      </if>
+      <if test="visitEnvironment != null" >
+        VISIT_ENVIRONMENT,
+      </if>
+      <if test="visitService != null" >
+        VISIT_SERVICE,
+      </if>
+      <if test="visitEffect != null" >
+        VISIT_EFFECT,
+      </if>
+      <if test="visitNextDate != null" >
+        VISIT_NEXT_DATE,
+      </if>
+      <if test="visitNextId != null" >
+        VISIT_NEXT_ID,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+      <if test="createdOperId != null" >
+        CREATED_OPER_ID,
+      </if>
+      <if test="createdTime != null" >
+        CREATED_TIME,
+      </if>
+      <if test="operId != null" >
+        OPER_ID,
+      </if>
+      <if test="operTime != null" >
+        OPER_TIME,
+      </if>
+      <if test="appointId != null" >
+        APPOINT_ID,
+      </if>
+      <if test="hospitalId != null" >
+        HOSPITAL_ID,
+      </if>
+      <if test="hospitalName != null" >
+        HOSPITAL_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="visitId != null" >
+        #{visitId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null" >
+        #{patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientName != null" >
+        #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="visitType != null" >
+        #{visitType,jdbcType=VARCHAR},
+      </if>
+      <if test="visitDisease != null" >
+        #{visitDisease,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTitle != null" >
+        #{visitTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="visitWay != null" >
+        #{visitWay,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTime != null" >
+        #{visitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visitDept != null" >
+        #{visitDept,jdbcType=VARCHAR},
+      </if>
+      <if test="visitOper != null" >
+        #{visitOper,jdbcType=VARCHAR},
+      </if>
+      <if test="realVisitTime != null" >
+        #{realVisitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realVisitDept != null" >
+        #{realVisitDept,jdbcType=VARCHAR},
+      </if>
+      <if test="realVisitOper != null" >
+        #{realVisitOper,jdbcType=VARCHAR},
+      </if>
+      <if test="customerStatus != null" >
+        #{customerStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="customerWhere != null" >
+        #{customerWhere,jdbcType=VARCHAR},
+      </if>
+      <if test="visitResult != null" >
+        #{visitResult,jdbcType=VARCHAR},
+      </if>
+      <if test="visitEnvironment != null" >
+        #{visitEnvironment,jdbcType=VARCHAR},
+      </if>
+      <if test="visitService != null" >
+        #{visitService,jdbcType=VARCHAR},
+      </if>
+      <if test="visitEffect != null" >
+        #{visitEffect,jdbcType=VARCHAR},
+      </if>
+      <if test="visitNextDate != null" >
+        #{visitNextDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visitNextId != null" >
+        #{visitNextId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="validFlag != null" >
+        #{validFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createdOperId != null" >
+        #{createdOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operId != null" >
+        #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null" >
+        #{operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appointId != null" >
+        #{appointId,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalId != null" >
+        #{hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalName != null" >
+        #{hospitalName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.CrmRevisitExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.CRM_REVISIT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.CRM_REVISIT
+    <set >
+      <if test="record.visitId != null" >
+        VISIT_ID = #{record.visitId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientId != null" >
+        PATIENT_ID = #{record.patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientName != null" >
+        PATIENT_NAME = #{record.patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitType != null" >
+        VISIT_TYPE = #{record.visitType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitDisease != null" >
+        VISIT_DISEASE = #{record.visitDisease,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitTitle != null" >
+        VISIT_TITLE = #{record.visitTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitWay != null" >
+        VISIT_WAY = #{record.visitWay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitTime != null" >
+        VISIT_TIME = #{record.visitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.visitDept != null" >
+        VISIT_DEPT = #{record.visitDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitOper != null" >
+        VISIT_OPER = #{record.visitOper,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realVisitTime != null" >
+        REAL_VISIT_TIME = #{record.realVisitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.realVisitDept != null" >
+        REAL_VISIT_DEPT = #{record.realVisitDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realVisitOper != null" >
+        REAL_VISIT_OPER = #{record.realVisitOper,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerStatus != null" >
+        CUSTOMER_STATUS = #{record.customerStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerWhere != null" >
+        CUSTOMER_WHERE = #{record.customerWhere,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitResult != null" >
+        VISIT_RESULT = #{record.visitResult,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitEnvironment != null" >
+        VISIT_ENVIRONMENT = #{record.visitEnvironment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitService != null" >
+        VISIT_SERVICE = #{record.visitService,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitEffect != null" >
+        VISIT_EFFECT = #{record.visitEffect,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visitNextDate != null" >
+        VISIT_NEXT_DATE = #{record.visitNextDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.visitNextId != null" >
+        VISIT_NEXT_ID = #{record.visitNextId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        STATE = #{record.state,jdbcType=VARCHAR},
+      </if>
+      <if test="record.validFlag != null" >
+        VALID_FLAG = #{record.validFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo != null" >
+        MEMO = #{record.memo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdOperId != null" >
+        CREATED_OPER_ID = #{record.createdOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdTime != null" >
+        CREATED_TIME = #{record.createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.operId != null" >
+        OPER_ID = #{record.operId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operTime != null" >
+        OPER_TIME = #{record.operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.appointId != null" >
+        APPOINT_ID = #{record.appointId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalId != null" >
+        HOSPITAL_ID = #{record.hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalName != null" >
+        HOSPITAL_NAME = #{record.hospitalName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.CRM_REVISIT
+    set VISIT_ID = #{record.visitId,jdbcType=VARCHAR},
+      PATIENT_ID = #{record.patientId,jdbcType=VARCHAR},
+      PATIENT_NAME = #{record.patientName,jdbcType=VARCHAR},
+      VISIT_TYPE = #{record.visitType,jdbcType=VARCHAR},
+      VISIT_DISEASE = #{record.visitDisease,jdbcType=VARCHAR},
+      VISIT_TITLE = #{record.visitTitle,jdbcType=VARCHAR},
+      VISIT_WAY = #{record.visitWay,jdbcType=VARCHAR},
+      VISIT_TIME = #{record.visitTime,jdbcType=TIMESTAMP},
+      VISIT_DEPT = #{record.visitDept,jdbcType=VARCHAR},
+      VISIT_OPER = #{record.visitOper,jdbcType=VARCHAR},
+      REAL_VISIT_TIME = #{record.realVisitTime,jdbcType=TIMESTAMP},
+      REAL_VISIT_DEPT = #{record.realVisitDept,jdbcType=VARCHAR},
+      REAL_VISIT_OPER = #{record.realVisitOper,jdbcType=VARCHAR},
+      CUSTOMER_STATUS = #{record.customerStatus,jdbcType=VARCHAR},
+      CUSTOMER_WHERE = #{record.customerWhere,jdbcType=VARCHAR},
+      VISIT_RESULT = #{record.visitResult,jdbcType=VARCHAR},
+      VISIT_ENVIRONMENT = #{record.visitEnvironment,jdbcType=VARCHAR},
+      VISIT_SERVICE = #{record.visitService,jdbcType=VARCHAR},
+      VISIT_EFFECT = #{record.visitEffect,jdbcType=VARCHAR},
+      VISIT_NEXT_DATE = #{record.visitNextDate,jdbcType=TIMESTAMP},
+      VISIT_NEXT_ID = #{record.visitNextId,jdbcType=VARCHAR},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      VALID_FLAG = #{record.validFlag,jdbcType=VARCHAR},
+      MEMO = #{record.memo,jdbcType=VARCHAR},
+      CREATED_OPER_ID = #{record.createdOperId,jdbcType=VARCHAR},
+      CREATED_TIME = #{record.createdTime,jdbcType=TIMESTAMP},
+      OPER_ID = #{record.operId,jdbcType=VARCHAR},
+      OPER_TIME = #{record.operTime,jdbcType=TIMESTAMP},
+      APPOINT_ID = #{record.appointId,jdbcType=VARCHAR},
+      HOSPITAL_ID = #{record.hospitalId,jdbcType=VARCHAR},
+      HOSPITAL_NAME = #{record.hospitalName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.CrmRevisit" >
+    update CRM.CRM_REVISIT
+    <set >
+      <if test="patientId != null" >
+        PATIENT_ID = #{patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientName != null" >
+        PATIENT_NAME = #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="visitType != null" >
+        VISIT_TYPE = #{visitType,jdbcType=VARCHAR},
+      </if>
+      <if test="visitDisease != null" >
+        VISIT_DISEASE = #{visitDisease,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTitle != null" >
+        VISIT_TITLE = #{visitTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="visitWay != null" >
+        VISIT_WAY = #{visitWay,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTime != null" >
+        VISIT_TIME = #{visitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visitDept != null" >
+        VISIT_DEPT = #{visitDept,jdbcType=VARCHAR},
+      </if>
+      <if test="visitOper != null" >
+        VISIT_OPER = #{visitOper,jdbcType=VARCHAR},
+      </if>
+      <if test="realVisitTime != null" >
+        REAL_VISIT_TIME = #{realVisitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realVisitDept != null" >
+        REAL_VISIT_DEPT = #{realVisitDept,jdbcType=VARCHAR},
+      </if>
+      <if test="realVisitOper != null" >
+        REAL_VISIT_OPER = #{realVisitOper,jdbcType=VARCHAR},
+      </if>
+      <if test="customerStatus != null" >
+        CUSTOMER_STATUS = #{customerStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="customerWhere != null" >
+        CUSTOMER_WHERE = #{customerWhere,jdbcType=VARCHAR},
+      </if>
+      <if test="visitResult != null" >
+        VISIT_RESULT = #{visitResult,jdbcType=VARCHAR},
+      </if>
+      <if test="visitEnvironment != null" >
+        VISIT_ENVIRONMENT = #{visitEnvironment,jdbcType=VARCHAR},
+      </if>
+      <if test="visitService != null" >
+        VISIT_SERVICE = #{visitService,jdbcType=VARCHAR},
+      </if>
+      <if test="visitEffect != null" >
+        VISIT_EFFECT = #{visitEffect,jdbcType=VARCHAR},
+      </if>
+      <if test="visitNextDate != null" >
+        VISIT_NEXT_DATE = #{visitNextDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visitNextId != null" >
+        VISIT_NEXT_ID = #{visitNextId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG = #{validFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createdOperId != null" >
+        CREATED_OPER_ID = #{createdOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operId != null" >
+        OPER_ID = #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null" >
+        OPER_TIME = #{operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appointId != null" >
+        APPOINT_ID = #{appointId,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalId != null" >
+        HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalName != null" >
+        HOSPITAL_NAME = #{hospitalName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where VISIT_ID = #{visitId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.CrmRevisit" >
+    update CRM.CRM_REVISIT
+    set PATIENT_ID = #{patientId,jdbcType=VARCHAR},
+      PATIENT_NAME = #{patientName,jdbcType=VARCHAR},
+      VISIT_TYPE = #{visitType,jdbcType=VARCHAR},
+      VISIT_DISEASE = #{visitDisease,jdbcType=VARCHAR},
+      VISIT_TITLE = #{visitTitle,jdbcType=VARCHAR},
+      VISIT_WAY = #{visitWay,jdbcType=VARCHAR},
+      VISIT_TIME = #{visitTime,jdbcType=TIMESTAMP},
+      VISIT_DEPT = #{visitDept,jdbcType=VARCHAR},
+      VISIT_OPER = #{visitOper,jdbcType=VARCHAR},
+      REAL_VISIT_TIME = #{realVisitTime,jdbcType=TIMESTAMP},
+      REAL_VISIT_DEPT = #{realVisitDept,jdbcType=VARCHAR},
+      REAL_VISIT_OPER = #{realVisitOper,jdbcType=VARCHAR},
+      CUSTOMER_STATUS = #{customerStatus,jdbcType=VARCHAR},
+      CUSTOMER_WHERE = #{customerWhere,jdbcType=VARCHAR},
+      VISIT_RESULT = #{visitResult,jdbcType=VARCHAR},
+      VISIT_ENVIRONMENT = #{visitEnvironment,jdbcType=VARCHAR},
+      VISIT_SERVICE = #{visitService,jdbcType=VARCHAR},
+      VISIT_EFFECT = #{visitEffect,jdbcType=VARCHAR},
+      VISIT_NEXT_DATE = #{visitNextDate,jdbcType=TIMESTAMP},
+      VISIT_NEXT_ID = #{visitNextId,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      VALID_FLAG = #{validFlag,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      CREATED_OPER_ID = #{createdOperId,jdbcType=VARCHAR},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      OPER_ID = #{operId,jdbcType=VARCHAR},
+      OPER_TIME = #{operTime,jdbcType=TIMESTAMP},
+      APPOINT_ID = #{appointId,jdbcType=VARCHAR},
+      HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR},
+      HOSPITAL_NAME = #{hospitalName,jdbcType=VARCHAR}
+    where VISIT_ID = #{visitId,jdbcType=VARCHAR}
+  </update>
+</mapper>

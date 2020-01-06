@@ -17,6 +17,8 @@ public interface ExpPackageMapper {
 
     int insertSelective(ExpPackage record);
 
+    List<ExpPackage> selectFatherPackage(String PatientId);
+
     List<ExpPackage> selectByExample(ExpPackageExample example);
 
     ExpPackage selectByPrimaryKey(ExpPackageKey key);

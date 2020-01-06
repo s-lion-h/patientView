@@ -120,4 +120,20 @@ public class BdComDictionary extends BdComDictionaryKey {
     public void setOperTime(Date operTime) {
         this.operTime = operTime;
     }
+
+    @Override
+    public String toString() {
+        return "BdComDictionary{" +
+                "dictionaryCode='" + dictionaryCode + '\'' +
+                ", dictionaryName='" + dictionaryName + '\'' +
+                ", description='" + description + '\'' +
+                ", userDefineCode='" + userDefineCode + '\'' +
+                ", spellCode='" + spellCode + '\'' +
+                ", fivestrokeCode='" + fivestrokeCode + '\'' +
+                ", sortId=" + sortId +
+                ", validFlag='" + validFlag + '\'' +
+                ", operId='" + operId + '\'' +
+                ", operTime=" + operTime +
+                '}';
+    }
 }

@@ -407,4 +407,46 @@ public class ExpPackage extends ExpPackageKey {
     public void setPackagenum(BigDecimal packagenum) {
         this.packagenum = packagenum;
     }
+
+    @Override
+    public String toString() {
+        return "ExpPackage{" +
+                "packageId='" + packageId + '\'' +
+                ", payFlag='" + payFlag + '\'' +
+                ", cardNo='" + cardNo + '\'' +
+                ", patientName='" + patientName + '\'' +
+                ", sexCode='" + sexCode + '\'' +
+                ", birthday=" + birthday +
+                ", cardLevel='" + cardLevel + '\'' +
+                ", paykindCode='" + paykindCode + '\'' +
+                ", packageDept='" + packageDept + '\'' +
+                ", consultant='" + consultant + '\'' +
+                ", delimitingCode='" + delimitingCode + '\'' +
+                ", delimitingDate=" + delimitingDate +
+                ", packageCost=" + packageCost +
+                ", realCost=" + realCost +
+                ", giftCost=" + giftCost +
+                ", etcCost=" + etcCost +
+                ", invoiceSeq='" + invoiceSeq + '\'' +
+                ", invoiceNo='" + invoiceNo + '\'' +
+                ", operCode='" + operCode + '\'' +
+                ", operDate=" + operDate +
+                ", cancelFlag='" + cancelFlag + '\'' +
+                ", cancelOper='" + cancelOper + '\'' +
+                ", cancelDate=" + cancelDate +
+                ", originalCode='" + originalCode + '\'' +
+                ", memo='" + memo + '\'' +
+                ", recipeNo='" + recipeNo + '\'' +
+                ", sequenceNo='" + sequenceNo + '\'' +
+                ", costFlag='" + costFlag + '\'' +
+                ", costInvoice='" + costInvoice + '\'' +
+                ", costclinicCode='" + costclinicCode + '\'' +
+                ", usetype='" + usetype + '\'' +
+                ", packageName='" + packageName + '\'' +
+                ", packagesequenceNo='" + packagesequenceNo + '\'' +
+                ", parentpackageid='" + parentpackageid + '\'' +
+                ", parentpackagename='" + parentpackagename + '\'' +
+                ", packagenum=" + packagenum +
+                '}';
+    }
 }

@@ -1,0 +1,1706 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.FinOprRegisterMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.FinOprRegister" >
+    <constructor >
+      <idArg column="CLINIC_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="TRANS_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="HOSPITAL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CARD_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REG_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="NOON_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IDENNO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SEX_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BIRTHDAY" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="RELA_PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ADDRESS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CARD_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PAYKIND_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PAYKIND_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACT_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PACT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MCARD_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REGLEVL_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REGLEVL_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DEPT_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DEPT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SCHEMA_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ORDER_NO" jdbcType="NUMERIC" javaType="java.lang.Integer" />
+      <arg column="SEENO" jdbcType="NUMERIC" javaType="java.lang.Long" />
+      <arg column="BEGIN_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="END_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="DOCT_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DOCT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YNREGCHRG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="INVOICE_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RECIPE_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YNBOOK" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YNFR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APPEND_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REG_FEE" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="CHCK_FEE" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="DIAG_FEE" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="OTH_FEE" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="OWN_COST" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="PUB_COST" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="PAY_COST" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="VALID_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CANCEL_OPCD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CANCEL_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="MEDICAL_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ICD_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXAM_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXAM_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CHECK_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHECK_OPCD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHECK_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="BALANCE_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BALANCE_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BALANCE_OPCD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BALANCE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="YNSEE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SEE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="TRIAGE_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TRIAGE_OPCD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TRIAGE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="PRINT_INVOICECNT" jdbcType="NUMERIC" javaType="java.lang.Short" />
+      <arg column="SEE_DPCD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SEE_DOCD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IN_SOURCE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IS_SENDINHOSCASE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IS_ENCRYPTNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NORMALNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IN_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="OUT_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="ZG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IN_STATE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ECO_COST" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="IS_ACCOUNT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IS_EMERGENCY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MARK1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HEIGHT" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="WEIGHT" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="SBP" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="DBP" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="TEMPERATURE" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="UP_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BLOODGLU" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="CURRENT_CARDTYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CURRENT_CARD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IN_TIMES" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="EMR_REGID" jdbcType="NUMERIC" javaType="java.lang.Long" />
+      <arg column="PATIENT_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BOOK_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CLASS1DESEASE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CLASS2DESEASE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IS_DIRECTFEE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REAL_DOCT_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REAL_DOCT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HOSPITAL_FIRST_VISIT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ROOTDEPT_FIRST_VISIT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DOCT_FIRST_VISIT" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    CLINIC_CODE, TRANS_TYPE, HOSPITAL_ID, CARD_NO, REG_DATE, NOON_CODE, NAME, IDENNO, 
+    SEX_CODE, BIRTHDAY, RELA_PHONE, ADDRESS, CARD_TYPE, PAYKIND_CODE, PAYKIND_NAME, PACT_CODE, 
+    PACT_NAME, MCARD_NO, REGLEVL_CODE, REGLEVL_NAME, DEPT_CODE, DEPT_NAME, SCHEMA_NO, 
+    ORDER_NO, SEENO, BEGIN_TIME, END_TIME, DOCT_CODE, DOCT_NAME, YNREGCHRG, INVOICE_NO, 
+    RECIPE_NO, YNBOOK, YNFR, APPEND_FLAG, REG_FEE, CHCK_FEE, DIAG_FEE, OTH_FEE, OWN_COST, 
+    PUB_COST, PAY_COST, VALID_FLAG, OPER_CODE, OPER_DATE, CANCEL_OPCD, CANCEL_DATE, MEDICAL_TYPE, 
+    ICD_CODE, EXAM_CODE, EXAM_DATE, CHECK_FLAG, CHECK_OPCD, CHECK_DATE, BALANCE_FLAG, 
+    BALANCE_NO, BALANCE_OPCD, BALANCE_DATE, YNSEE, SEE_DATE, TRIAGE_FLAG, TRIAGE_OPCD, 
+    TRIAGE_DATE, PRINT_INVOICECNT, SEE_DPCD, SEE_DOCD, IN_SOURCE, IS_SENDINHOSCASE, IS_ENCRYPTNAME, 
+    NORMALNAME, IN_DATE, OUT_DATE, ZG, IN_STATE, ECO_COST, IS_ACCOUNT, IS_EMERGENCY, 
+    MARK1, HEIGHT, WEIGHT, SBP, DBP, TEMPERATURE, UP_FLAG, BLOODGLU, CURRENT_CARDTYPE, 
+    CURRENT_CARD, IN_TIMES, EMR_REGID, PATIENT_TYPE, BOOK_ID, CLASS1DESEASE, CLASS2DESEASE, 
+    IS_DIRECTFEE, REAL_DOCT_CODE, REAL_DOCT_NAME, HOSPITAL_FIRST_VISIT, ROOTDEPT_FIRST_VISIT, 
+    DOCT_FIRST_VISIT
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.FinOprRegisterExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.FIN_OPR_REGISTER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectAllRegister" resultMap="BaseResultMap" parameterType="String" >
+    select r.* from fin_opr_register r
+  inner join COM_PATIENTINFO cp on r.card_no=cp.card_no
+  where r.valid_flag = '1' and cp.crmid = #{patientId} and r.hospital_id=cp.hospital_id
+   order by reg_date desc
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.FinOprRegisterKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.FIN_OPR_REGISTER
+    where CLINIC_CODE = #{clinicCode,jdbcType=VARCHAR}
+      and TRANS_TYPE = #{transType,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.slionh.patientview.entity.FinOprRegisterKey" >
+    delete from CRM.FIN_OPR_REGISTER
+    where CLINIC_CODE = #{clinicCode,jdbcType=VARCHAR}
+      and TRANS_TYPE = #{transType,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.FinOprRegisterExample" >
+    delete from CRM.FIN_OPR_REGISTER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.FinOprRegister" >
+    insert into CRM.FIN_OPR_REGISTER (CLINIC_CODE, TRANS_TYPE, HOSPITAL_ID, 
+      CARD_NO, REG_DATE, NOON_CODE, 
+      NAME, IDENNO, SEX_CODE, 
+      BIRTHDAY, RELA_PHONE, ADDRESS, 
+      CARD_TYPE, PAYKIND_CODE, PAYKIND_NAME, 
+      PACT_CODE, PACT_NAME, MCARD_NO, 
+      REGLEVL_CODE, REGLEVL_NAME, DEPT_CODE, 
+      DEPT_NAME, SCHEMA_NO, ORDER_NO, 
+      SEENO, BEGIN_TIME, END_TIME, 
+      DOCT_CODE, DOCT_NAME, YNREGCHRG, 
+      INVOICE_NO, RECIPE_NO, YNBOOK, 
+      YNFR, APPEND_FLAG, REG_FEE, 
+      CHCK_FEE, DIAG_FEE, OTH_FEE, 
+      OWN_COST, PUB_COST, PAY_COST, 
+      VALID_FLAG, OPER_CODE, OPER_DATE, 
+      CANCEL_OPCD, CANCEL_DATE, MEDICAL_TYPE, 
+      ICD_CODE, EXAM_CODE, EXAM_DATE, 
+      CHECK_FLAG, CHECK_OPCD, CHECK_DATE, 
+      BALANCE_FLAG, BALANCE_NO, BALANCE_OPCD, 
+      BALANCE_DATE, YNSEE, SEE_DATE, 
+      TRIAGE_FLAG, TRIAGE_OPCD, TRIAGE_DATE, 
+      PRINT_INVOICECNT, SEE_DPCD, SEE_DOCD, 
+      IN_SOURCE, IS_SENDINHOSCASE, IS_ENCRYPTNAME, 
+      NORMALNAME, IN_DATE, OUT_DATE, 
+      ZG, IN_STATE, ECO_COST, 
+      IS_ACCOUNT, IS_EMERGENCY, MARK1, 
+      HEIGHT, WEIGHT, SBP, 
+      DBP, TEMPERATURE, UP_FLAG, 
+      BLOODGLU, CURRENT_CARDTYPE, CURRENT_CARD, 
+      IN_TIMES, EMR_REGID, PATIENT_TYPE, 
+      BOOK_ID, CLASS1DESEASE, CLASS2DESEASE, 
+      IS_DIRECTFEE, REAL_DOCT_CODE, REAL_DOCT_NAME, 
+      HOSPITAL_FIRST_VISIT, ROOTDEPT_FIRST_VISIT, 
+      DOCT_FIRST_VISIT)
+    values (#{clinicCode,jdbcType=VARCHAR}, #{transType,jdbcType=VARCHAR}, #{hospitalId,jdbcType=VARCHAR}, 
+      #{cardNo,jdbcType=VARCHAR}, #{regDate,jdbcType=TIMESTAMP}, #{noonCode,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{idenno,jdbcType=VARCHAR}, #{sexCode,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{relaPhone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{cardType,jdbcType=VARCHAR}, #{paykindCode,jdbcType=VARCHAR}, #{paykindName,jdbcType=VARCHAR}, 
+      #{pactCode,jdbcType=VARCHAR}, #{pactName,jdbcType=VARCHAR}, #{mcardNo,jdbcType=VARCHAR}, 
+      #{reglevlCode,jdbcType=VARCHAR}, #{reglevlName,jdbcType=VARCHAR}, #{deptCode,jdbcType=VARCHAR}, 
+      #{deptName,jdbcType=VARCHAR}, #{schemaNo,jdbcType=VARCHAR}, #{orderNo,jdbcType=NUMERIC}, 
+      #{seeno,jdbcType=NUMERIC}, #{beginTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{doctCode,jdbcType=VARCHAR}, #{doctName,jdbcType=VARCHAR}, #{ynregchrg,jdbcType=VARCHAR}, 
+      #{invoiceNo,jdbcType=VARCHAR}, #{recipeNo,jdbcType=VARCHAR}, #{ynbook,jdbcType=VARCHAR}, 
+      #{ynfr,jdbcType=VARCHAR}, #{appendFlag,jdbcType=VARCHAR}, #{regFee,jdbcType=NUMERIC}, 
+      #{chckFee,jdbcType=NUMERIC}, #{diagFee,jdbcType=NUMERIC}, #{othFee,jdbcType=NUMERIC}, 
+      #{ownCost,jdbcType=NUMERIC}, #{pubCost,jdbcType=NUMERIC}, #{payCost,jdbcType=NUMERIC}, 
+      #{validFlag,jdbcType=VARCHAR}, #{operCode,jdbcType=VARCHAR}, #{operDate,jdbcType=TIMESTAMP}, 
+      #{cancelOpcd,jdbcType=VARCHAR}, #{cancelDate,jdbcType=TIMESTAMP}, #{medicalType,jdbcType=VARCHAR}, 
+      #{icdCode,jdbcType=VARCHAR}, #{examCode,jdbcType=VARCHAR}, #{examDate,jdbcType=TIMESTAMP}, 
+      #{checkFlag,jdbcType=VARCHAR}, #{checkOpcd,jdbcType=VARCHAR}, #{checkDate,jdbcType=TIMESTAMP}, 
+      #{balanceFlag,jdbcType=VARCHAR}, #{balanceNo,jdbcType=VARCHAR}, #{balanceOpcd,jdbcType=VARCHAR}, 
+      #{balanceDate,jdbcType=TIMESTAMP}, #{ynsee,jdbcType=VARCHAR}, #{seeDate,jdbcType=TIMESTAMP}, 
+      #{triageFlag,jdbcType=VARCHAR}, #{triageOpcd,jdbcType=VARCHAR}, #{triageDate,jdbcType=TIMESTAMP}, 
+      #{printInvoicecnt,jdbcType=NUMERIC}, #{seeDpcd,jdbcType=VARCHAR}, #{seeDocd,jdbcType=VARCHAR}, 
+      #{inSource,jdbcType=VARCHAR}, #{isSendinhoscase,jdbcType=VARCHAR}, #{isEncryptname,jdbcType=VARCHAR}, 
+      #{normalname,jdbcType=VARCHAR}, #{inDate,jdbcType=TIMESTAMP}, #{outDate,jdbcType=TIMESTAMP}, 
+      #{zg,jdbcType=VARCHAR}, #{inState,jdbcType=VARCHAR}, #{ecoCost,jdbcType=NUMERIC}, 
+      #{isAccount,jdbcType=VARCHAR}, #{isEmergency,jdbcType=VARCHAR}, #{mark1,jdbcType=VARCHAR}, 
+      #{height,jdbcType=NUMERIC}, #{weight,jdbcType=NUMERIC}, #{sbp,jdbcType=NUMERIC}, 
+      #{dbp,jdbcType=NUMERIC}, #{temperature,jdbcType=NUMERIC}, #{upFlag,jdbcType=VARCHAR}, 
+      #{bloodglu,jdbcType=NUMERIC}, #{currentCardtype,jdbcType=VARCHAR}, #{currentCard,jdbcType=VARCHAR}, 
+      #{inTimes,jdbcType=NUMERIC}, #{emrRegid,jdbcType=NUMERIC}, #{patientType,jdbcType=VARCHAR}, 
+      #{bookId,jdbcType=VARCHAR}, #{class1desease,jdbcType=VARCHAR}, #{class2desease,jdbcType=VARCHAR}, 
+      #{isDirectfee,jdbcType=VARCHAR}, #{realDoctCode,jdbcType=VARCHAR}, #{realDoctName,jdbcType=VARCHAR}, 
+      #{hospitalFirstVisit,jdbcType=VARCHAR}, #{rootdeptFirstVisit,jdbcType=VARCHAR}, 
+      #{doctFirstVisit,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.FinOprRegister" >
+    insert into CRM.FIN_OPR_REGISTER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="clinicCode != null" >
+        CLINIC_CODE,
+      </if>
+      <if test="transType != null" >
+        TRANS_TYPE,
+      </if>
+      <if test="hospitalId != null" >
+        HOSPITAL_ID,
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO,
+      </if>
+      <if test="regDate != null" >
+        REG_DATE,
+      </if>
+      <if test="noonCode != null" >
+        NOON_CODE,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="idenno != null" >
+        IDENNO,
+      </if>
+      <if test="sexCode != null" >
+        SEX_CODE,
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY,
+      </if>
+      <if test="relaPhone != null" >
+        RELA_PHONE,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="cardType != null" >
+        CARD_TYPE,
+      </if>
+      <if test="paykindCode != null" >
+        PAYKIND_CODE,
+      </if>
+      <if test="paykindName != null" >
+        PAYKIND_NAME,
+      </if>
+      <if test="pactCode != null" >
+        PACT_CODE,
+      </if>
+      <if test="pactName != null" >
+        PACT_NAME,
+      </if>
+      <if test="mcardNo != null" >
+        MCARD_NO,
+      </if>
+      <if test="reglevlCode != null" >
+        REGLEVL_CODE,
+      </if>
+      <if test="reglevlName != null" >
+        REGLEVL_NAME,
+      </if>
+      <if test="deptCode != null" >
+        DEPT_CODE,
+      </if>
+      <if test="deptName != null" >
+        DEPT_NAME,
+      </if>
+      <if test="schemaNo != null" >
+        SCHEMA_NO,
+      </if>
+      <if test="orderNo != null" >
+        ORDER_NO,
+      </if>
+      <if test="seeno != null" >
+        SEENO,
+      </if>
+      <if test="beginTime != null" >
+        BEGIN_TIME,
+      </if>
+      <if test="endTime != null" >
+        END_TIME,
+      </if>
+      <if test="doctCode != null" >
+        DOCT_CODE,
+      </if>
+      <if test="doctName != null" >
+        DOCT_NAME,
+      </if>
+      <if test="ynregchrg != null" >
+        YNREGCHRG,
+      </if>
+      <if test="invoiceNo != null" >
+        INVOICE_NO,
+      </if>
+      <if test="recipeNo != null" >
+        RECIPE_NO,
+      </if>
+      <if test="ynbook != null" >
+        YNBOOK,
+      </if>
+      <if test="ynfr != null" >
+        YNFR,
+      </if>
+      <if test="appendFlag != null" >
+        APPEND_FLAG,
+      </if>
+      <if test="regFee != null" >
+        REG_FEE,
+      </if>
+      <if test="chckFee != null" >
+        CHCK_FEE,
+      </if>
+      <if test="diagFee != null" >
+        DIAG_FEE,
+      </if>
+      <if test="othFee != null" >
+        OTH_FEE,
+      </if>
+      <if test="ownCost != null" >
+        OWN_COST,
+      </if>
+      <if test="pubCost != null" >
+        PUB_COST,
+      </if>
+      <if test="payCost != null" >
+        PAY_COST,
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG,
+      </if>
+      <if test="operCode != null" >
+        OPER_CODE,
+      </if>
+      <if test="operDate != null" >
+        OPER_DATE,
+      </if>
+      <if test="cancelOpcd != null" >
+        CANCEL_OPCD,
+      </if>
+      <if test="cancelDate != null" >
+        CANCEL_DATE,
+      </if>
+      <if test="medicalType != null" >
+        MEDICAL_TYPE,
+      </if>
+      <if test="icdCode != null" >
+        ICD_CODE,
+      </if>
+      <if test="examCode != null" >
+        EXAM_CODE,
+      </if>
+      <if test="examDate != null" >
+        EXAM_DATE,
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG,
+      </if>
+      <if test="checkOpcd != null" >
+        CHECK_OPCD,
+      </if>
+      <if test="checkDate != null" >
+        CHECK_DATE,
+      </if>
+      <if test="balanceFlag != null" >
+        BALANCE_FLAG,
+      </if>
+      <if test="balanceNo != null" >
+        BALANCE_NO,
+      </if>
+      <if test="balanceOpcd != null" >
+        BALANCE_OPCD,
+      </if>
+      <if test="balanceDate != null" >
+        BALANCE_DATE,
+      </if>
+      <if test="ynsee != null" >
+        YNSEE,
+      </if>
+      <if test="seeDate != null" >
+        SEE_DATE,
+      </if>
+      <if test="triageFlag != null" >
+        TRIAGE_FLAG,
+      </if>
+      <if test="triageOpcd != null" >
+        TRIAGE_OPCD,
+      </if>
+      <if test="triageDate != null" >
+        TRIAGE_DATE,
+      </if>
+      <if test="printInvoicecnt != null" >
+        PRINT_INVOICECNT,
+      </if>
+      <if test="seeDpcd != null" >
+        SEE_DPCD,
+      </if>
+      <if test="seeDocd != null" >
+        SEE_DOCD,
+      </if>
+      <if test="inSource != null" >
+        IN_SOURCE,
+      </if>
+      <if test="isSendinhoscase != null" >
+        IS_SENDINHOSCASE,
+      </if>
+      <if test="isEncryptname != null" >
+        IS_ENCRYPTNAME,
+      </if>
+      <if test="normalname != null" >
+        NORMALNAME,
+      </if>
+      <if test="inDate != null" >
+        IN_DATE,
+      </if>
+      <if test="outDate != null" >
+        OUT_DATE,
+      </if>
+      <if test="zg != null" >
+        ZG,
+      </if>
+      <if test="inState != null" >
+        IN_STATE,
+      </if>
+      <if test="ecoCost != null" >
+        ECO_COST,
+      </if>
+      <if test="isAccount != null" >
+        IS_ACCOUNT,
+      </if>
+      <if test="isEmergency != null" >
+        IS_EMERGENCY,
+      </if>
+      <if test="mark1 != null" >
+        MARK1,
+      </if>
+      <if test="height != null" >
+        HEIGHT,
+      </if>
+      <if test="weight != null" >
+        WEIGHT,
+      </if>
+      <if test="sbp != null" >
+        SBP,
+      </if>
+      <if test="dbp != null" >
+        DBP,
+      </if>
+      <if test="temperature != null" >
+        TEMPERATURE,
+      </if>
+      <if test="upFlag != null" >
+        UP_FLAG,
+      </if>
+      <if test="bloodglu != null" >
+        BLOODGLU,
+      </if>
+      <if test="currentCardtype != null" >
+        CURRENT_CARDTYPE,
+      </if>
+      <if test="currentCard != null" >
+        CURRENT_CARD,
+      </if>
+      <if test="inTimes != null" >
+        IN_TIMES,
+      </if>
+      <if test="emrRegid != null" >
+        EMR_REGID,
+      </if>
+      <if test="patientType != null" >
+        PATIENT_TYPE,
+      </if>
+      <if test="bookId != null" >
+        BOOK_ID,
+      </if>
+      <if test="class1desease != null" >
+        CLASS1DESEASE,
+      </if>
+      <if test="class2desease != null" >
+        CLASS2DESEASE,
+      </if>
+      <if test="isDirectfee != null" >
+        IS_DIRECTFEE,
+      </if>
+      <if test="realDoctCode != null" >
+        REAL_DOCT_CODE,
+      </if>
+      <if test="realDoctName != null" >
+        REAL_DOCT_NAME,
+      </if>
+      <if test="hospitalFirstVisit != null" >
+        HOSPITAL_FIRST_VISIT,
+      </if>
+      <if test="rootdeptFirstVisit != null" >
+        ROOTDEPT_FIRST_VISIT,
+      </if>
+      <if test="doctFirstVisit != null" >
+        DOCT_FIRST_VISIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="clinicCode != null" >
+        #{clinicCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalId != null" >
+        #{hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="regDate != null" >
+        #{regDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noonCode != null" >
+        #{noonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idenno != null" >
+        #{idenno,jdbcType=VARCHAR},
+      </if>
+      <if test="sexCode != null" >
+        #{sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="relaPhone != null" >
+        #{relaPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="paykindCode != null" >
+        #{paykindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paykindName != null" >
+        #{paykindName,jdbcType=VARCHAR},
+      </if>
+      <if test="pactCode != null" >
+        #{pactCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pactName != null" >
+        #{pactName,jdbcType=VARCHAR},
+      </if>
+      <if test="mcardNo != null" >
+        #{mcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reglevlCode != null" >
+        #{reglevlCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reglevlName != null" >
+        #{reglevlName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null" >
+        #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null" >
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="schemaNo != null" >
+        #{schemaNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=NUMERIC},
+      </if>
+      <if test="seeno != null" >
+        #{seeno,jdbcType=NUMERIC},
+      </if>
+      <if test="beginTime != null" >
+        #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="doctCode != null" >
+        #{doctCode,jdbcType=VARCHAR},
+      </if>
+      <if test="doctName != null" >
+        #{doctName,jdbcType=VARCHAR},
+      </if>
+      <if test="ynregchrg != null" >
+        #{ynregchrg,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null" >
+        #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeNo != null" >
+        #{recipeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ynbook != null" >
+        #{ynbook,jdbcType=VARCHAR},
+      </if>
+      <if test="ynfr != null" >
+        #{ynfr,jdbcType=VARCHAR},
+      </if>
+      <if test="appendFlag != null" >
+        #{appendFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="regFee != null" >
+        #{regFee,jdbcType=NUMERIC},
+      </if>
+      <if test="chckFee != null" >
+        #{chckFee,jdbcType=NUMERIC},
+      </if>
+      <if test="diagFee != null" >
+        #{diagFee,jdbcType=NUMERIC},
+      </if>
+      <if test="othFee != null" >
+        #{othFee,jdbcType=NUMERIC},
+      </if>
+      <if test="ownCost != null" >
+        #{ownCost,jdbcType=NUMERIC},
+      </if>
+      <if test="pubCost != null" >
+        #{pubCost,jdbcType=NUMERIC},
+      </if>
+      <if test="payCost != null" >
+        #{payCost,jdbcType=NUMERIC},
+      </if>
+      <if test="validFlag != null" >
+        #{validFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="operCode != null" >
+        #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operDate != null" >
+        #{operDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelOpcd != null" >
+        #{cancelOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelDate != null" >
+        #{cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="medicalType != null" >
+        #{medicalType,jdbcType=VARCHAR},
+      </if>
+      <if test="icdCode != null" >
+        #{icdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="examCode != null" >
+        #{examCode,jdbcType=VARCHAR},
+      </if>
+      <if test="examDate != null" >
+        #{examDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        #{checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="checkOpcd != null" >
+        #{checkOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null" >
+        #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="balanceFlag != null" >
+        #{balanceFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceNo != null" >
+        #{balanceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceOpcd != null" >
+        #{balanceOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceDate != null" >
+        #{balanceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ynsee != null" >
+        #{ynsee,jdbcType=VARCHAR},
+      </if>
+      <if test="seeDate != null" >
+        #{seeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="triageFlag != null" >
+        #{triageFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="triageOpcd != null" >
+        #{triageOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="triageDate != null" >
+        #{triageDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="printInvoicecnt != null" >
+        #{printInvoicecnt,jdbcType=NUMERIC},
+      </if>
+      <if test="seeDpcd != null" >
+        #{seeDpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="seeDocd != null" >
+        #{seeDocd,jdbcType=VARCHAR},
+      </if>
+      <if test="inSource != null" >
+        #{inSource,jdbcType=VARCHAR},
+      </if>
+      <if test="isSendinhoscase != null" >
+        #{isSendinhoscase,jdbcType=VARCHAR},
+      </if>
+      <if test="isEncryptname != null" >
+        #{isEncryptname,jdbcType=VARCHAR},
+      </if>
+      <if test="normalname != null" >
+        #{normalname,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outDate != null" >
+        #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zg != null" >
+        #{zg,jdbcType=VARCHAR},
+      </if>
+      <if test="inState != null" >
+        #{inState,jdbcType=VARCHAR},
+      </if>
+      <if test="ecoCost != null" >
+        #{ecoCost,jdbcType=NUMERIC},
+      </if>
+      <if test="isAccount != null" >
+        #{isAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="isEmergency != null" >
+        #{isEmergency,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null" >
+        #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=NUMERIC},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=NUMERIC},
+      </if>
+      <if test="sbp != null" >
+        #{sbp,jdbcType=NUMERIC},
+      </if>
+      <if test="dbp != null" >
+        #{dbp,jdbcType=NUMERIC},
+      </if>
+      <if test="temperature != null" >
+        #{temperature,jdbcType=NUMERIC},
+      </if>
+      <if test="upFlag != null" >
+        #{upFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodglu != null" >
+        #{bloodglu,jdbcType=NUMERIC},
+      </if>
+      <if test="currentCardtype != null" >
+        #{currentCardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="currentCard != null" >
+        #{currentCard,jdbcType=VARCHAR},
+      </if>
+      <if test="inTimes != null" >
+        #{inTimes,jdbcType=NUMERIC},
+      </if>
+      <if test="emrRegid != null" >
+        #{emrRegid,jdbcType=NUMERIC},
+      </if>
+      <if test="patientType != null" >
+        #{patientType,jdbcType=VARCHAR},
+      </if>
+      <if test="bookId != null" >
+        #{bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="class1desease != null" >
+        #{class1desease,jdbcType=VARCHAR},
+      </if>
+      <if test="class2desease != null" >
+        #{class2desease,jdbcType=VARCHAR},
+      </if>
+      <if test="isDirectfee != null" >
+        #{isDirectfee,jdbcType=VARCHAR},
+      </if>
+      <if test="realDoctCode != null" >
+        #{realDoctCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realDoctName != null" >
+        #{realDoctName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalFirstVisit != null" >
+        #{hospitalFirstVisit,jdbcType=VARCHAR},
+      </if>
+      <if test="rootdeptFirstVisit != null" >
+        #{rootdeptFirstVisit,jdbcType=VARCHAR},
+      </if>
+      <if test="doctFirstVisit != null" >
+        #{doctFirstVisit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.FinOprRegisterExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.FIN_OPR_REGISTER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.FIN_OPR_REGISTER
+    <set >
+      <if test="record.clinicCode != null" >
+        CLINIC_CODE = #{record.clinicCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transType != null" >
+        TRANS_TYPE = #{record.transType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalId != null" >
+        HOSPITAL_ID = #{record.hospitalId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardNo != null" >
+        CARD_NO = #{record.cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regDate != null" >
+        REG_DATE = #{record.regDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.noonCode != null" >
+        NOON_CODE = #{record.noonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idenno != null" >
+        IDENNO = #{record.idenno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sexCode != null" >
+        SEX_CODE = #{record.sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.relaPhone != null" >
+        RELA_PHONE = #{record.relaPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardType != null" >
+        CARD_TYPE = #{record.cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paykindCode != null" >
+        PAYKIND_CODE = #{record.paykindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paykindName != null" >
+        PAYKIND_NAME = #{record.paykindName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pactCode != null" >
+        PACT_CODE = #{record.pactCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pactName != null" >
+        PACT_NAME = #{record.pactName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mcardNo != null" >
+        MCARD_NO = #{record.mcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reglevlCode != null" >
+        REGLEVL_CODE = #{record.reglevlCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reglevlName != null" >
+        REGLEVL_NAME = #{record.reglevlName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptCode != null" >
+        DEPT_CODE = #{record.deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptName != null" >
+        DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.schemaNo != null" >
+        SCHEMA_NO = #{record.schemaNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderNo != null" >
+        ORDER_NO = #{record.orderNo,jdbcType=NUMERIC},
+      </if>
+      <if test="record.seeno != null" >
+        SEENO = #{record.seeno,jdbcType=NUMERIC},
+      </if>
+      <if test="record.beginTime != null" >
+        BEGIN_TIME = #{record.beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endTime != null" >
+        END_TIME = #{record.endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.doctCode != null" >
+        DOCT_CODE = #{record.doctCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.doctName != null" >
+        DOCT_NAME = #{record.doctName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ynregchrg != null" >
+        YNREGCHRG = #{record.ynregchrg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceNo != null" >
+        INVOICE_NO = #{record.invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipeNo != null" >
+        RECIPE_NO = #{record.recipeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ynbook != null" >
+        YNBOOK = #{record.ynbook,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ynfr != null" >
+        YNFR = #{record.ynfr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appendFlag != null" >
+        APPEND_FLAG = #{record.appendFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regFee != null" >
+        REG_FEE = #{record.regFee,jdbcType=NUMERIC},
+      </if>
+      <if test="record.chckFee != null" >
+        CHCK_FEE = #{record.chckFee,jdbcType=NUMERIC},
+      </if>
+      <if test="record.diagFee != null" >
+        DIAG_FEE = #{record.diagFee,jdbcType=NUMERIC},
+      </if>
+      <if test="record.othFee != null" >
+        OTH_FEE = #{record.othFee,jdbcType=NUMERIC},
+      </if>
+      <if test="record.ownCost != null" >
+        OWN_COST = #{record.ownCost,jdbcType=NUMERIC},
+      </if>
+      <if test="record.pubCost != null" >
+        PUB_COST = #{record.pubCost,jdbcType=NUMERIC},
+      </if>
+      <if test="record.payCost != null" >
+        PAY_COST = #{record.payCost,jdbcType=NUMERIC},
+      </if>
+      <if test="record.validFlag != null" >
+        VALID_FLAG = #{record.validFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operCode != null" >
+        OPER_CODE = #{record.operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operDate != null" >
+        OPER_DATE = #{record.operDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cancelOpcd != null" >
+        CANCEL_OPCD = #{record.cancelOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cancelDate != null" >
+        CANCEL_DATE = #{record.cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.medicalType != null" >
+        MEDICAL_TYPE = #{record.medicalType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.icdCode != null" >
+        ICD_CODE = #{record.icdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examCode != null" >
+        EXAM_CODE = #{record.examCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examDate != null" >
+        EXAM_DATE = #{record.examDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.checkFlag != null" >
+        CHECK_FLAG = #{record.checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkOpcd != null" >
+        CHECK_OPCD = #{record.checkOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkDate != null" >
+        CHECK_DATE = #{record.checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.balanceFlag != null" >
+        BALANCE_FLAG = #{record.balanceFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balanceNo != null" >
+        BALANCE_NO = #{record.balanceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balanceOpcd != null" >
+        BALANCE_OPCD = #{record.balanceOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balanceDate != null" >
+        BALANCE_DATE = #{record.balanceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ynsee != null" >
+        YNSEE = #{record.ynsee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seeDate != null" >
+        SEE_DATE = #{record.seeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.triageFlag != null" >
+        TRIAGE_FLAG = #{record.triageFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.triageOpcd != null" >
+        TRIAGE_OPCD = #{record.triageOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.triageDate != null" >
+        TRIAGE_DATE = #{record.triageDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.printInvoicecnt != null" >
+        PRINT_INVOICECNT = #{record.printInvoicecnt,jdbcType=NUMERIC},
+      </if>
+      <if test="record.seeDpcd != null" >
+        SEE_DPCD = #{record.seeDpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seeDocd != null" >
+        SEE_DOCD = #{record.seeDocd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inSource != null" >
+        IN_SOURCE = #{record.inSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isSendinhoscase != null" >
+        IS_SENDINHOSCASE = #{record.isSendinhoscase,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isEncryptname != null" >
+        IS_ENCRYPTNAME = #{record.isEncryptname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.normalname != null" >
+        NORMALNAME = #{record.normalname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inDate != null" >
+        IN_DATE = #{record.inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.outDate != null" >
+        OUT_DATE = #{record.outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.zg != null" >
+        ZG = #{record.zg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inState != null" >
+        IN_STATE = #{record.inState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ecoCost != null" >
+        ECO_COST = #{record.ecoCost,jdbcType=NUMERIC},
+      </if>
+      <if test="record.isAccount != null" >
+        IS_ACCOUNT = #{record.isAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isEmergency != null" >
+        IS_EMERGENCY = #{record.isEmergency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mark1 != null" >
+        MARK1 = #{record.mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.height != null" >
+        HEIGHT = #{record.height,jdbcType=NUMERIC},
+      </if>
+      <if test="record.weight != null" >
+        WEIGHT = #{record.weight,jdbcType=NUMERIC},
+      </if>
+      <if test="record.sbp != null" >
+        SBP = #{record.sbp,jdbcType=NUMERIC},
+      </if>
+      <if test="record.dbp != null" >
+        DBP = #{record.dbp,jdbcType=NUMERIC},
+      </if>
+      <if test="record.temperature != null" >
+        TEMPERATURE = #{record.temperature,jdbcType=NUMERIC},
+      </if>
+      <if test="record.upFlag != null" >
+        UP_FLAG = #{record.upFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bloodglu != null" >
+        BLOODGLU = #{record.bloodglu,jdbcType=NUMERIC},
+      </if>
+      <if test="record.currentCardtype != null" >
+        CURRENT_CARDTYPE = #{record.currentCardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currentCard != null" >
+        CURRENT_CARD = #{record.currentCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inTimes != null" >
+        IN_TIMES = #{record.inTimes,jdbcType=NUMERIC},
+      </if>
+      <if test="record.emrRegid != null" >
+        EMR_REGID = #{record.emrRegid,jdbcType=NUMERIC},
+      </if>
+      <if test="record.patientType != null" >
+        PATIENT_TYPE = #{record.patientType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bookId != null" >
+        BOOK_ID = #{record.bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.class1desease != null" >
+        CLASS1DESEASE = #{record.class1desease,jdbcType=VARCHAR},
+      </if>
+      <if test="record.class2desease != null" >
+        CLASS2DESEASE = #{record.class2desease,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDirectfee != null" >
+        IS_DIRECTFEE = #{record.isDirectfee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realDoctCode != null" >
+        REAL_DOCT_CODE = #{record.realDoctCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realDoctName != null" >
+        REAL_DOCT_NAME = #{record.realDoctName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalFirstVisit != null" >
+        HOSPITAL_FIRST_VISIT = #{record.hospitalFirstVisit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rootdeptFirstVisit != null" >
+        ROOTDEPT_FIRST_VISIT = #{record.rootdeptFirstVisit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.doctFirstVisit != null" >
+        DOCT_FIRST_VISIT = #{record.doctFirstVisit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.FIN_OPR_REGISTER
+    set CLINIC_CODE = #{record.clinicCode,jdbcType=VARCHAR},
+      TRANS_TYPE = #{record.transType,jdbcType=VARCHAR},
+      HOSPITAL_ID = #{record.hospitalId,jdbcType=VARCHAR},
+      CARD_NO = #{record.cardNo,jdbcType=VARCHAR},
+      REG_DATE = #{record.regDate,jdbcType=TIMESTAMP},
+      NOON_CODE = #{record.noonCode,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      IDENNO = #{record.idenno,jdbcType=VARCHAR},
+      SEX_CODE = #{record.sexCode,jdbcType=VARCHAR},
+      BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      RELA_PHONE = #{record.relaPhone,jdbcType=VARCHAR},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      CARD_TYPE = #{record.cardType,jdbcType=VARCHAR},
+      PAYKIND_CODE = #{record.paykindCode,jdbcType=VARCHAR},
+      PAYKIND_NAME = #{record.paykindName,jdbcType=VARCHAR},
+      PACT_CODE = #{record.pactCode,jdbcType=VARCHAR},
+      PACT_NAME = #{record.pactName,jdbcType=VARCHAR},
+      MCARD_NO = #{record.mcardNo,jdbcType=VARCHAR},
+      REGLEVL_CODE = #{record.reglevlCode,jdbcType=VARCHAR},
+      REGLEVL_NAME = #{record.reglevlName,jdbcType=VARCHAR},
+      DEPT_CODE = #{record.deptCode,jdbcType=VARCHAR},
+      DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      SCHEMA_NO = #{record.schemaNo,jdbcType=VARCHAR},
+      ORDER_NO = #{record.orderNo,jdbcType=NUMERIC},
+      SEENO = #{record.seeno,jdbcType=NUMERIC},
+      BEGIN_TIME = #{record.beginTime,jdbcType=TIMESTAMP},
+      END_TIME = #{record.endTime,jdbcType=TIMESTAMP},
+      DOCT_CODE = #{record.doctCode,jdbcType=VARCHAR},
+      DOCT_NAME = #{record.doctName,jdbcType=VARCHAR},
+      YNREGCHRG = #{record.ynregchrg,jdbcType=VARCHAR},
+      INVOICE_NO = #{record.invoiceNo,jdbcType=VARCHAR},
+      RECIPE_NO = #{record.recipeNo,jdbcType=VARCHAR},
+      YNBOOK = #{record.ynbook,jdbcType=VARCHAR},
+      YNFR = #{record.ynfr,jdbcType=VARCHAR},
+      APPEND_FLAG = #{record.appendFlag,jdbcType=VARCHAR},
+      REG_FEE = #{record.regFee,jdbcType=NUMERIC},
+      CHCK_FEE = #{record.chckFee,jdbcType=NUMERIC},
+      DIAG_FEE = #{record.diagFee,jdbcType=NUMERIC},
+      OTH_FEE = #{record.othFee,jdbcType=NUMERIC},
+      OWN_COST = #{record.ownCost,jdbcType=NUMERIC},
+      PUB_COST = #{record.pubCost,jdbcType=NUMERIC},
+      PAY_COST = #{record.payCost,jdbcType=NUMERIC},
+      VALID_FLAG = #{record.validFlag,jdbcType=VARCHAR},
+      OPER_CODE = #{record.operCode,jdbcType=VARCHAR},
+      OPER_DATE = #{record.operDate,jdbcType=TIMESTAMP},
+      CANCEL_OPCD = #{record.cancelOpcd,jdbcType=VARCHAR},
+      CANCEL_DATE = #{record.cancelDate,jdbcType=TIMESTAMP},
+      MEDICAL_TYPE = #{record.medicalType,jdbcType=VARCHAR},
+      ICD_CODE = #{record.icdCode,jdbcType=VARCHAR},
+      EXAM_CODE = #{record.examCode,jdbcType=VARCHAR},
+      EXAM_DATE = #{record.examDate,jdbcType=TIMESTAMP},
+      CHECK_FLAG = #{record.checkFlag,jdbcType=VARCHAR},
+      CHECK_OPCD = #{record.checkOpcd,jdbcType=VARCHAR},
+      CHECK_DATE = #{record.checkDate,jdbcType=TIMESTAMP},
+      BALANCE_FLAG = #{record.balanceFlag,jdbcType=VARCHAR},
+      BALANCE_NO = #{record.balanceNo,jdbcType=VARCHAR},
+      BALANCE_OPCD = #{record.balanceOpcd,jdbcType=VARCHAR},
+      BALANCE_DATE = #{record.balanceDate,jdbcType=TIMESTAMP},
+      YNSEE = #{record.ynsee,jdbcType=VARCHAR},
+      SEE_DATE = #{record.seeDate,jdbcType=TIMESTAMP},
+      TRIAGE_FLAG = #{record.triageFlag,jdbcType=VARCHAR},
+      TRIAGE_OPCD = #{record.triageOpcd,jdbcType=VARCHAR},
+      TRIAGE_DATE = #{record.triageDate,jdbcType=TIMESTAMP},
+      PRINT_INVOICECNT = #{record.printInvoicecnt,jdbcType=NUMERIC},
+      SEE_DPCD = #{record.seeDpcd,jdbcType=VARCHAR},
+      SEE_DOCD = #{record.seeDocd,jdbcType=VARCHAR},
+      IN_SOURCE = #{record.inSource,jdbcType=VARCHAR},
+      IS_SENDINHOSCASE = #{record.isSendinhoscase,jdbcType=VARCHAR},
+      IS_ENCRYPTNAME = #{record.isEncryptname,jdbcType=VARCHAR},
+      NORMALNAME = #{record.normalname,jdbcType=VARCHAR},
+      IN_DATE = #{record.inDate,jdbcType=TIMESTAMP},
+      OUT_DATE = #{record.outDate,jdbcType=TIMESTAMP},
+      ZG = #{record.zg,jdbcType=VARCHAR},
+      IN_STATE = #{record.inState,jdbcType=VARCHAR},
+      ECO_COST = #{record.ecoCost,jdbcType=NUMERIC},
+      IS_ACCOUNT = #{record.isAccount,jdbcType=VARCHAR},
+      IS_EMERGENCY = #{record.isEmergency,jdbcType=VARCHAR},
+      MARK1 = #{record.mark1,jdbcType=VARCHAR},
+      HEIGHT = #{record.height,jdbcType=NUMERIC},
+      WEIGHT = #{record.weight,jdbcType=NUMERIC},
+      SBP = #{record.sbp,jdbcType=NUMERIC},
+      DBP = #{record.dbp,jdbcType=NUMERIC},
+      TEMPERATURE = #{record.temperature,jdbcType=NUMERIC},
+      UP_FLAG = #{record.upFlag,jdbcType=VARCHAR},
+      BLOODGLU = #{record.bloodglu,jdbcType=NUMERIC},
+      CURRENT_CARDTYPE = #{record.currentCardtype,jdbcType=VARCHAR},
+      CURRENT_CARD = #{record.currentCard,jdbcType=VARCHAR},
+      IN_TIMES = #{record.inTimes,jdbcType=NUMERIC},
+      EMR_REGID = #{record.emrRegid,jdbcType=NUMERIC},
+      PATIENT_TYPE = #{record.patientType,jdbcType=VARCHAR},
+      BOOK_ID = #{record.bookId,jdbcType=VARCHAR},
+      CLASS1DESEASE = #{record.class1desease,jdbcType=VARCHAR},
+      CLASS2DESEASE = #{record.class2desease,jdbcType=VARCHAR},
+      IS_DIRECTFEE = #{record.isDirectfee,jdbcType=VARCHAR},
+      REAL_DOCT_CODE = #{record.realDoctCode,jdbcType=VARCHAR},
+      REAL_DOCT_NAME = #{record.realDoctName,jdbcType=VARCHAR},
+      HOSPITAL_FIRST_VISIT = #{record.hospitalFirstVisit,jdbcType=VARCHAR},
+      ROOTDEPT_FIRST_VISIT = #{record.rootdeptFirstVisit,jdbcType=VARCHAR},
+      DOCT_FIRST_VISIT = #{record.doctFirstVisit,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.FinOprRegister" >
+    update CRM.FIN_OPR_REGISTER
+    <set >
+      <if test="cardNo != null" >
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="regDate != null" >
+        REG_DATE = #{regDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noonCode != null" >
+        NOON_CODE = #{noonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idenno != null" >
+        IDENNO = #{idenno,jdbcType=VARCHAR},
+      </if>
+      <if test="sexCode != null" >
+        SEX_CODE = #{sexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="relaPhone != null" >
+        RELA_PHONE = #{relaPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        CARD_TYPE = #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="paykindCode != null" >
+        PAYKIND_CODE = #{paykindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paykindName != null" >
+        PAYKIND_NAME = #{paykindName,jdbcType=VARCHAR},
+      </if>
+      <if test="pactCode != null" >
+        PACT_CODE = #{pactCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pactName != null" >
+        PACT_NAME = #{pactName,jdbcType=VARCHAR},
+      </if>
+      <if test="mcardNo != null" >
+        MCARD_NO = #{mcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reglevlCode != null" >
+        REGLEVL_CODE = #{reglevlCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reglevlName != null" >
+        REGLEVL_NAME = #{reglevlName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null" >
+        DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null" >
+        DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="schemaNo != null" >
+        SCHEMA_NO = #{schemaNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        ORDER_NO = #{orderNo,jdbcType=NUMERIC},
+      </if>
+      <if test="seeno != null" >
+        SEENO = #{seeno,jdbcType=NUMERIC},
+      </if>
+      <if test="beginTime != null" >
+        BEGIN_TIME = #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="doctCode != null" >
+        DOCT_CODE = #{doctCode,jdbcType=VARCHAR},
+      </if>
+      <if test="doctName != null" >
+        DOCT_NAME = #{doctName,jdbcType=VARCHAR},
+      </if>
+      <if test="ynregchrg != null" >
+        YNREGCHRG = #{ynregchrg,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null" >
+        INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeNo != null" >
+        RECIPE_NO = #{recipeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ynbook != null" >
+        YNBOOK = #{ynbook,jdbcType=VARCHAR},
+      </if>
+      <if test="ynfr != null" >
+        YNFR = #{ynfr,jdbcType=VARCHAR},
+      </if>
+      <if test="appendFlag != null" >
+        APPEND_FLAG = #{appendFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="regFee != null" >
+        REG_FEE = #{regFee,jdbcType=NUMERIC},
+      </if>
+      <if test="chckFee != null" >
+        CHCK_FEE = #{chckFee,jdbcType=NUMERIC},
+      </if>
+      <if test="diagFee != null" >
+        DIAG_FEE = #{diagFee,jdbcType=NUMERIC},
+      </if>
+      <if test="othFee != null" >
+        OTH_FEE = #{othFee,jdbcType=NUMERIC},
+      </if>
+      <if test="ownCost != null" >
+        OWN_COST = #{ownCost,jdbcType=NUMERIC},
+      </if>
+      <if test="pubCost != null" >
+        PUB_COST = #{pubCost,jdbcType=NUMERIC},
+      </if>
+      <if test="payCost != null" >
+        PAY_COST = #{payCost,jdbcType=NUMERIC},
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG = #{validFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="operCode != null" >
+        OPER_CODE = #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operDate != null" >
+        OPER_DATE = #{operDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelOpcd != null" >
+        CANCEL_OPCD = #{cancelOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelDate != null" >
+        CANCEL_DATE = #{cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="medicalType != null" >
+        MEDICAL_TYPE = #{medicalType,jdbcType=VARCHAR},
+      </if>
+      <if test="icdCode != null" >
+        ICD_CODE = #{icdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="examCode != null" >
+        EXAM_CODE = #{examCode,jdbcType=VARCHAR},
+      </if>
+      <if test="examDate != null" >
+        EXAM_DATE = #{examDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG = #{checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="checkOpcd != null" >
+        CHECK_OPCD = #{checkOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null" >
+        CHECK_DATE = #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="balanceFlag != null" >
+        BALANCE_FLAG = #{balanceFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceNo != null" >
+        BALANCE_NO = #{balanceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceOpcd != null" >
+        BALANCE_OPCD = #{balanceOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceDate != null" >
+        BALANCE_DATE = #{balanceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ynsee != null" >
+        YNSEE = #{ynsee,jdbcType=VARCHAR},
+      </if>
+      <if test="seeDate != null" >
+        SEE_DATE = #{seeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="triageFlag != null" >
+        TRIAGE_FLAG = #{triageFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="triageOpcd != null" >
+        TRIAGE_OPCD = #{triageOpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="triageDate != null" >
+        TRIAGE_DATE = #{triageDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="printInvoicecnt != null" >
+        PRINT_INVOICECNT = #{printInvoicecnt,jdbcType=NUMERIC},
+      </if>
+      <if test="seeDpcd != null" >
+        SEE_DPCD = #{seeDpcd,jdbcType=VARCHAR},
+      </if>
+      <if test="seeDocd != null" >
+        SEE_DOCD = #{seeDocd,jdbcType=VARCHAR},
+      </if>
+      <if test="inSource != null" >
+        IN_SOURCE = #{inSource,jdbcType=VARCHAR},
+      </if>
+      <if test="isSendinhoscase != null" >
+        IS_SENDINHOSCASE = #{isSendinhoscase,jdbcType=VARCHAR},
+      </if>
+      <if test="isEncryptname != null" >
+        IS_ENCRYPTNAME = #{isEncryptname,jdbcType=VARCHAR},
+      </if>
+      <if test="normalname != null" >
+        NORMALNAME = #{normalname,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        IN_DATE = #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outDate != null" >
+        OUT_DATE = #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zg != null" >
+        ZG = #{zg,jdbcType=VARCHAR},
+      </if>
+      <if test="inState != null" >
+        IN_STATE = #{inState,jdbcType=VARCHAR},
+      </if>
+      <if test="ecoCost != null" >
+        ECO_COST = #{ecoCost,jdbcType=NUMERIC},
+      </if>
+      <if test="isAccount != null" >
+        IS_ACCOUNT = #{isAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="isEmergency != null" >
+        IS_EMERGENCY = #{isEmergency,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null" >
+        MARK1 = #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        HEIGHT = #{height,jdbcType=NUMERIC},
+      </if>
+      <if test="weight != null" >
+        WEIGHT = #{weight,jdbcType=NUMERIC},
+      </if>
+      <if test="sbp != null" >
+        SBP = #{sbp,jdbcType=NUMERIC},
+      </if>
+      <if test="dbp != null" >
+        DBP = #{dbp,jdbcType=NUMERIC},
+      </if>
+      <if test="temperature != null" >
+        TEMPERATURE = #{temperature,jdbcType=NUMERIC},
+      </if>
+      <if test="upFlag != null" >
+        UP_FLAG = #{upFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodglu != null" >
+        BLOODGLU = #{bloodglu,jdbcType=NUMERIC},
+      </if>
+      <if test="currentCardtype != null" >
+        CURRENT_CARDTYPE = #{currentCardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="currentCard != null" >
+        CURRENT_CARD = #{currentCard,jdbcType=VARCHAR},
+      </if>
+      <if test="inTimes != null" >
+        IN_TIMES = #{inTimes,jdbcType=NUMERIC},
+      </if>
+      <if test="emrRegid != null" >
+        EMR_REGID = #{emrRegid,jdbcType=NUMERIC},
+      </if>
+      <if test="patientType != null" >
+        PATIENT_TYPE = #{patientType,jdbcType=VARCHAR},
+      </if>
+      <if test="bookId != null" >
+        BOOK_ID = #{bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="class1desease != null" >
+        CLASS1DESEASE = #{class1desease,jdbcType=VARCHAR},
+      </if>
+      <if test="class2desease != null" >
+        CLASS2DESEASE = #{class2desease,jdbcType=VARCHAR},
+      </if>
+      <if test="isDirectfee != null" >
+        IS_DIRECTFEE = #{isDirectfee,jdbcType=VARCHAR},
+      </if>
+      <if test="realDoctCode != null" >
+        REAL_DOCT_CODE = #{realDoctCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realDoctName != null" >
+        REAL_DOCT_NAME = #{realDoctName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalFirstVisit != null" >
+        HOSPITAL_FIRST_VISIT = #{hospitalFirstVisit,jdbcType=VARCHAR},
+      </if>
+      <if test="rootdeptFirstVisit != null" >
+        ROOTDEPT_FIRST_VISIT = #{rootdeptFirstVisit,jdbcType=VARCHAR},
+      </if>
+      <if test="doctFirstVisit != null" >
+        DOCT_FIRST_VISIT = #{doctFirstVisit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CLINIC_CODE = #{clinicCode,jdbcType=VARCHAR}
+      and TRANS_TYPE = #{transType,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.FinOprRegister" >
+    update CRM.FIN_OPR_REGISTER
+    set CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      REG_DATE = #{regDate,jdbcType=TIMESTAMP},
+      NOON_CODE = #{noonCode,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      IDENNO = #{idenno,jdbcType=VARCHAR},
+      SEX_CODE = #{sexCode,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      RELA_PHONE = #{relaPhone,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      CARD_TYPE = #{cardType,jdbcType=VARCHAR},
+      PAYKIND_CODE = #{paykindCode,jdbcType=VARCHAR},
+      PAYKIND_NAME = #{paykindName,jdbcType=VARCHAR},
+      PACT_CODE = #{pactCode,jdbcType=VARCHAR},
+      PACT_NAME = #{pactName,jdbcType=VARCHAR},
+      MCARD_NO = #{mcardNo,jdbcType=VARCHAR},
+      REGLEVL_CODE = #{reglevlCode,jdbcType=VARCHAR},
+      REGLEVL_NAME = #{reglevlName,jdbcType=VARCHAR},
+      DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+      DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      SCHEMA_NO = #{schemaNo,jdbcType=VARCHAR},
+      ORDER_NO = #{orderNo,jdbcType=NUMERIC},
+      SEENO = #{seeno,jdbcType=NUMERIC},
+      BEGIN_TIME = #{beginTime,jdbcType=TIMESTAMP},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      DOCT_CODE = #{doctCode,jdbcType=VARCHAR},
+      DOCT_NAME = #{doctName,jdbcType=VARCHAR},
+      YNREGCHRG = #{ynregchrg,jdbcType=VARCHAR},
+      INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      RECIPE_NO = #{recipeNo,jdbcType=VARCHAR},
+      YNBOOK = #{ynbook,jdbcType=VARCHAR},
+      YNFR = #{ynfr,jdbcType=VARCHAR},
+      APPEND_FLAG = #{appendFlag,jdbcType=VARCHAR},
+      REG_FEE = #{regFee,jdbcType=NUMERIC},
+      CHCK_FEE = #{chckFee,jdbcType=NUMERIC},
+      DIAG_FEE = #{diagFee,jdbcType=NUMERIC},
+      OTH_FEE = #{othFee,jdbcType=NUMERIC},
+      OWN_COST = #{ownCost,jdbcType=NUMERIC},
+      PUB_COST = #{pubCost,jdbcType=NUMERIC},
+      PAY_COST = #{payCost,jdbcType=NUMERIC},
+      VALID_FLAG = #{validFlag,jdbcType=VARCHAR},
+      OPER_CODE = #{operCode,jdbcType=VARCHAR},
+      OPER_DATE = #{operDate,jdbcType=TIMESTAMP},
+      CANCEL_OPCD = #{cancelOpcd,jdbcType=VARCHAR},
+      CANCEL_DATE = #{cancelDate,jdbcType=TIMESTAMP},
+      MEDICAL_TYPE = #{medicalType,jdbcType=VARCHAR},
+      ICD_CODE = #{icdCode,jdbcType=VARCHAR},
+      EXAM_CODE = #{examCode,jdbcType=VARCHAR},
+      EXAM_DATE = #{examDate,jdbcType=TIMESTAMP},
+      CHECK_FLAG = #{checkFlag,jdbcType=VARCHAR},
+      CHECK_OPCD = #{checkOpcd,jdbcType=VARCHAR},
+      CHECK_DATE = #{checkDate,jdbcType=TIMESTAMP},
+      BALANCE_FLAG = #{balanceFlag,jdbcType=VARCHAR},
+      BALANCE_NO = #{balanceNo,jdbcType=VARCHAR},
+      BALANCE_OPCD = #{balanceOpcd,jdbcType=VARCHAR},
+      BALANCE_DATE = #{balanceDate,jdbcType=TIMESTAMP},
+      YNSEE = #{ynsee,jdbcType=VARCHAR},
+      SEE_DATE = #{seeDate,jdbcType=TIMESTAMP},
+      TRIAGE_FLAG = #{triageFlag,jdbcType=VARCHAR},
+      TRIAGE_OPCD = #{triageOpcd,jdbcType=VARCHAR},
+      TRIAGE_DATE = #{triageDate,jdbcType=TIMESTAMP},
+      PRINT_INVOICECNT = #{printInvoicecnt,jdbcType=NUMERIC},
+      SEE_DPCD = #{seeDpcd,jdbcType=VARCHAR},
+      SEE_DOCD = #{seeDocd,jdbcType=VARCHAR},
+      IN_SOURCE = #{inSource,jdbcType=VARCHAR},
+      IS_SENDINHOSCASE = #{isSendinhoscase,jdbcType=VARCHAR},
+      IS_ENCRYPTNAME = #{isEncryptname,jdbcType=VARCHAR},
+      NORMALNAME = #{normalname,jdbcType=VARCHAR},
+      IN_DATE = #{inDate,jdbcType=TIMESTAMP},
+      OUT_DATE = #{outDate,jdbcType=TIMESTAMP},
+      ZG = #{zg,jdbcType=VARCHAR},
+      IN_STATE = #{inState,jdbcType=VARCHAR},
+      ECO_COST = #{ecoCost,jdbcType=NUMERIC},
+      IS_ACCOUNT = #{isAccount,jdbcType=VARCHAR},
+      IS_EMERGENCY = #{isEmergency,jdbcType=VARCHAR},
+      MARK1 = #{mark1,jdbcType=VARCHAR},
+      HEIGHT = #{height,jdbcType=NUMERIC},
+      WEIGHT = #{weight,jdbcType=NUMERIC},
+      SBP = #{sbp,jdbcType=NUMERIC},
+      DBP = #{dbp,jdbcType=NUMERIC},
+      TEMPERATURE = #{temperature,jdbcType=NUMERIC},
+      UP_FLAG = #{upFlag,jdbcType=VARCHAR},
+      BLOODGLU = #{bloodglu,jdbcType=NUMERIC},
+      CURRENT_CARDTYPE = #{currentCardtype,jdbcType=VARCHAR},
+      CURRENT_CARD = #{currentCard,jdbcType=VARCHAR},
+      IN_TIMES = #{inTimes,jdbcType=NUMERIC},
+      EMR_REGID = #{emrRegid,jdbcType=NUMERIC},
+      PATIENT_TYPE = #{patientType,jdbcType=VARCHAR},
+      BOOK_ID = #{bookId,jdbcType=VARCHAR},
+      CLASS1DESEASE = #{class1desease,jdbcType=VARCHAR},
+      CLASS2DESEASE = #{class2desease,jdbcType=VARCHAR},
+      IS_DIRECTFEE = #{isDirectfee,jdbcType=VARCHAR},
+      REAL_DOCT_CODE = #{realDoctCode,jdbcType=VARCHAR},
+      REAL_DOCT_NAME = #{realDoctName,jdbcType=VARCHAR},
+      HOSPITAL_FIRST_VISIT = #{hospitalFirstVisit,jdbcType=VARCHAR},
+      ROOTDEPT_FIRST_VISIT = #{rootdeptFirstVisit,jdbcType=VARCHAR},
+      DOCT_FIRST_VISIT = #{doctFirstVisit,jdbcType=VARCHAR}
+    where CLINIC_CODE = #{clinicCode,jdbcType=VARCHAR}
+      and TRANS_TYPE = #{transType,jdbcType=VARCHAR}
+      and HOSPITAL_ID = #{hospitalId,jdbcType=VARCHAR}
+  </update>
+</mapper>

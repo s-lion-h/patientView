@@ -81,7 +81,7 @@
 
 
 
-        <table tableName="exp_package" schema="crm">
+        <table tableName="fin_opb_feedetail" schema="crm">
 
             <!-- optional   , only for mybatis3 runtime
                  自动生成的键值（identity,或者序列值）

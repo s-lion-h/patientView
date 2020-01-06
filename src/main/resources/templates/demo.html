@@ -29,7 +29,7 @@
         <div class="col">
             <hr>
             <div class="text-center">
-                <h2><span class="badge badge-dark" th:text="${CRM_PATIENTLEVEL.get('__${coupon.patientlevel}__').dictionaryName}"></span></h2>
+                <h2><span class="badge badge-dark" th:if="${coupon.patientlevel}!=null" th:text="${CRM_PATIENTLEVEL.get('__${coupon.patientlevel}__').dictionaryName}"></span></h2>
 <!--                <h2><span class="badge badge-dark" th:text="${coupon.patientlevel}"></span></h2>-->
             </div>
             <div class="text-center">
@@ -106,22 +106,26 @@
         <div class="col">
             <h3>套餐情况</h3>
             <hr>
-            <p>产检套餐：盆底肌治疗第一疗程(7800元)</p>
-            <p>产检套餐：分娩套餐</p>
-            <p>月子套餐：新无忧版42天母亲复查套餐(2019)</p>
-            <p>月子套餐：7天月子豪华标准型30平[基础包]</p>
-            <p>医美套餐：王牌严选-(育龄抗衰5980元)</p>
-            <p>医美套餐：王牌严选</p>
+<!--            <p>产检套餐：盆底肌治疗第一疗程(7800元)</p>-->
+<!--            <p>产检套餐：分娩套餐</p>-->
+<!--            <p>月子套餐：新无忧版42天母亲复查套餐(2019)</p>-->
+<!--            <p>月子套餐：7天月子豪华标准型30平[基础包]</p>-->
+<!--            <p>医美套餐：王牌严选-(育龄抗衰5980元)</p>-->
+<!--            <p>医美套餐：王牌严选</p>-->
+            <p th:each="package:${packageList}" th:text="${package.packageName+'——'+#dates.format(package.delimitingDate, 'yyyy年MM月dd日')}"></p>
         </div>
         <div class="col">
             <h3>诊疗记录</h3>
-            <ul class="list-group">
-                <li class="list-group-item">门诊：产科门诊——侯红英</li>
-                <li class="list-group-item">住院：住院——侯红英</li>
-                <li class="list-group-item">门诊：产科门诊——侯红英</li>
-                <li class="list-group-item">住院：住院——侯红英</li>
-                <li class="list-group-item">月子：产科月子——侯红英</li>
-                <li class="list-group-item">月子：产科月子——侯红英</li>
+<!--            <ul class="list-group">-->
+<!--                <li class="list-group-item">门诊：产科门诊——侯红英</li>-->
+<!--                <li class="list-group-item">住院：住院——侯红英</li>-->
+<!--                <li class="list-group-item">门诊：产科门诊——侯红英</li>-->
+<!--                <li class="list-group-item">住院：住院——侯红英</li>-->
+<!--                <li class="list-group-item">月子：产科月子——侯红英</li>-->
+<!--                <li class="list-group-item">月子：产科月子——侯红英</li>-->
+<!--            </ul>-->
+            <ul>
+                <li th:each="register:${registerList}" th:text="${register.deptName+'---'+register.doctName+'---'+register.reglevlName}"></li>
             </ul>
         </div>
     </div>
@@ -138,36 +142,18 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">回访内容</th>
-                    <th scope="col">回访人</th>
-                    <th scope="col">日期</th>
+                    <th scope="col">内容</th>
+                    <th scope="col">回访部门</th>
+                    <th scope="col">计划回访时间</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">宝宝亲子潜伏</th>
-                    <td>刘雨寒</td>
-                    <td>2019-08-16</td>
-                </tr>
-                <tr>
-                    <th scope="row">预约到诊前回访</th>
-                    <td>刘雨寒</td>
-                    <td>2019-03-16</td>
-                </tr>
-                <tr>
-                    <th scope="row">预约到诊前回访</th>
-                    <td>刘雨寒</td>
-                    <td>2019-01-14</td>
-                </tr>
-                <tr>
-                    <th scope="row">产后42天回访</th>
-                    <td>刘雨寒</td>
-                    <td>2018-08-16</td>
-                </tr>
-                <tr>
-                    <th scope="row">预约到诊前回访</th>
-                    <td>刘雨寒</td>
-                    <td>2019-03-16</td>
+                <tr th:each="revisit:${revisitList}">
+                    <th scope="row" th:text="${visitTypeMap.get('__${revisit.visitType}__').dictionaryName}"></th>
+<!--                    <th scope="row" th:text="${revisit.visitType}">宝宝亲子潜伏</th>-->
+                    <td th:if="${revisit.visitDept}!=null" th:text="未知科室"></td>
+                    <td th:if="${revisit.visitDept}==null" th:text="${revisit.visitDept}"></td>
+                    <td th:text="${#dates.format(revisit.visitTime, 'yyyy年MM月dd日')}"></td>
                 </tr>
                 </tbody>
             </table>
@@ -182,25 +168,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>3X智龄幻美极（BTL）-全面部/颈部/手部/身体单部位	其他治疗费</td>
-                    <td>2019-08-16</td>
-                </tr>
-                <tr>
-                    <td>FIG青春动能素（菲洛嘉）</td>
-                    <td>2019-03-16</td>
-                </tr>
-                <tr>
-                    <td>无针水光基础版</td>
-                    <td>2019-01-14</td>
-                </tr>
-                <tr>
-                    <td>内分泌调理半年卡(29800元)</td>
-                    <td>2018-08-16</td>
-                </tr>
-                <tr>
-                    <td>FIG青春动能素（菲洛嘉）</td>
-                    <td>2019-03-16</td>
+                <tr th:each="feeDetail:${feeDetailList}">
+                    <td th:text="${feeDetail.itemName}"></td>
+                    <td th:text="${#dates.format(feeDetail.feeDate, 'yyyy年MM月dd日')}"></td>
                 </tr>
                 </tbody>
             </table>
@@ -215,7 +185,7 @@
     // 指定图表的配置项和数据
     var option = {
         title: {
-            text: '一年内到院情况'
+            text: '一年消费金额'
         },
         tooltip: {},
         legend: {
@@ -235,7 +205,7 @@
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 </script>
-<script type="text/javascript" th:inline="none">
+<script type="text/javascript" th:inline="javascript">
     function getVirtulData(year) {
         year = year || '2019';
         var date = +echarts.number.parseDate(year + '-01-01');
@@ -249,6 +219,15 @@
             ]);
         }
         return data;
+    }
+
+    var dates = [];
+    for (i=0; i < [[${arriveDates}]].length;i++){
+        var str=[[${arriveDates}]][i];
+        dates.push([
+            str,
+            10000
+        ]);
     }
 
     // 基于准备好的dom，初始化echarts实例
@@ -288,16 +267,17 @@
             type: 'heatmap',
             coordinateSystem: 'calendar',
             // data: getVirtulData(2019)
-            data:[['2019-02-11', 10000], ['2019-01-21', 10000], ['2019-07- 01', 10000], ['2019-08-26', 10000],
-                ['2018-11-25', 10000],['2019-03-11', 10000]['2019-07-31', 10000],
-                ['2019-10-12', 10000],['2019-07-08', 10000],['2018-12-29', 10000],
-                ['2019-05-13', 10000], ['2019-06-24', 10000], ['2019-04-08', 10000], ['2019-06-02', 10000],
-                ['2019-06-10', 10000],['2019-11-12', 10000]['2019-11-17', 10000],
-                ['2019-02-20', 10000],['2019-04-29', 10000],['2019-05-27', 10000]]
+            data:dates
         }
     };
 
     // 使用刚指定的配置项和数据显示图表。
     myChartTimeline.setOption(optionTimeline);
 </script>
+<!--[['2019-02-11', 10000], ['2019-01-21', 10000], ['2019-07- 01', 10000], ['2019-08-26', 10000],-->
+<!--['2018-11-25', 10000],['2019-03-11', 10000]['2019-07-31', 10000],-->
+<!--['2019-10-12', 10000],['2019-07-08', 10000],['2018-12-29', 10000],-->
+<!--['2019-05-13', 10000], ['2019-06-24', 10000], ['2019-04-08', 10000], ['2019-06-02', 10000],-->
+<!--['2019-06-10', 10000],['2019-11-12', 10000]['2019-11-17', 10000],-->
+<!--['2019-02-20', 10000],['2019-04-29', 10000],['2019-05-27', 10000]]-->
 </html>
