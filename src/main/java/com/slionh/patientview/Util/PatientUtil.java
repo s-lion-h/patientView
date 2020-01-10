@@ -6,6 +6,9 @@ import java.util.Date;
 
 public class PatientUtil {
     public static Integer getYearByBirthday(Date date){
+        if (date==null){
+            return 0;
+        }
         Calendar now = Calendar.getInstance();
         Calendar born = Calendar.getInstance();
 

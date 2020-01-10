@@ -2,10 +2,7 @@ package com.slionh.patientview.controller;
 
 import com.slionh.patientview.Util.ConstantDictionary;
 import com.slionh.patientview.Util.PatientUtil;
-import com.slionh.patientview.entity.BdComEmployee;
-import com.slionh.patientview.entity.BdCrmPatient;
-import com.slionh.patientview.entity.ComPatientinfo;
-import com.slionh.patientview.entity.CrmCoupon;
+import com.slionh.patientview.entity.*;
 import com.slionh.patientview.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +10,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 @Controller
 public class IndexController {
@@ -39,16 +42,19 @@ public class IndexController {
     @Autowired
     private FeeDetailService feeDetailService;
 
-    int count=0;
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    int count=1;
 
     @RequestMapping("/")
     public ModelAndView toDemo(ModelAndView modelAndView,String patientId){
-        System.out.println(count+"index");
+        System.out.println(count+"次请求全览图"+sdf.format(new Date()));
+        System.out.println("请勿关闭此窗口！！！");
         count++;
 
         modelAndView.setViewName("demo");
         if (patientId==null||patientId.equals(""))
-            patientId = "1000059574";
+            patientId = "9999915790";
 
         ComPatientinfo comPatientinfo = comPatientinfoService.getComPatientinfoByPatientId(patientId);
         BdCrmPatient bdCrmPatient = patientService.getPatientByPaitentId(patientId);
@@ -66,10 +72,17 @@ public class IndexController {
         modelAndView.addObject("patientlabel", patientLabelService.mapStringPatientLabel(patientId));
         modelAndView.addObject("latestAppointment", appointmentService.getLatestAppointmentByPatientId(patientId));
         modelAndView.addObject("packageList", packageService.listPackageByPatientId(patientId));
-        modelAndView.addObject("registerList", registerService.listPackageByPatientId(patientId));
+
+        List<FinOprRegister> allRegister = registerService.listAllRegisterByPatientId(patientId);
+
+        modelAndView.addObject("registerList", registerService.listPackageByPatientId(allRegister));
         modelAndView.addObject("revisitList", revisitService.listLatestRevisit(patientId));
         modelAndView.addObject("feeDetailList", feeDetailService.listLatestFeedetail(patientId));
-        modelAndView.addObject("arriveDates", registerService.listAllToHospitalDateByPatientId(patientId));
+        modelAndView.addObject("arriveDates", registerService.listAllToHospitalDateByPatientId(allRegister));
+
+        HashMap map =  registerService.listAllDeptCountByPatientId(allRegister);
+        modelAndView.addObject("depts", map.get("depts"));
+        modelAndView.addObject("counts", map.get("counts"));
 
         return  modelAndView;
     }
