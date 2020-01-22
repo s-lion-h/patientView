@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slionh.patientview.mapper.BdCrmMsgtemplateMapper" >
+  <resultMap id="BaseResultMap" type="com.slionh.patientview.entity.BdCrmMsgtemplate" >
+    <constructor >
+      <idArg column="MSGTEMPLATE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MSGTEMPLATE_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MSGTEMPLATE_CHANNEL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MSGTEMPLATE_TITLE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MSGTEMPLATE_CONTENT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SORT_ID" jdbcType="NUMERIC" javaType="java.lang.Short" />
+      <arg column="STATE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXTFIELD01" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXTFIELD02" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXTFIELD03" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CREATE_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    MSGTEMPLATE_ID, MSGTEMPLATE_TYPE, MSGTEMPLATE_CHANNEL, MSGTEMPLATE_TITLE, MSGTEMPLATE_CONTENT, 
+    SORT_ID, STATE, EXTFIELD01, EXTFIELD02, EXTFIELD03, OPER_CODE, OPER_NAME, OPER_TIME, 
+    CREATE_CODE, CREATE_NAME, CREATE_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slionh.patientview.entity.BdCrmMsgtemplateExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM.BD_CRM_MSGTEMPLATE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CRM.BD_CRM_MSGTEMPLATE
+    where MSGTEMPLATE_ID = #{msgtemplateId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CRM.BD_CRM_MSGTEMPLATE
+    where MSGTEMPLATE_ID = #{msgtemplateId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slionh.patientview.entity.BdCrmMsgtemplateExample" >
+    delete from CRM.BD_CRM_MSGTEMPLATE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slionh.patientview.entity.BdCrmMsgtemplate" >
+    insert into CRM.BD_CRM_MSGTEMPLATE (MSGTEMPLATE_ID, MSGTEMPLATE_TYPE, MSGTEMPLATE_CHANNEL, 
+      MSGTEMPLATE_TITLE, MSGTEMPLATE_CONTENT, SORT_ID, 
+      STATE, EXTFIELD01, EXTFIELD02, 
+      EXTFIELD03, OPER_CODE, OPER_NAME, 
+      OPER_TIME, CREATE_CODE, CREATE_NAME, 
+      CREATE_TIME)
+    values (#{msgtemplateId,jdbcType=VARCHAR}, #{msgtemplateType,jdbcType=VARCHAR}, #{msgtemplateChannel,jdbcType=VARCHAR}, 
+      #{msgtemplateTitle,jdbcType=VARCHAR}, #{msgtemplateContent,jdbcType=VARCHAR}, #{sortId,jdbcType=NUMERIC}, 
+      #{state,jdbcType=VARCHAR}, #{extfield01,jdbcType=VARCHAR}, #{extfield02,jdbcType=VARCHAR}, 
+      #{extfield03,jdbcType=VARCHAR}, #{operCode,jdbcType=VARCHAR}, #{operName,jdbcType=VARCHAR}, 
+      #{operTime,jdbcType=TIMESTAMP}, #{createCode,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slionh.patientview.entity.BdCrmMsgtemplate" >
+    insert into CRM.BD_CRM_MSGTEMPLATE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="msgtemplateId != null" >
+        MSGTEMPLATE_ID,
+      </if>
+      <if test="msgtemplateType != null" >
+        MSGTEMPLATE_TYPE,
+      </if>
+      <if test="msgtemplateChannel != null" >
+        MSGTEMPLATE_CHANNEL,
+      </if>
+      <if test="msgtemplateTitle != null" >
+        MSGTEMPLATE_TITLE,
+      </if>
+      <if test="msgtemplateContent != null" >
+        MSGTEMPLATE_CONTENT,
+      </if>
+      <if test="sortId != null" >
+        SORT_ID,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="extfield01 != null" >
+        EXTFIELD01,
+      </if>
+      <if test="extfield02 != null" >
+        EXTFIELD02,
+      </if>
+      <if test="extfield03 != null" >
+        EXTFIELD03,
+      </if>
+      <if test="operCode != null" >
+        OPER_CODE,
+      </if>
+      <if test="operName != null" >
+        OPER_NAME,
+      </if>
+      <if test="operTime != null" >
+        OPER_TIME,
+      </if>
+      <if test="createCode != null" >
+        CREATE_CODE,
+      </if>
+      <if test="createName != null" >
+        CREATE_NAME,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="msgtemplateId != null" >
+        #{msgtemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtemplateType != null" >
+        #{msgtemplateType,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtemplateChannel != null" >
+        #{msgtemplateChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtemplateTitle != null" >
+        #{msgtemplateTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtemplateContent != null" >
+        #{msgtemplateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="sortId != null" >
+        #{sortId,jdbcType=NUMERIC},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield01 != null" >
+        #{extfield01,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield02 != null" >
+        #{extfield02,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield03 != null" >
+        #{extfield03,jdbcType=VARCHAR},
+      </if>
+      <if test="operCode != null" >
+        #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null" >
+        #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null" >
+        #{operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createCode != null" >
+        #{createCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null" >
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slionh.patientview.entity.BdCrmMsgtemplateExample" resultType="java.lang.Integer" >
+    select count(*) from CRM.BD_CRM_MSGTEMPLATE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CRM.BD_CRM_MSGTEMPLATE
+    <set >
+      <if test="record.msgtemplateId != null" >
+        MSGTEMPLATE_ID = #{record.msgtemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.msgtemplateType != null" >
+        MSGTEMPLATE_TYPE = #{record.msgtemplateType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.msgtemplateChannel != null" >
+        MSGTEMPLATE_CHANNEL = #{record.msgtemplateChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.msgtemplateTitle != null" >
+        MSGTEMPLATE_TITLE = #{record.msgtemplateTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.msgtemplateContent != null" >
+        MSGTEMPLATE_CONTENT = #{record.msgtemplateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sortId != null" >
+        SORT_ID = #{record.sortId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state != null" >
+        STATE = #{record.state,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extfield01 != null" >
+        EXTFIELD01 = #{record.extfield01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extfield02 != null" >
+        EXTFIELD02 = #{record.extfield02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extfield03 != null" >
+        EXTFIELD03 = #{record.extfield03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operCode != null" >
+        OPER_CODE = #{record.operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operName != null" >
+        OPER_NAME = #{record.operName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operTime != null" >
+        OPER_TIME = #{record.operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createCode != null" >
+        CREATE_CODE = #{record.createCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createName != null" >
+        CREATE_NAME = #{record.createName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CRM.BD_CRM_MSGTEMPLATE
+    set MSGTEMPLATE_ID = #{record.msgtemplateId,jdbcType=VARCHAR},
+      MSGTEMPLATE_TYPE = #{record.msgtemplateType,jdbcType=VARCHAR},
+      MSGTEMPLATE_CHANNEL = #{record.msgtemplateChannel,jdbcType=VARCHAR},
+      MSGTEMPLATE_TITLE = #{record.msgtemplateTitle,jdbcType=VARCHAR},
+      MSGTEMPLATE_CONTENT = #{record.msgtemplateContent,jdbcType=VARCHAR},
+      SORT_ID = #{record.sortId,jdbcType=NUMERIC},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      EXTFIELD01 = #{record.extfield01,jdbcType=VARCHAR},
+      EXTFIELD02 = #{record.extfield02,jdbcType=VARCHAR},
+      EXTFIELD03 = #{record.extfield03,jdbcType=VARCHAR},
+      OPER_CODE = #{record.operCode,jdbcType=VARCHAR},
+      OPER_NAME = #{record.operName,jdbcType=VARCHAR},
+      OPER_TIME = #{record.operTime,jdbcType=TIMESTAMP},
+      CREATE_CODE = #{record.createCode,jdbcType=VARCHAR},
+      CREATE_NAME = #{record.createName,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slionh.patientview.entity.BdCrmMsgtemplate" >
+    update CRM.BD_CRM_MSGTEMPLATE
+    <set >
+      <if test="msgtemplateType != null" >
+        MSGTEMPLATE_TYPE = #{msgtemplateType,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtemplateChannel != null" >
+        MSGTEMPLATE_CHANNEL = #{msgtemplateChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtemplateTitle != null" >
+        MSGTEMPLATE_TITLE = #{msgtemplateTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtemplateContent != null" >
+        MSGTEMPLATE_CONTENT = #{msgtemplateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="sortId != null" >
+        SORT_ID = #{sortId,jdbcType=NUMERIC},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield01 != null" >
+        EXTFIELD01 = #{extfield01,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield02 != null" >
+        EXTFIELD02 = #{extfield02,jdbcType=VARCHAR},
+      </if>
+      <if test="extfield03 != null" >
+        EXTFIELD03 = #{extfield03,jdbcType=VARCHAR},
+      </if>
+      <if test="operCode != null" >
+        OPER_CODE = #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null" >
+        OPER_NAME = #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operTime != null" >
+        OPER_TIME = #{operTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createCode != null" >
+        CREATE_CODE = #{createCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null" >
+        CREATE_NAME = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where MSGTEMPLATE_ID = #{msgtemplateId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slionh.patientview.entity.BdCrmMsgtemplate" >
+    update CRM.BD_CRM_MSGTEMPLATE
+    set MSGTEMPLATE_TYPE = #{msgtemplateType,jdbcType=VARCHAR},
+      MSGTEMPLATE_CHANNEL = #{msgtemplateChannel,jdbcType=VARCHAR},
+      MSGTEMPLATE_TITLE = #{msgtemplateTitle,jdbcType=VARCHAR},
+      MSGTEMPLATE_CONTENT = #{msgtemplateContent,jdbcType=VARCHAR},
+      SORT_ID = #{sortId,jdbcType=NUMERIC},
+      STATE = #{state,jdbcType=VARCHAR},
+      EXTFIELD01 = #{extfield01,jdbcType=VARCHAR},
+      EXTFIELD02 = #{extfield02,jdbcType=VARCHAR},
+      EXTFIELD03 = #{extfield03,jdbcType=VARCHAR},
+      OPER_CODE = #{operCode,jdbcType=VARCHAR},
+      OPER_NAME = #{operName,jdbcType=VARCHAR},
+      OPER_TIME = #{operTime,jdbcType=TIMESTAMP},
+      CREATE_CODE = #{createCode,jdbcType=VARCHAR},
+      CREATE_NAME = #{createName,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where MSGTEMPLATE_ID = #{msgtemplateId,jdbcType=VARCHAR}
+  </update>
+</mapper>
